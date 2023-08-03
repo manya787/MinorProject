@@ -1,11 +1,12 @@
+const dotenv = require("dotenv");
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 
-main().catch(err => console.log(err));
-    async function main() {
-          await mongoose.connect('mongodb+srv://manyagarg787:minor@cluster0.qzeqzr2.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true}, {useCreateIndex: true}, {useUnifiedTopology: true}, {useFindAndModify:false});
-        }
+dotenv.config({path:'./config.env'});
+
+const PORT = process.env.PORT;
+
 
 // Middlepart
 const middlepart = (req, res, next) => {
@@ -33,6 +34,6 @@ app.get('/signup', (req, res) => {
     res.send(`Hello`);
 })
 
-app.listen(3000, () => {
-    
+app.listen(PORT, () => {
+    console.log(`server is running at ${PORT}`);
 })
