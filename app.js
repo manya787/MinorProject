@@ -5,8 +5,16 @@ const app = express();
 
 dotenv.config({path:'./config.env'});
 
-const PORT = process.env.PORT;
+require('./db/conn');
 
+// const User = require('./model/userschema');
+
+app.use(express.json());
+
+// we link router files to make route easy
+app.use(require('./router/auth'));
+
+const PORT = process.env.PORT;
 
 // Middlepart
 const middlepart = (req, res, next) => {
@@ -14,9 +22,9 @@ const middlepart = (req, res, next) => {
     next();
 }
 
-app.get('/', (req, res) => {
-    res.send(`Hello`);
-})
+// app.get('/', (req, res) => {
+//     res.send(`Hello`);
+// })
 
 app.get('/search', middlepart, (req, res) => {
     res.send(`Hello`);
