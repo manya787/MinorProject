@@ -1,4 +1,4 @@
-
+const jwt = require('jsonwebtoken');
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
@@ -36,53 +36,41 @@ router.get('/', (req, res) => {
 // });
 
 router.post('/register', async (req, res) => {
-
     const {name,email,phone,work,password,cpassword } = req.body;
-   
    if(!name || !email || !phone || !work || !password || !cpassword ){
-    return res.status(422).json({ error: "PLz filled properly"});
+    return res.status(422).json({ error: "PLz fill properly"});
    }
-
    try {
-
    const userExist = await User.findOne({email: email })
-
    if (userExist) {
     return res.status(422).json({ error: "Email already exist"});
 }else if( password != cpassword ){
     return res.status(420).json({ error: "password are not matching"});
 }else {
     const user = new User({ name, email, phone, work, password, cpassword });
-
 const userRegister = await user.save();
-
 res.status(201).json({ message: "user registered successfully"});
-
 }
- 
    } catch (err) {
     console.log(err); 
    }
-
-
 });
 
-
 //  login route 
-
 router.post('/signin',async (req, res) => {
 try {
      const { email, password } = req.body;
 
      if(!email || !password){
-        return res.status(400).json({error:"Pls filled Proper Data"})
+        return res.status(400).json({error:"Pls fill Proper Data"})
      }
 const userlogin = await User.findOne({ email: email});
 
 // console.log(userlogin);
 if(userlogin){
     const isMatch = await bcrypt.compare( password, userlogin.password);
-    
+    const token = await userlogin.generateAuthToken();
+    console.log(token);
 if(!isMatch){
     res.status(400).json({error: "Invalid credentials pass"});
 }else{
@@ -91,12 +79,9 @@ res.json({message: "user Signin Successfully"});
 } else {
     res.status(400).json({error: "Invalid credentials"});
 }
-
-
 } catch(err) {
     console.log(err);
 }
-
 })
 
 module.exports = router;
