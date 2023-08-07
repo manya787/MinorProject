@@ -1,11 +1,12 @@
 import React from 'react';
 
-const Navbar = () => {
+const Home = () => {
   return (
     <div>
-      <h1>Nav</h1>
+      <p className="pt-5">WELCOME</p>
+      <h1>We are the CoLabconnect</h1>
     </div>
   )
 }
 
-export default Navbar;
+export default Home;
