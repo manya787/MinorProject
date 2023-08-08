@@ -31,6 +31,7 @@ app.get('/search', middlepart, (req, res) => {
 })
 
 app.get('/post', middlepart, (req, res) => {
+    res.cookie("Test", 'minor');
     res.send(`Hello`);
 })
 

@@ -1,4 +1,4 @@
-
+const jwt = require('jsonwebtoken'); 
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
@@ -72,6 +72,7 @@ res.status(201).json({ message: "user registered successfully"});
 
 router.post('/signin',async (req, res) => {
 try {
+    let token;
      const { email, password } = req.body;
 
      if(!email || !password){
@@ -83,6 +84,13 @@ const userlogin = await User.findOne({ email: email});
 if(userlogin){
     const isMatch = await bcrypt.compare( password, userlogin.password);
     
+token = await userlogin.generateAuthToken();
+console.log(token);
+
+res.cookie("jwtoken", token,{
+    expires:new Date(Date.now() + 25892000000),
+    httpOnly:true
+})
 if(!isMatch){
     res.status(400).json({error: "Invalid credentials pass"});
 }else{
