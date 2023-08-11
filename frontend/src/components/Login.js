@@ -28,8 +28,6 @@ const Login = () => {
       />
       </div>
 
-      
-
       <div className="form-group">
          <label htmlFor="password"> 
          <i className="zmdi zmdi-lock material-icons-name "></i> </label>
@@ -38,7 +36,6 @@ const Login = () => {
       />
       </div>
 
-    
       <div className="form-group form-button">
         <input type="submit" name="signin" id="signin" className="form-submit" 
         value="Log in"
@@ -51,12 +48,7 @@ const Login = () => {
     </div>
 
   </section>
-  
-  
-  
-  
   </>
-  
     )
 }
 
