@@ -24,7 +24,7 @@ const Login = () => {
          <label htmlFor="email"> 
          <i className="zmdi zmdi-email material-icons-name "></i> </label>
       <input type="email" name="email" id="email" autoComplete="off"
-      placeholder="Your email" 
+      placeholder="        Your email" 
       />
       </div>
 
@@ -32,7 +32,7 @@ const Login = () => {
          <label htmlFor="password"> 
          <i className="zmdi zmdi-lock material-icons-name "></i> </label>
       <input type="password" name="password" id="password" autoComplete="off"
-      placeholder="Your password" 
+      placeholder="        Your password" 
       />
       </div>
 

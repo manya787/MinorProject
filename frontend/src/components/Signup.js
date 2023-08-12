@@ -18,7 +18,7 @@ const Signup = () => {
          <i className="zmdi zmdi-account material-icons-name "></i> 
          </label>
       <input type="text" name="name" id="name" autoComplete="off"
-      placeholder="Your name" 
+      placeholder="        Your name" 
       />
       </div> 
 
@@ -26,7 +26,7 @@ const Signup = () => {
          <label htmlFor="email"> 
          <i className="zmdi zmdi-email material-icons-name "></i> </label>
       <input type="email" name="email" id="email" autoComplete="off"
-      placeholder="Your email" 
+      placeholder="        Your email" 
       />
       </div>
 
@@ -34,7 +34,7 @@ const Signup = () => {
          <label htmlFor="phone"> 
          <i className="zmdi zmdi-phone-in-talk material-icons-name "></i> </label>
       <input type="number" name="phone" id="phone" autoComplete="off"
-      placeholder="Your phone" 
+      placeholder="        Your phone" 
       />
       </div>
 
@@ -42,7 +42,7 @@ const Signup = () => {
          <label htmlFor="work"> 
          <i className="zmdi zmdi-slideshow material-icons-name "></i> </label>
       <input type="text" name="work" id="work" autoComplete="off"
-      placeholder="Your Profession" 
+      placeholder="        Your Profession" 
       />
       </div>
 
@@ -50,7 +50,7 @@ const Signup = () => {
          <label htmlFor="password"> 
          <i className="zmdi zmdi-lock material-icons-name "></i> </label>
       <input type="password" name="password" id="password" autoComplete="off"
-      placeholder="Your password" 
+      placeholder="        Your password" 
       />
       </div>
 
@@ -58,12 +58,12 @@ const Signup = () => {
          <label htmlFor="cpassword"> 
          <i className="zmdi zmdi-lock material-icons-name "></i> </label>
       <input type="text" name="cpassword" id="cpassword" autoComplete="off"
-      placeholder="Confirm your password" 
+      placeholder="        Confirm your password" 
       />
       </div>
       <div className="form-group form-button">
         <input type="submit" name="signup" id="signup" className="form-submit" 
-        value="register"
+        value="Register"
         />
       </div>
 </form>
