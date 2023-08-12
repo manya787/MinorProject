@@ -5,7 +5,7 @@ const app = express();
 
 dotenv.config();
 
-dotenv.config({ path: "/config.env" });
+dotenv.config({ path: "/.env" });
 
 // console.log("DB URI from .env:", process.env.DB); // Debugging line
 // console.log("PORT from .env:", process.env.PORT); // Debugging line
