@@ -3,7 +3,7 @@ import image from "../images/regimages.png";
 
 const MyPosts = () => {
   return (
-    <div classNameName="container emp-profile">
+    <div className="container emp-profile">
       <form method="">
         <div className="row">
           <div className="col-md-4">
