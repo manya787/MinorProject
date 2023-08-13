@@ -1,7 +1,19 @@
 .logo{
-    width: 5vw;
-    height: 5vh;
+    max-width: 6vw;
+    max-height: 9vh;
+    border-radius: 50%;
+} 
+.title{
+  font-size: calc(12px + 0.5vw);
+  text-align: left;
+  line-height: -3;
 }
+.subtitle{
+    font-size: calc(7px + 0.5vw);
+    text-align: left;
+    color: purple;
+}
+
 .signup{
     color:rgb(11, 8, 15);
 }
@@ -66,7 +78,7 @@
   }
   
   .form-submit {
-    background-color: #333333;
+    background-color: #33333390;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -105,7 +117,7 @@
   /* home page */
 
   .home-page {
-    background-color: #f0f0f0;
+    background-color: whitesmoke;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -220,7 +232,8 @@
   .signin-image {
     flex: 1;
     text-align: center;
-    padding: 50px;
+    /* padding: 50px; */
+    margin: 50px;
     background-color: #f8f8f8;
   }
   
@@ -263,7 +276,8 @@
   }
   
   .form-submit {
-    background-color: #333333;
+    /* background-color: #333333; */
+    background-color: rgb(125, 43, 188);
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -273,7 +287,7 @@
   }
   
   .form-submit:hover {
-    background-color: #555555;
+    background-color: rgb(175, 103, 231);
   }
  
   /* signup */
