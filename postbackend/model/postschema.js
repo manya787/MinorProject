@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
-const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-
 
 const postschema = new mongoose.Schema({
    Topic: {
@@ -67,19 +65,6 @@ Email: {
    ]
 })
 console.log("hi from inside")
-
-// // we are hasing the password
-
-// userschema.pre('save', async function (next){
-//    console.log("hi from inside")
-//  if(this.isModified('password')){
-
-//   this.password = await bcrypt.hash(this.password, 12);
-//   this.cpassword = await bcrypt.hash(this.cpassword, 12);
-//  }
-//  next();
-// }); 
-
 
 // we are generating token
 postschema.methods.generateAuthToken = async function(){
