@@ -40,7 +40,7 @@ app.get("/createpost", middlepart, (req, res) => {
   res.send(`Hello`);
 });
 
-app.get("/post", (req, res) => {
+app.get("/postt", (req, res) => {
   res.send(`post`);
 });
 

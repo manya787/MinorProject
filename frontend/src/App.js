@@ -7,6 +7,7 @@ import MyPosts from './components/MyPosts';
 import CreatePost from './components/CreatePost';
 import Login from './components/Login';
 import Signup from './components/Signup';
+// import errorpage from './components/errorpage';
 import "./App.css";
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/createpost' element={<CreatePost />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path='</errorpage'/>
     </Routes>
     </>
   )
