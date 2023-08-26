@@ -1,10 +1,55 @@
-import React from 'react';
+import React, {useState} from 'react';
 import image from "../images/regimages.png";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import "../App.css";
 
 const Createpost = () => {
-  return (
+  
+   const navigate = useNavigate();
+   const [post, setUser] = useState({
+      Topic:"" ,Name:"",Profession:"",Workplace:"",About:"",Requirepost:"",Skillsrequired:"",Numberofopenings:"",Stipend:"",Duration:"",Start:"",AdditionalPerks:"",Email:"",Linkedin:"",
+   }); 
+  
+ 
+ let name, value;
+ const handleInputs = (e) => {
+   //console.log(e);
+   name = e.target.name;
+   value = e.target.value;
+   setUser({...post, [name]:value})
+ }
+ 
+  const PostData = async (e) => {
+      e.preventDefault();
+ 
+      const { Topic ,Name,Profession,Workplace,About,Requirepost,Skillsrequired,Numberofopenings,Stipend,Duration,Start,AdditionalPerks,Email,Linkedin } = post;
+ 
+      const res = await fetch("/createpost", {
+       method: "POST",
+       headers: {
+         "Content-Type" : "application/json"
+       },
+       body: JSON.stringify({
+ 
+         Topic,Name,Profession,Workplace,About,Requirepost,Skillsrequired,Numberofopenings,Stipend,Duration,Start,AdditionalPerks,Email,Linkedin 
+  
+         })
+ })
+ 
+      const data = await res.json();
+      if(data.status === 422 || !data){
+       window.alert("Invalid Post Creation ");
+       console.log("Invalid Post Creation");
+      } else {
+       window.alert("Post Created Successfully");
+       console.log("Invalid Post Creation");
+ 
+       
+       navigate("/createpost");
+      }
+  }  
+  
+   return (
   <>
   <section className="createpost">
     <div className="container mt-5">
@@ -18,6 +63,8 @@ const Createpost = () => {
          <i className="zmdi zmdi-assignment material-icons-name "></i> 
          </label>
       <input type="text" name="topic" id="topic" autoComplete="off"
+      value={post.Topic}
+      onChange={handleInputs}
       placeholder="        Work Topic" 
       />
       </div> 
@@ -27,6 +74,8 @@ const Createpost = () => {
          <i className="zmdi zmdi-account-box material-icons-name "></i> 
          </label>
       <input type="text" name="name" id="name" autoComplete="off"
+      value={post.Name}
+      onChange={handleInputs}
       placeholder="        Name" 
       />
       </div> 
@@ -35,6 +84,8 @@ const Createpost = () => {
          <label htmlFor="profession"> 
          <i className="zmdi zmdi-graduation-cap material-icons-name "></i> </label>
       <input type="profession" name="profession" id="profession" autoComplete="off"
+      value={post.Profession}
+      onChange={handleInputs}
       placeholder="        Your profession" 
       />
       </div>
@@ -43,6 +94,8 @@ const Createpost = () => {
          <label htmlFor="workplace"> 
          <i className="zmdi zmdi-pin-drop material-icons-name "></i> </label>
       <input type="text" name="workplace" id="workplace" autoComplete="off"
+      value={post.Workplace}
+      onChange={handleInputs}
       placeholder="        Workplace" 
       />
       </div>
@@ -51,6 +104,8 @@ const Createpost = () => {
          <label htmlFor="About"> 
          <i className="zmdi zmdi-city material-icons-name "></i> </label>
       <input type="text" name="About" id="About" autoComplete="off"
+      value={post.About}
+      onChange={handleInputs}
       placeholder="        About Us" 
       />
       </div>
@@ -59,6 +114,8 @@ const Createpost = () => {
          <label htmlFor="requiredpost"> 
          <i className="zmdi zmdi-library material-icons-name "></i> </label>
       <input type="requiredpost" name="requiredpost" id="requiredpost" autoComplete="off"
+      value={post.Requirepost}
+      onChange={handleInputs}
       placeholder="        Required Post" 
       />
       </div>
@@ -67,6 +124,8 @@ const Createpost = () => {
          <label htmlFor="skillsrequired"> 
          <i className="zmdi zmdi-badge-check material-icons-name "></i> </label>
       <input type="skillsrequired" name="skillsrequired" id="skillsrequired" autoComplete="off"
+      value={post.Skillsrequired}
+      onChange={handleInputs}
       placeholder="        Skills required" 
       />
       </div>
@@ -75,6 +134,8 @@ const Createpost = () => {
          <label htmlFor="numberofopenings"> 
          <i className="zmdi zmdi-seat material-icons-name "></i> </label>
       <input type="numberofopenings" name="numberofopenings" id="numberofopenings" autoComplete="off"
+      value={post.Numberofopenings}
+      onChange={handleInputs}
       placeholder="        Number of openings" 
       />
       </div>
@@ -83,6 +144,8 @@ const Createpost = () => {
          <label htmlFor="stipend"> 
          <i className="zmdi zmdi-money-box material-icons-name "></i> </label>
       <input type="stipend" name="stipend" id="stipend" autoComplete="off"
+      value={post.Stipend}
+      onChange={handleInputs}
       placeholder="        Stipend" 
       />
       </div>
@@ -91,6 +154,8 @@ const Createpost = () => {
          <label htmlFor="duration"> 
          <i className="zmdi zmdi-calendar-alt material-icons-name "></i> </label>
       <input type="duration" name="duration" id="duration" autoComplete="off"
+      value={post.Duration}
+      onChange={handleInputs}
       placeholder="        Duration" 
       />
       </div>
@@ -99,6 +164,8 @@ const Createpost = () => {
          <label htmlFor="startdate"> 
          <i className="zmdi zmdi-time material-icons-name "></i> </label>
       <input type="startdate" name="startdate" id="startdate" autoComplete="off"
+      value={post.Start}
+      onChange={handleInputs}
       placeholder="        Startdate" 
       />
       </div>
@@ -107,6 +174,8 @@ const Createpost = () => {
          <label htmlFor="additionalperks"> 
          <i className="zmdi zmdi-collection-bookmark material-icons-name "></i> </label>
       <input type="additionalperks" name="additionalperks" id="additionalperks" autoComplete="off"
+      value={post.AdditionalPerks}
+      onChange={handleInputs}
       placeholder="        Perks" 
       />
       </div>
@@ -115,6 +184,8 @@ const Createpost = () => {
          <label htmlFor="email"> 
          <i className="zmdi zmdi-email material-icons-name "></i> </label>
       <input type="email" name="email" id="email" autoComplete="off"
+      value={post.Email}
+      onChange={handleInputs}
       placeholder="        Email" 
       />
 
@@ -123,6 +194,8 @@ const Createpost = () => {
          <label htmlFor="linkedin"> 
          <i className="zmdi zmdi-linkedin-box material-icons-name "></i> </label>
       <input type="linkedin" name="linkedin" id="linkedin" autoComplete="off"
+      value={post.Linkedin}
+      onChange={handleInputs}
       placeholder="        Linkedin" 
       />
       </div>
@@ -130,7 +203,7 @@ const Createpost = () => {
 
       <div className="form-group form-button">
         <input type="submit" name="createpost" id="createpost" className="form-submit" 
-        value="Create"
+        value="Create" onClick={PostData}
         />
       </div>
 </form>

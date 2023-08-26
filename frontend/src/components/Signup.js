@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import image from "../images/regimages.png";
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 import "../App.css";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     name:"", email:"",phone:"",work:"",password:"",cpassword:"",
-  });
-
+  }); 
+ 
 
 let name, value;
 const handleInputs = (e) => {
@@ -16,8 +17,35 @@ const handleInputs = (e) => {
   value = e.target.value;
   setUser({...user, [name]:value})
 }
+
  const PostData = async (e) => {
      e.preventDefault();
+
+     const { name,email,phone,work,password,cpassword } = user;
+
+     const res = await fetch("/register", {
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify({
+
+        name,email,phone,work,password,cpassword
+ 
+        })
+});
+
+     const data = await res.json();
+     if(data.status === 422 || !data){
+      window.alert("Invalid registration ");
+      console.log("Invalid registration");
+     } else {
+      window.alert("Registration Success");
+      console.log("Invalid registration");
+
+      
+      navigate("/login");
+     }
  }
 
   return (
