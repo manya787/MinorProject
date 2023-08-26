@@ -7,13 +7,13 @@ const Createpost = () => {
   
    const navigate = useNavigate();
    const [post, setUser] = useState({
-      Topic:"" ,Name:"",Profession:"",Workplace:"",About:"",Requirepost:"",Skillsrequired:"",Numberofopenings:"",Stipend:"",Duration:"",Start:"",AdditionalPerks:"",Email:"",Linkedin:"",
+      Topic:"" ,Name:"",Profession:"",Workplace:"",About:"",Requirepost:"",Skillsrequired:"",Numberofopenings:"",Stipend:"",Duration:"",Start:"",Perks:"",Email:"",Linkedin:"",
    }); 
   
  
  let name, value;
  const handleInputs = (e) => {
-   //console.log(e);
+   console.log(e);
    name = e.target.name;
    value = e.target.value;
    setUser({...post, [name]:value})
@@ -22,7 +22,7 @@ const Createpost = () => {
   const PostData = async (e) => {
       e.preventDefault();
  
-      const { Topic ,Name,Profession,Workplace,About,Requirepost,Skillsrequired,Numberofopenings,Stipend,Duration,Start,AdditionalPerks,Email,Linkedin } = post;
+      const { Topic ,Name,Profession,Workplace,About,Requirepost,Skillsrequired,Numberofopenings,Stipend,Duration,Start,Perks,Email,Linkedin } = post;
  
       const res = await fetch("/createpost", {
        method: "POST",
@@ -31,7 +31,7 @@ const Createpost = () => {
        },
        body: JSON.stringify({
  
-         Topic,Name,Profession,Workplace,About,Requirepost,Skillsrequired,Numberofopenings,Stipend,Duration,Start,AdditionalPerks,Email,Linkedin 
+         Topic ,Name,Profession,Workplace,About,Requirepost,Skillsrequired,Numberofopenings,Stipend,Duration,Start,Perks,Email,Linkedin 
   
          })
  })
@@ -56,7 +56,7 @@ const Createpost = () => {
     <div className="createpost-content">
     <div className="createpost-form">
       <h2 className ="form-title">Createpost</h2>
-      <form className ="register-form" id="register-from">
+      <form method="POST" className ="register-form" id="register-from">
          
       <div className="form-group">
          <label htmlFor="topic"> 
@@ -174,7 +174,7 @@ const Createpost = () => {
          <label htmlFor="additionalperks"> 
          <i className="zmdi zmdi-collection-bookmark material-icons-name "></i> </label>
       <input type="additionalperks" name="additionalperks" id="additionalperks" autoComplete="off"
-      value={post.AdditionalPerks}
+      value={post.Perks}
       onChange={handleInputs}
       placeholder="        Perks" 
       />
