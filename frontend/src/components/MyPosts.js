@@ -1,5 +1,4 @@
 import React from 'react';
-import image from "../images/regimages.png";
 import "../App.css";
 
 const MyPosts = () => {

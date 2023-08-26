@@ -4,13 +4,11 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import "../App.css";
 
 const Createpost = () => {
-  
    const navigate = useNavigate();
    const [post, setUser] = useState({
       Topic:"" ,Name:"",Profession:"",Workplace:"",About:"",Requirepost:"",Skillsrequired:"",Numberofopenings:"",Stipend:"",Duration:"",Start:"",Perks:"",Email:"",Linkedin:"",
    }); 
   
- 
  let name, value;
  const handleInputs = (e) => {
    console.log(e);
@@ -31,10 +29,10 @@ const Createpost = () => {
        },
        body: JSON.stringify({
  
-         Topic ,Name,Profession,Workplace,About,Requirepost,Skillsrequired,Numberofopenings,Stipend,Duration,Start,Perks,Email,Linkedin 
+         Topic,Name,Profession,Workplace,About,Requirepost,Skillsrequired,Numberofopenings,Stipend,Duration,Start,Perks,Email,Linkedin 
   
          })
- })
+ });
  
       const data = await res.json();
       if(data.status === 422 || !data){
@@ -42,9 +40,7 @@ const Createpost = () => {
        console.log("Invalid Post Creation");
       } else {
        window.alert("Post Created Successfully");
-       console.log("Invalid Post Creation");
- 
-       
+       console.log("Invalid Post Creation");   
        navigate("/createpost");
       }
   }  
@@ -200,7 +196,6 @@ const Createpost = () => {
       />
       </div>
 
-
       <div className="form-group form-button">
         <input type="submit" name="createpost" id="createpost" className="form-submit" 
         value="Create" onClick={PostData}
@@ -208,24 +203,16 @@ const Createpost = () => {
       </div>
 </form>
       </div>
-      
       <div className="signup-image">
       <figure>
         <img src={image} className="sigimg" alt="registration pic" />
       </figure>
     <NavLink to="/createpost" className="signup-image-link">My Post</NavLink> 
-    
       </div>
-
     </div>
     </div>
-
   </section>
-  
-  
-  </>
-  
+  </> 
     )
 }
-
 export default Createpost;

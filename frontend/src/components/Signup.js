@@ -9,7 +9,6 @@ const Signup = () => {
     name:"", email:"",phone:"",work:"",password:"",cpassword:"",
   }); 
  
-
 let name, value;
 const handleInputs = (e) => {
   console.log(e);
@@ -41,9 +40,7 @@ const handleInputs = (e) => {
       console.log("Invalid registration");
      } else {
       window.alert("Registration Success");
-      console.log("Invalid registration");
-
-      
+      console.log("Invalid registration")    
       navigate("/login");
      }
  }
