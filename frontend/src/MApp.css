@@ -1,0 +1,65 @@
+.logo{
+    max-width: 6vw;
+    max-height: 9vh;
+    border-radius: 50%;
+  } 
+  .ntitle{
+  font-size: calc(12px + 0.5vw);
+  line-height: -10;
+  }
+  .nsubtitle{
+    font-size: calc(7px + 0.5vw);
+    color: #B05FF8;
+  }
+
+/* Set a background color for the body */
+.services {
+    max-width: 100%;
+    background-color: #F5F2FC;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Style the service boxes */
+.service-box1 {
+    max-width: 30%;
+    margin-left: 20%;
+    margin-right: 50%;
+    background-color: #B05FF8;
+    padding: 40px 30px;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    margin-bottom: 30px;
+}
+.service-box2 {
+    margin-left: 50%;
+    margin-right: 20%;
+    max-width: 30%;
+    background-color: #B05FF8;
+    padding: 40px 30px;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    margin-bottom: 30px;
+}
+/* Style headings */
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Style paragraphs */
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
