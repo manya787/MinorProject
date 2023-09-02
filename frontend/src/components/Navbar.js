@@ -12,8 +12,8 @@ const Navbar = () => {
     <a className="navbar-brand" href="#">
       <img src={logo} className='logo' alt="logo" ></img></a>
       <div className="d-flex flex-column p-0 pt-0 pb-0">
-          <h5 className="mb-0"><span className="title">CoLabConnect</span></h5>
-          <p className="mb-0"><span className="subtitle">Communicate. Collaborate. Create</span></p>
+          <h5 className="mb-0"><span className="ntitle">CoLabConnect</span></h5>
+          <p className="mb-0"><span className="nsubtitle">Communicate. Collaborate. Create</span></p>
         </div>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@ const Navbar = () => {
           <NavLink className="nav-link" to="/login">Login</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/signup">Register</NavLink>
+          <NavLink className="nav-link" to="/signup">Signup</NavLink>
         </li>
       </ul>
     </div>
