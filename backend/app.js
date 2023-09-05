@@ -50,6 +50,12 @@ app.get("/signup", (req, res) => {
   res.send(`Hello`);
 });
 
+app.get("/createpost", middlepart, (req, res) => {
+  res.cookie("Test", "minor");
+  res.send(`Hello`);
+});
+
+
 app.listen(PORT, () => {
   console.log(`server is running at ${PORT}`);
 });
