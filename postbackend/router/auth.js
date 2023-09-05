@@ -15,9 +15,9 @@ router.get('/', (req, res) => {
    
 router.post('/createpost', async (req, res) => {
 
-    const {Topic,Name,Profession,Workplace,About,Requirepost,Skillsrequired,Numberofopenings,Stipend,Duration,Start,Perks,Email,Linkedin } = req.body;
+    const {Topic,Name,Profession,Workplace,Aboutcompany,Requirepost,Aboutpost,Skillsrequired,Certificationsrequired,Numberofopenings,Stipend,Duration,StartDate,Perks,Email,Linkedin } = req.body;
    
-   if( !Topic || !Name || !Profession || !Workplace || !About || !Requirepost|| !Skillsrequired || !Numberofopenings || !Stipend || !Duration || !Start || !Perks ||  !Email || !Linkedin ){
+   if( !Topic || !Name || !Profession || !Workplace || !Aboutcompany || !Requirepost|| !Aboutpost || !Skillsrequired || !Certificationsrequired || !Numberofopenings || !Stipend || !Duration || !StartDate || !Perks ||  !Email || !Linkedin ){
     return res.status(422).json({ error: "PLz filled properly"});
    }
 
@@ -29,7 +29,7 @@ router.post('/createpost', async (req, res) => {
     return res.status(422).json({ error: "Email already exist"});
 }
 else {
-    const post = new Post({ Topic, Name, Profession, Workplace,About,Requirepost, Skillsrequired, Numberofopenings, Stipend, Duration, Start, Perks, Email, Linkedin });
+    const post = new Post({ Topic, Name, Profession, Workplace,Aboutcompany,Requirepost,Aboutpost,Skillsrequired,Certificationsrequired,Numberofopenings, Stipend, Duration, StartDate , Perks, Email, Linkedin });
 
 const postRegister = await post.save();
 

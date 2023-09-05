@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const jwt = require('jsonwebtoken');
+const { link } = require("../router/auth");
 require('dotenv').config();
 
 const postschema = new mongoose.Schema({
@@ -19,7 +20,7 @@ Workplace: {
     type:String,
     required:true
 },
-About: {
+Aboutcompany: {
     type:String,
     required:true
 },
@@ -27,20 +28,32 @@ About: {
        type:String,
        required:true
    },
+   Aboutpost: {
+    type:String,
+    required:true 
+   },
    Skillsrequired: {
        type:String,
        required:true
+   },
+   Certificationsrequired: {
+    type:String,
+    required:true 
+   },
+   Numberofopenings:{
+    type: Number,
+    required:true
    },
    Stipend: {
     type: Number,
     required:true
 },
   Duration: {
-       type:Number,
+       type:String,
        required:true
    },
-   Start: {
-    type:String,
+   StartDate: {
+    type:Date,
     required:true
 },
 Perks: {

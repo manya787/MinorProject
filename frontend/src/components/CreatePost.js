@@ -5,7 +5,7 @@ import "../App.css";
 const Createpost = () => {
    const navigate = useNavigate();
    const [post, setUser] = useState({
-      Topic:"" ,Name:"",Profession:"",Workplace:"",About:"",Requirepost:"",Skillsrequired:"",Numberofopenings:"",Stipend:"",Duration:"",Start:"",Perks:"",Email:"",Linkedin:"",
+      Topic:"" ,Name:"",Profession:"",Workplace:"",Aboutcompany:"",Requirepost:"",Aboutpost:"",Skillsrequired:"",Certificationsrequired:"",Numberofopenings:"",Stipend:"",Duration:"",StartDate:"",Perks:"",Email:"",Linkedin:"",
    });
   
  let name, value;
@@ -19,7 +19,7 @@ const Createpost = () => {
   const PostData = async (e) => {
       e.preventDefault();
  
-      const { Topic ,Name,Profession,Workplace,About,Requirepost,Skillsrequired,Numberofopenings,Stipend,Duration,Start,Perks,Email,Linkedin } = post;
+      const { Topic,Name,Profession,Workplace,Aboutcompany,Requirepost,Aboutpost,Skillsrequired,Certificationsrequired,Numberofopenings,Stipend,Duration,StartDate,Perks,Email,Linkedin } = post;
  
       const res = await fetch("/createpost", {
        method: "POST",
@@ -28,7 +28,7 @@ const Createpost = () => {
        },
        body: JSON.stringify({
  
-         Topic,Name,Profession,Workplace,About,Requirepost,Skillsrequired,Numberofopenings,Stipend,Duration,Start,Perks,Email,Linkedin 
+         Topic,Name,Profession,Workplace,Aboutcompany,Requirepost,Aboutpost,Skillsrequired,Certificationsrequired,Numberofopenings,Stipend,Duration,StartDate,Perks,Email,Linkedin 
   
          })
  });
@@ -66,10 +66,10 @@ return (
 
                <div className="input-field">
                   <label><i className="zmdi zmdi-city material-icons-name "></i> About Company</label>                  
-      <input type="text" name="About" id="About" autoComplete="off"
-       value={post.About}
-       onChange={handleInputs}
-       placeholder="About Your Company" 
+                  <input type="text" name="Aboutcompany" id="Aboutcompany" autoComplete="off"
+                  value={post.Aboutcompany}
+                  onChange={handleInputs}
+                  placeholder="About Your Company" 
                   />
                </div>
 
@@ -84,7 +84,7 @@ return (
 
                <div className="input-field">
                   <label> <i className="zmdi zmdi-library material-icons-name "></i> Required Post</label>                 
-                  <input type="text" name="Requiredpost" id="Requiredpost" autoComplete="off"
+                  <input type="text" name="Requirepost" id="Requirepost" autoComplete="off"
                   value={post.Requirepost}
                   onChange={handleInputs}
                   placeholder="Enter The Available Post"
@@ -102,8 +102,8 @@ return (
            
                <div className="input-field">
                   <label><i className="zmdi zmdi-assignment material-icons-name "></i> Skills Required</label>                  
-                  <input type="text" name="Skills" id="Skills" autoComplete="off"
-                  value={post.Skills}
+                  <input type="text" name="Skillsrequired" id="Skillsrequired" autoComplete="off"
+                  value={post.Skillsrequired}
                   onChange={handleInputs}
                   placeholder="Enter Required Skills" 
                   />
@@ -111,8 +111,8 @@ return (
                
                <div className="input-field">
                   <label><i className="zmdi zmdi-assignment material-icons-name "></i> Certifications Required</label>                  
-                  <input type="text" name="Certificates" id="Certificates" autoComplete="off"
-                  value={post.Certificates}
+                  <input type="text" name="Certificationsrequired" id="Certificationsrequired" autoComplete="off"
+                  value={post.Certificationsrequired}
                   onChange={handleInputs}
                   placeholder="Enter Required Certifications" 
                   />
@@ -120,50 +120,52 @@ return (
 
                <div className="input-field">
                   <label><i className="zmdi zmdi-seat material-icons-name "></i> Number of Openings</label>                  
-       <input type="number" name="Numberofopenings" id="Numberofopenings" autoComplete="off"
-       value={post.Numberofopenings}
-       onChange={handleInputs}
-       placeholder="Number of openings" 
+                <input type="number" name="Numberofopenings" id="Numberofopenings" autoComplete="off"
+                  value={post.Numberofopenings}
+                  onChange={handleInputs}
+                  placeholder="Number of openings" 
                   />
                </div>
 
                <div className="input-field">
                   <label><i className="zmdi zmdi-money-box material-icons-name "></i> Stipend</label>                  
-       <input type="number" name="Stipend" id="Stipend" autoComplete="off"
-       value={post.Stipend}
-       onChange={handleInputs}
-       placeholder="Enter Stipend"  
+                 <input type="number" name="Stipend" id="Stipend" autoComplete="off"
+                 value={post.Stipend}
+                 onChange={handleInputs}
+                 placeholder="Enter Stipend"  
                   />
                </div>
 
                <div className="input-field">
                   <label><i className="zmdi zmdi-collection-bookmark material-icons-name "></i> Perks</label>                  
-       <input type="text" name="Perks" id="Perks" autoComplete="off"
-       value={post.Perks}
-       onChange={handleInputs}
-       placeholder="Enter perks provided" 
-                  />
-               </div>
-           
-               <div className="input-field">
-                  <label><i className="zmdi zmdi-calendar-alt material-icons-name "></i> Duration</label>                  
-       <input type="text" name="Duration" id="Duration" autoComplete="off"
-       value={post.Duration}
-       onChange={handleInputs}
-       placeholder="Enter Duration of work" 
+                 <input type="text" name="Perks" id="Perks" autoComplete="off"
+                 value={post.Perks}
+                 onChange={handleInputs}
+                 placeholder="Enter perks provided" 
+                            />
+                         </div>
+                     
+                  <div className="input-field">
+                     <label><i className="zmdi zmdi-calendar-alt material-icons-name "></i> Duration</label>                  
+                 <input type="text" name="Duration" id="Duration" autoComplete="off"
+                 value={post.Duration}
+                 onChange={handleInputs}
+                 placeholder="Enter Duration of work" 
                   />
                </div>
            
                <div className="input-field">
                   <label><i className="zmdi zmdi-time material-icons-name "></i> Start Date</label>                 
-       <input type="text" name="Start" id="Start" autoComplete="off"
-       value={post.Start}
-       onChange={handleInputs}
-       placeholder="Start Date"
+                   <input type="date" name="StartDate" id="StartDate" autoComplete="off"
+                   value={post.StartDate}
+                   onChange={handleInputs}
+                   placeholder="Start Date"
                   />
                </div>
             </div>
             
+              {/* Personal Details */}
+
             <span className="titlep">Personal Details</span>
             <div className="fields">
                <div className="input-field">
@@ -186,19 +188,19 @@ return (
            
                <div className="input-field">
                   <label> <i className="zmdi zmdi-email material-icons-name "></i> Email</label>                 
-       <input type="email" name="Email" id="Email" autoComplete="off"
-       value={post.Email}
-       onChange={handleInputs}
-       placeholder="Enter your Email"  
+                  <input type="email" name="Email" id="Email" autoComplete="off"
+                  value={post.Email}
+                  onChange={handleInputs}
+                  placeholder="Enter your Email"  
                   />
                </div>
            
                <div className="input-field">
                   <label><i className="zmdi zmdi-linkedin-box material-icons-name "></i> Linkedin</label>                  
-       <input type="linkedin" name="Linkedin" id="Linkedin" autoComplete="off"
-       value={post.Linkedin}
-       onChange={handleInputs}
-       placeholder="Your Linkedin" 
+                 <input type="url" name="Linkedin" id="Linkedin" autoComplete="off"
+                 value={post.Linkedin}
+                 onChange={handleInputs}
+                 placeholder="Your Linkedin" 
                   />
                </div>
          </div>
