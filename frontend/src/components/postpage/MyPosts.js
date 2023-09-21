@@ -1,9 +1,41 @@
-import React, { useEffect, userState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "../../App.css";
 import Navbar from './Navbar';
-import { userNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MyPosts = () => {
+  const navigate = useNavigate();
+ const [userData, setUserData] = useState ({});
+
+  const callMyPost = async () => {
+try {
+  const res = await fetch('/post', {
+    method:"GET",
+    headers:{
+      Accept:"application/json",
+      "Content-Type":"application/json"
+    },
+    credentials:"include"
+  }); 
+
+  const data = await res.json();
+  console.log(data);
+  setUserData(data);
+
+  if(res.status !== 200){
+    const error = new Error(res.statusText); ;
+    throw error;
+  }
+
+} catch(err) {
+console.log(err);
+navigate('/post');   // or MyPosts
+}
+  }
+
+  useEffect(() => {
+    callMyPost();
+  } , [] );
   return (
     <>
     <Navbar/>
