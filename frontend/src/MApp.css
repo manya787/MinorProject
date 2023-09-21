@@ -63,3 +63,20 @@ p {
     line-height: 1.5;
     margin-bottom: 20px;
 }
+
+.homeimg{
+    max-height: 100vh;
+    max-width: 100dvh;
+}
+
+
+
+
+.chatbot{
+  background-color: #F5F2FC;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+ padding-top: 3%;
+ padding-left: 40%;
+ padding-right: 30%;
+ padding-bottom: 3%;
+}

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import "../App.css";
+import "../../App.css";
+import Navbar from './Navbar';
 
 const Createpost = () => {
    const navigate = useNavigate();
@@ -39,13 +40,14 @@ const Createpost = () => {
        console.log("Invalid Post Creation");
       } else {
        window.alert("Post Created Successfully");
-       console.log("Post Created Successfully");   
+       console.log("Post created successfully");   
        navigate("/createpost");
       }
   }  
 
 return (
    <>
+   <Navbar/>
    <div className="createp">
    <body>
       <div className="containerp">

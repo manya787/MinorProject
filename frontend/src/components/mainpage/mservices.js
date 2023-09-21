@@ -1,10 +1,11 @@
 import React from 'react';
 import "../../MApp.css";
-
+import Mnavbar from './mnav';
 
 const Mservices = () => {
   return (
     <>
+    <Mnavbar/>
     <div class="services">
         <h1>Our Services</h1>
         <div class="service-box1">

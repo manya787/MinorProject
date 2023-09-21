@@ -3,10 +3,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import image from "../../images/mainpage.jpg"
 import { NavLink } from 'react-router-dom';
 import "../../MApp.css";
+import Mnavbar from './mnav';
 
 const Mhome = () => {
     return (
       <>
+      <Mnavbar/>
         <section className='home'>
           <div className='container'>
             <div className='row'>
@@ -14,17 +16,17 @@ const Mhome = () => {
               <p>Where Expertise Meets Experience. A Platform for Project Partnership.</p>
               <div className='button'>
                 <button className='primary-btn'>
-                  GET STARTED <i className='fa fa-long-arrow-alt-right'></i>
+                <NavLink to="/services">GET STARTED</NavLink><i className='fa fa-long-arrow-alt-right'></i>
                 </button>
                 <button>
-                  Know More <i className='fa fa-long-arrow-alt-right'></i>
+                <NavLink to="/aboutus">Know More</NavLink> <i className='fa fa-long-arrow-alt-right'></i>
                 </button>
               </div>
-              <div className="text">Post an Opportunity<NavLink to="/post"></NavLink> </div>
-              <div className="text">Need an Opportunity<NavLink to="/search"></NavLink> </div>
-              <div className="text">Certifications<NavLink to="/post"></NavLink> </div>
+              <NavLink to="/createhome">Post an Opportunity</NavLink>
+              <NavLink to="/search">Need an Opportunity</NavLink>
+              <NavLink to="/post">Certifications</NavLink>
               <figure>
-                <img src={image} alt="homepage pic" />
+                <img className="homeimg" src={image} alt="homepage pic" />
               </figure>
             </div>
           </div>

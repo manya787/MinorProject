@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-import image from "../images/regimages.png";
+import image from "../../images/regimages.png";
 import { NavLink,useNavigate } from 'react-router-dom';
-import "../App.css";
+import "../../App.css";
+import Navbar from './Navbar';
 
 const Signup = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({
     name:"", email:"",phone:"",work:"",password:"",cpassword:"",
-  }); 
- 
+  });
+
 let name, value;
 const handleInputs = (e) => {
   console.log(e);
@@ -47,6 +48,7 @@ const handleInputs = (e) => {
 
   return (
   <>
+  <Navbar/>
   <div className="signup">
   <div className="container">
     <div className="cover">
@@ -101,7 +103,7 @@ const handleInputs = (e) => {
         </div>
         <div className="input-box">
         <i className="zmdi zmdi-lock material-icons-name "></i>
-        <input type="password" name="cpassword" id="cpassword" autoComplete="off"
+        <input type="text" name="cpassword" id="cpassword" autoComplete="off"
         value={user.cpassword}
         onChange={handleInputs}
         placeholder="Confirm your password" required
@@ -110,7 +112,8 @@ const handleInputs = (e) => {
 
           <div className="button input-box">
           <input type="submit" name="signup" id="signup" className="form-submit" 
-          value="Signup" onClick={PostData}/>
+          value="Signup" onClick={PostData}
+          />
           </div>
           <div className="text">Already have an account?<NavLink to="/login"><a className="link">Login now</a></NavLink> </div>
     </div>

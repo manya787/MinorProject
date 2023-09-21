@@ -30,7 +30,7 @@ const Mnavbar = () => {
           <NavLink className="nav-link" to="/aboutus">About Us</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/contact">Help</NavLink>
+          <NavLink className="nav-link" to="/help">Help</NavLink>
         </li>
       </ul>
     </div>

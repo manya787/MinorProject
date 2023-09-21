@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import image from "../images/collab4.jpg";
+import image from "../../images/collab4.jpg";
 import { NavLink, useNavigate } from 'react-router-dom';
-import "../App.css";
+import "../../App.css";
+import Navbar from './Navbar';
 
 const Login = () => {
 
@@ -34,6 +35,7 @@ if(res.status === 400 || !data ){
 }
   return ( 
   <>
+  <Navbar/>
   <div className="login">
   <div className="container">
   <div className="cover">

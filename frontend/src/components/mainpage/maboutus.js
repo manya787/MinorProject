@@ -1,10 +1,11 @@
 import React from 'react';
 import "../../MApp.css";
-
+import Mnavbar from './mnav';
 
 const Maboutus = () => {
   return (
     <>
+    <Mnavbar/>
     <main>
     <section id="about">
             <h1>About Us</h1>
