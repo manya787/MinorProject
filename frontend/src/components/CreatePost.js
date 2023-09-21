@@ -34,12 +34,12 @@ const Createpost = () => {
  });
  
       const data = await res.json();
-      if(data.status === 422 || !data){
+      if(res.status === 422 || !data){
        window.alert("Invalid Post Creation ");
        console.log("Invalid Post Creation");
       } else {
        window.alert("Post Created Successfully");
-       console.log("Invalid Post Creation");   
+       console.log("Post Created Successfully");   
        navigate("/createpost");
       }
   }  
@@ -204,11 +204,10 @@ return (
                   />
                </div>
          </div>
-
+         <div className="button input-box">
          <input type="submit" name="createpost" id="createpost" className="form-submit" 
-         value="Create Post" onClick={PostData}
-         />
- 
+         value="Create Post" onClick={PostData}/>
+         </div>
          </form>
       </div>
    </body>

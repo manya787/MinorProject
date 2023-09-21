@@ -1,7 +1,42 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import { useNavigate } from "react-router-dom";
 import "../App.css";
 
 const MyPosts = () => {
+
+ const navigate = useNavigate();
+ const [userData, setUserData] = useState ({});
+
+  const callMyPost = async () => {
+try {
+  const res = await fetch('/post', {
+    method:"GET",
+    headers:{
+      Accept:"application/json",
+      "Content-Type":"application/json"
+    },
+    credentials:"include"
+  }); 
+
+  const data = await res.json();
+  console.log(data);
+  setUserData(data);
+
+  if(res.status !== 200){
+    const error = new Error(res.statusText); ;
+    throw error;
+  }
+
+} catch(err) {
+console.log(err);
+navigate('/post');   // or MyPosts
+}
+  }
+
+  useEffect(() => {
+    callMyPost();
+  } , [] );
+
   return (
     <h1>Posts</h1>
     // <div className="container emp-profile">
@@ -12,9 +47,9 @@ const MyPosts = () => {
     //       </div>
     //       <div className="col-md-6">
     //         <div className="profile-head">
-    //           <h5>topic</h5>
-    //           <h6>name</h6>
-    //           <p className="profile-place mt-3 mb-5">work place</p>
+    //         <h5>{topic}</h5>
+    //           <h6>{name}</h6>
+    //           <p className="profile-place mt-3 mb-5">{userData.work place}</p>
     //           <ul className="nav nav-tabs" role="tablist">
     //             <li className="nav-item">
     //             <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home">About</a>
@@ -33,7 +68,7 @@ const MyPosts = () => {
     //         {/* left side url */}
     //         <div className="col-md-4">
     //           <div className="profile-work">
-    //             <p>profession</p>
+    //           <p>{profession}</p>
 
 
     //           </div>
@@ -43,7 +78,6 @@ const MyPosts = () => {
     //     </div>       
     //   </form>
     // </div>
-  )
-}
+  )}
 
 export default MyPosts;

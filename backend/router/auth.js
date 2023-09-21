@@ -2,7 +2,9 @@ const jwt = require('jsonwebtoken');
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const dotenv = require("dotenv")
+const dotenv = require("dotenv");
+const authenticate = require("../middleware/authenticate");
+const req = require( "express");
 
 dotenv.config()
 
@@ -34,7 +36,7 @@ router.post('/register', async (req, res) => {
 }else {
     const user = new User({ name, email, phone, work, password, cpassword });
 
-const userRegister = await user.save();
+await user.save();
 
 res.status(201).json({ message: "user registered successfully"});
 
@@ -63,8 +65,7 @@ const userlogin = await User.findOne({ email: email});
 // console.log(userlogin);
 if(userlogin){
     const isMatch = await bcrypt.compare( password, userlogin.password);
-    
-token = await userlogin.generateAuthToken();
+ token = await userlogin.generateAuthToken();
 console.log(token);
 
 res.cookie("jwtoken", token,{
@@ -107,7 +108,7 @@ router.post('/createpost', async (req, res) => {
 else {
     const post = new Post({ Topic, Name, Profession, Workplace,Aboutcompany,Requirepost,Aboutpost,Skillsrequired,Certificationsrequired,Numberofopenings, Stipend, Duration, StartDate , Perks, Email, Linkedin });
 
-const postRegister = await post.save();
+await post.save();
 
 res.status(201).json({ message: "Post created successfully"});
 
@@ -158,7 +159,59 @@ router.post('/post',async (req, res) => {
     } catch(err) {
         console.log(err);
     }
-    })
+    }); 
+
+    // about us 
+    
+    // router.get("/search",authenticate ,(req, res) => {
+    //       res.send(`Hello`);
+    //       res.send(req.rootUser);
+    //     });
+    router.get('/search',authenticate, (req, res) => {
+        if ('rootUser' in req) {
+          const rootUser = req.rootUser; 
+          res.send(`Hellaa`);
+          res.send(rootUser);
+          
+        } else {
+          res.status(400).send('rootUser not found');
+        }
+      });
+        
+
+        // router.get("/post",authenticate ,(req, res) => {
+        //   res.cookie("Test", "minor");
+        //   res.send(`DONE POST`);
+        //   res.send(req.rootUser);
+        // });
+        router.get('/post',authenticate, (req, res) => {
+            if ('rootUser' in req) {
+              const rootUser = req.rootUser; 
+              res.cookie("Test", "minor");
+              res.send(`DONE POST`);
+              res.send(rootUser);
+            } else {
+              res.status(400).send('rootUser not found');
+            }
+          });
+
+
+        // router.get("/createpost", authenticate ,(req, res) => {
+        //       res.cookie("Test", "minor");
+        //       res.send(`CREATEPOST`);
+        //       res.send(req.rootUser);
+        //     });
+        router.get('/createpost',authenticate, (req, res) => {
+            if ('rootUser' in req) {
+              const rootUser = req.rootUser; 
+              res.cookie("Testie", "minorr");
+              res.send(`CREATEPOST`);
+              res.send(rootUser);
+            } else {
+              res.status(400).send('rootUser not found');
+            }
+          });
+            
     
 module.exports = router;
 

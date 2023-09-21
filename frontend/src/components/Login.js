@@ -22,7 +22,7 @@ const loginUser = async (e) => {
       password
     })
   });
-  const data = res.json();
+  const data = await res.json();
 
 if(res.status === 400 || !data ){
   window.alert("Invalid Credentials");

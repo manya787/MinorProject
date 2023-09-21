@@ -51,18 +51,39 @@ userschema.pre('save', async function (next){
 }); 
 
 
+
+
 // we are generating token
 userschema.methods.generateAuthToken = async function(){
    try{
-       let token = jwt.sign({_id:this._id}, process.env.SECRET_KEY || "");
-       this.tokens = this.tokens.concat({ token: token });
-       await this.save();
-       return token;
-   }   catch (err){
-   console.log(err);
+    
+    if (!this._id || !this.tokens) {
+        throw new Error("User ID or tokens array is missing.");
+      }
+  
+      let token = jwt.sign({ _id: this._id }, process.env.SECRET_KEY || "");
+  
+      // Ensure that this.tokens is an array before using concat
+      if (!Array.isArray(this.tokens)) {
+        this.tokens = [];
+      }
+  
+      this.tokens = this.tokens.concat({ token: token });
+  
+      await this.save();
+      return token;
+    } catch (err) {
+      console.log(err); 
 }}
 
 
 const User = mongoose.model('USER', userschema);
 
 module.exports = User;
+
+// let token = jwt.sign({_id:this._id}, process.env.SECRET_KEY || "");
+//        this.tokens = this.tokens.concat({ token: token });
+//        await this.save();
+//        return token;
+//    }   catch (err){
+//    console.log(err);

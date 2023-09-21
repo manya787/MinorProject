@@ -35,7 +35,7 @@ const handleInputs = (e) => {
 });
 
      const data = await res.json();
-     if(data.status === 422 || !data){
+     if(res.status === 422 || !data){
       window.alert("Invalid registration ");
       console.log("Invalid registration");
      } else {
@@ -101,7 +101,7 @@ const handleInputs = (e) => {
         </div>
         <div className="input-box">
         <i className="zmdi zmdi-lock material-icons-name "></i>
-        <input type="text" name="cpassword" id="cpassword" autoComplete="off"
+        <input type="password" name="cpassword" id="cpassword" autoComplete="off"
         value={user.cpassword}
         onChange={handleInputs}
         placeholder="Confirm your password" required
@@ -110,8 +110,7 @@ const handleInputs = (e) => {
 
           <div className="button input-box">
           <input type="submit" name="signup" id="signup" className="form-submit" 
-          value="Signup" onClick={PostData}
-          />
+          value="Signup" onClick={PostData}/>
           </div>
           <div className="text">Already have an account?<NavLink to="/login"><a className="link">Login now</a></NavLink> </div>
     </div>
