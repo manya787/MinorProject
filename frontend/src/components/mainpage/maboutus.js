@@ -1,58 +1,70 @@
-import React from 'react';
-import "../../MApp.css";
+import React from "react";
+import "./mabout.css";
+import "./about2.css";
 import Mnavbar from './mnav';
+import Mfooter from "./footer";
+import about from "./mimages/abotus.jpg";
+import aryan from "../../images/aryan.jpg";
+import sam from "../../images/sam.jpg";
+import mansi from "../../images/mansi.jpg";
+import manya from "../../images/manya.jpg";
 
 const Maboutus = () => {
   return (
     <>
     <Mnavbar/>
-    <main>
-    <section id="about">
-            <h1>About Us</h1>
-            <p> ColabConnect is your go-to hub for finding meaningful collaborations that align with your
- interests and capabilities. Whether you're a student seeking hands-on experience, a
- professional looking to expand your portfolio, or an introvert eager to break through social
- barriers, we've got you covered. Our platform is designed to facilitate seamless connections
- between individuals and entities in need of skilled contributors.</p>
-        </section>
-        <section id="why-choose-us">
-            <h2>Why Choose ColabConnect?</h2>
-            <p>ColabConnect stands out as a unique platform that offers:</p>
-            <ul>
-                <li><strong>Diverse Opportunities:</strong> Whether you're a student looking for a college project, a professional seeking startup collaborations, or a creative mind wanting to work on exciting projects, ColabConnect has something for everyone.</li>
-                <li><strong>Effortless Connection:</strong> Our user-friendly interface makes it easy to search for projects, connect with potential collaborators, and start working together.</li>
-                <li><strong>Supportive Community:</strong> Join a vibrant community of like-minded individuals who share your passion for collaboration and innovation.</li>
-            </ul>
-        </section>
-        <section id="mission">
-            <h2>Our Mission</h2>
-            <p> In today's educational landscape, students often face challenges in finding like-minded peers
- and collaborating on projects or activities aligned with their interests. The lack of an efficient
- platform hampers their ability to connect with fellow students and form productive
- partnerships for collaborative work. This limitation hinders the exploration of
- interdisciplinary projects and the development of essential skills such as teamwork,
- problem-solving, and effective communication.<br></br>
- Weaim to develop a platform that facilitates seamless connectivity among students, enabling
- them to find and connect with peers who share similar interests and ambitions.
- CoLabConnect will provide a virtual space where students can collaborate on various
- projects, share knowledge, and leverage each other's strengths to achieve their goals. By
- bridging the gap between students with diverse backgrounds and expertise, our project seeks
- to foster a dynamic learning environment that nurtures creativity, innovation, and the
- cultivation of valuable skills</p>
-        </section>
-        <section id="meet-the-team">
-            <h2>Meet the Team</h2>
-            <p>Our dedicated team is committed to ensuring that ColabConnect remains a valuable resource for you:</p>
-            <ul>
-                <li><strong>Manya Garg</strong></li>
-                <li><strong>Aryan Gandhi</strong></li>
-                <li><strong>Mansi Bakshi</strong></li>
-                <li><strong>Saumya Bansal</strong></li>
-            </ul>
-        </section>
-        </main>
+    <div>
+      <div className="desktop-1">
+      <div className="who-we-are">WHO WE ARE</div>
+      <div className="who-we-are-child" />
+      
+      <div className="colabconnect-is-your">
+      <p>
+      ColabConnect is your go-to hub for finding meaningful collaborations
+        that align with your interests and capabilities. Our platform is
+        designed to facilitate seamless connections between individuals and
+        entities in need of skilled contributors.
+        </p>  
+      </div>
+      <div className="desktop-1-item" />
+      <div className="our-mission">OUR MISSION</div>
+      <div className="in-todays-educational">
+        In today's educational landscape, students often face challenges in
+        finding like-minded peers and collaborating on projects or activities
+        aligned with their interests. We aim to develop a platform that
+        facilitates seamless connectivity among students, enabling them to find
+        and connect with peers who share similar interests and ambitions.
+        CoLabConnect will provide a virtual space where students can collaborate
+        on various projects, share knowledge, and leverage each other's
+        strengths to achieve their goals. By bridging the gap between students
+        with diverse backgrounds and expertise, our project seeks to foster a
+        dynamic learning environment that nurtures creativity, innovation, and
+        the cultivation of valuable skills
+      </div>
+      <img className="image-2-icon" alt="" src={about} />
+      </div>
+
+      <div className="desktop-2">
+      <div className="meet-the-team">MEET THE TEAM</div>
+          <div className="for-developers">{`For Developers, By Developers `}</div>
+          <img className="aryan-1-icon" alt="" src={aryan} />
+          <img className="mansi-1-icon" alt="" src={mansi} />
+          <img className="sam-1-icon" alt="" src={sam} />
+          <div className="desktop-2-item" />
+          <div className="desktop-2-item" />
+          <div className="aryan-gandhi">Aryan Gandhi</div>
+          <div className="rectangle-div" />
+          <div className="manya-garg">Manya Garg</div>
+          <img className="manya-1-icon" alt="" src={manya} />
+          <div className="desktop-2-child1" />
+          <div className="mansi-bakshi">Mansi Bakshi</div>
+          <div className="desktop-2-child2" />
+          <div className="saumya-bansal">Saumya Bansal</div>
+      </div>
+    </div>
+    <Mfooter/>
     </>
-  )
-}
+  );
+};
 
 export default Maboutus;

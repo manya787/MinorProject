@@ -1,10 +1,57 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { NavLink } from 'react-router-dom';
 import logo from "../../images/logo.jpg";
 import "../../App.css";
+import {UserContext} from "./post";
+
 
 const Navbar = () => {
+  const {state} = useContext(UserContext); 
+  const RenderMenu = () => {
+    if(state){
+      return (
+        <>
+<li className="nav-item">
+          <NavLink className="nav-link" to="/home">Home</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/messages">Messages</NavLink>
+        </li>
+        <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle" to="/posts" role="button" data-bs-toggle="dropdown" aria-expanded="false">Post</a>
+          <ul className="dropdown-menu">
+            <li><NavLink className="dropdown-item" to="/mypost">My Posts</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/createpost">Create Post</NavLink></li>
+            <li><a className="dropdown-divider"></a></li>
+          </ul>
+        </li>
+
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/logout">Logout</NavLink>
+        </li>
+        </>
+      )
+  } else {
+    return (
+      <>
+<li className="nav-item">
+          <NavLink className="nav-link" to="/home">Home</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/messages">Messages</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/login">Login</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/signup">Signup</NavLink>
+        </li>
+      </>
+    )
+  }
+}
+
   return (
     <>
     <nav className="navbar navbar-expand-lg bg-light">
@@ -20,30 +67,13 @@ const Navbar = () => {
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/home">Home</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/messages">Messages</NavLink>
-        </li>
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" to="/posts" role="button" data-bs-toggle="dropdown" aria-expanded="false">Post</a>
-          <ul className="dropdown-menu">
-            <li><NavLink className="dropdown-item" to="/mypost">My Posts</NavLink></li>
-            <li><NavLink className="dropdown-item" to="/createpost">Create Post</NavLink></li>
-            <li><a className="dropdown-divider"></a></li>
-          </ul>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/login">Login</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/signup">Signup</NavLink>
-        </li>
+
+        <RenderMenu/>
+
       </ul>
     </div>
   </div>
-</nav>
+</nav> 
     </>
   )
 }

@@ -3,6 +3,7 @@ import "../../MApp.css";
 import Mnavbar from './mnav';
 import ChatBot from "react-simple-chatbot"
 import {Segment} from 'semantic-ui-react';
+import Footer from '../mainpage/footer';
 
 function Mhelp(){
   const steps = [
@@ -75,6 +76,7 @@ function Mhelp(){
       <ChatBot steps={steps} />
     </Segment>
     </div>
+    <Footer/>
     </>
   );
 }

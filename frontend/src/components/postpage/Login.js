@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
-import image from "../../images/collab4.jpg";
+import React, {useState, useContext} from 'react';
+import image from "./pimages/collab4.jpg";
 import { NavLink, useNavigate } from 'react-router-dom';
 import "../../App.css";
 import Navbar from './Navbar';
-
+import {UserContext} from "./post";
+import Footer from '../mainpage/footer';
+ 
 const Login = () => {
+
+const {dispatch} = useContext(UserContext);   
 
 const navigate = useNavigate();
 const [email, setEmail] = useState('');
@@ -28,8 +32,9 @@ const loginUser = async (e) => {
 if(res.status === 400 || !data ){
   window.alert("Invalid Credentials");
 } else {
+  dispatch({type:"USER", payload:true})
   window.alert("Login Successfull");
-  navigate("/");
+  navigate("/home");
 }
 
 }
@@ -76,7 +81,7 @@ if(res.status === 400 || !data ){
     </form>
   </div>
   </div>
-
+  <Footer/>
   </>
     )
 }

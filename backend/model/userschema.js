@@ -50,9 +50,6 @@ userschema.pre('save', async function (next){
  next();
 }); 
 
-
-
-
 // we are generating token
 userschema.methods.generateAuthToken = async function(){
    try{

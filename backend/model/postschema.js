@@ -32,11 +32,27 @@ Aboutcompany: {
     type:String,
     required:true 
    },
-   Skillsrequired: {
-       type:String,
-       required:true
+    Skill1: {
+        type:String,
+        required:true
    },
-   Certificationsrequired: {
+    Skill2: {
+    type:String,
+    required:true
+   },
+    Skill3: {
+     type:String,
+     required:true
+    },
+    Skill4: {
+    type:String,
+    required:true
+},
+   Certification1: {
+    type:String,
+    required:true 
+   },
+   Certification2: {
     type:String,
     required:true 
    },
@@ -56,7 +72,11 @@ Aboutcompany: {
     type:Date,
     required:true
 },
-Perks: {
+Perk1: {
+    type:String,
+    required:true
+},
+Perk2: {
     type:String,
     required:true
 },

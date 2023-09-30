@@ -16,11 +16,8 @@ router.get('/', (req, res) => {
     res.send(`Hello rourt`);
 })
 
-
 router.post('/register', async (req, res) => {
-
     const {name,email,phone,work,password,cpassword } = req.body;
-   
    if(!name || !email || !phone || !work || !password || !cpassword ){
     return res.status(422).json({ error: "PLz filled properly"});
    }
@@ -81,20 +78,18 @@ res.json({message: "user Signin Successfully"});
     res.status(400).json({error: "Invalid credentials"});
 }
 
-
 } catch(err) {
     console.log(err);
 }
-
 })
 
 // POST part
 
 router.post('/createpost', async (req, res) => {
 
-    const {Topic,Name,Profession,Workplace,Aboutcompany,Requirepost,Aboutpost,Skillsrequired,Certificationsrequired,Numberofopenings,Stipend,Duration,StartDate,Perks,Email,Linkedin } = req.body;
+    const {Topic,Name,Profession,Workplace,Aboutcompany,Requirepost,Aboutpost,Skill1,Skill2,Skill3,Skill4,Numberofopenings,Stipend,Certification1,Certification2,Perk1,Perk2,Duration,StartDate,Email,Linkedin } = req.body;
    
-   if( !Topic || !Name || !Profession || !Workplace || !Aboutcompany || !Requirepost|| !Aboutpost || !Skillsrequired || !Certificationsrequired || !Numberofopenings || !Stipend || !Duration || !StartDate || !Perks ||  !Email || !Linkedin ){
+   if( !Topic || !Name || !Profession || !Workplace || !Aboutcompany || !Requirepost|| !Aboutpost || !Skill1 || !Skill2 || !Skill3 || !Skill4 || !Numberofopenings || !Stipend || !Certification1 || !Certification2 || !Perk1|| !Perk2 || !Duration || !StartDate ||  !Email || !Linkedin ){
     return res.status(422).json({ error: "PLz filled properly"});
    }
 
@@ -106,7 +101,7 @@ router.post('/createpost', async (req, res) => {
     return res.status(422).json({ error: "Email already exist"});
 }
 else {
-    const post = new Post({ Topic, Name, Profession, Workplace,Aboutcompany,Requirepost,Aboutpost,Skillsrequired,Certificationsrequired,Numberofopenings, Stipend, Duration, StartDate , Perks, Email, Linkedin });
+    const post = new Post({ Topic, Name, Profession, Workplace, Aboutcompany, Requirepost, Aboutpost, Skill1, Skill2, Skill3, Skill4, Numberofopenings, Stipend, Certification1, Certification2, Perk1, Perk2, Duration, StartDate , Email, Linkedin });
 
 await post.save();
 
@@ -154,8 +149,6 @@ router.post('/post',async (req, res) => {
     } else {
         res.status(400).json({error: "Invalid credentials"});
     }
-    
-    
     } catch(err) {
         console.log(err);
     }
@@ -210,6 +203,13 @@ router.post('/post',async (req, res) => {
             } else {
               res.status(400).send('rootUser not found');
             }
+          });
+
+          //logout page
+          router.get('/logout', (req, res) => { 
+              console.log(`Hello My logout page`);
+              res.clearCookie('jwtoken',{path:'/'});
+              res.status(200).send('User Logout');
           });
             
     

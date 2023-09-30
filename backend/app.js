@@ -7,14 +7,9 @@ dotenv.config();
 
 dotenv.config({ path: "/.env" });
 
-// console.log("DB URI from .env:", process.env.DB); // Debugging line
-// console.log("PORT from .env:", process.env.PORT); // Debugging line
-
-// dotenv.config({path:'/config.env'});
 
 require("./db/conn");
 
-// const User = require('./model/userschema');
 
 app.use(express.json());
 
@@ -24,19 +19,6 @@ app.use(require("./router/auth"));
 const PORT = process.env.PORT;
 
 
-// app.get('/', (req, res) => {
-//     res.send(`Hello`);
-// })
-
-// app.get("/search", middlepart, (req, res) => {
-//   res.send(`Hello`);
-// });
-
-// app.get("/post", middlepart, (req, res) => {
-//   res.cookie("Test", "minor");
-//   res.send(`Hello`);
-// });
-
 app.get("/signin", (req, res) => {
   res.send(`Hello`);
 });
@@ -44,11 +26,6 @@ app.get("/signin", (req, res) => {
 app.get("/signup", (req, res) => {
   res.send(`Hello`);
 });
-
-// app.get("/createpost", middlepart, (req, res) => {
-//   res.cookie("Test", "minor");
-//   res.send(`Hello`);
-// });
 
 
 app.listen(PORT, () => {

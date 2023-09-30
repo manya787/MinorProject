@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import image from "../../images/regimages.png";
+import image from "./pimages/regimages.png";
 import { NavLink,useNavigate } from 'react-router-dom';
 import "../../App.css";
 import Navbar from './Navbar';
+import Footer from '../mainpage/footer';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -121,6 +122,7 @@ const handleInputs = (e) => {
     </form>
   </div>
   </div>  
+  <Footer/>
   </>
     )
 }

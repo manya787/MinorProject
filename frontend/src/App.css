@@ -59,20 +59,20 @@ line-height: -10;
   font-weight: 500;
   margin: 6px 0;
   color: #000000e7;
-  margin-top: 28px;
-  margin-bottom: 14px;
+  margin-top: 48px;
+  margin-bottom: 18px;
 }
 .containerp form .fields{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-wrap: wrap;
 }
 form .fields .input-field{
   display: flex;
   width: calc(100% / 3 -15px);
   flex-direction: column;
-  margin: 8px 0;
+  margin: 16px 48px 0px 0px;
 }
 .input-field label{
   font-size: 14.5px;
@@ -89,9 +89,9 @@ form .fields .input-field{
   color: #333;
   border-radius: 5px;
   border: 1px solid #aaa;
-  padding: 0 15px;
+  padding: 0px 65px 0px 10px;
   height: 40px;
-  margin: 7px 0;
+  margin: 9px 0;
 }
 .input-field input:is(:focus, :valid){
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0, 0.13);
@@ -133,7 +133,6 @@ form .fields .input-field{
 }
 
 
-
 .login, .signup{
   min-height: 100vh;
   display: flex;
@@ -170,7 +169,6 @@ form .fields .input-field{
   height: 100%;
   width: 100%;
 }
-
 .container .cover::before,
 .container .cover::after{
   content: '';
@@ -178,7 +176,7 @@ form .fields .input-field{
   height: 100%;
   width: 100%;
   background: #b56bf7;
-  opacity: 0.45;
+  opacity: 0.44;
   z-index: 12;
 }
 .container .cover::after{
