@@ -60,10 +60,21 @@ return (
             <div className="fields">
             <div className="input-field">
                   <label><i className="zmdi zmdi-city material-icons-name "></i> About Company</label>                  
-                  <input type="text" name="Aboutcompany" id="Aboutcompany" autoComplete="off"
+                  <textarea type="text" name="Aboutcompany" id="Aboutcompany" autoComplete="off"
                   value={post.Aboutcompany}
                   onChange={handleInputs}
-                  placeholder="About Your Company" 
+                  placeholder="About Your Company"
+                  className="big"
+                  />
+               </div>
+
+               <div className="input-field">
+                  <label> <i className="zmdi zmdi-library material-icons-name "></i> About Post</label>                 
+                  <textarea type="text" name="Aboutpost" id="Aboutpost" autoComplete="off"
+                  value={post.Aboutpost}
+                  onChange={handleInputs}
+                  placeholder="Describe Available Post"
+                  className="big"
                   />
                </div>
 
@@ -94,14 +105,6 @@ return (
                   />
                </div>
 
-               <div className="input-field">
-                  <label> <i className="zmdi zmdi-library material-icons-name "></i> About Post</label>                 
-                  <input type="text" name="Aboutpost" id="Aboutpost" autoComplete="off"
-                  value={post.Aboutpost}
-                  onChange={handleInputs}
-                  placeholder="Describe Available Post"
-                  />
-               </div>
                <div className="input-field">
                   <label><i className="zmdi zmdi-seat material-icons-name "></i> Number of Openings</label>                  
                 <input type="number" name="Numberofopenings" id="Numberofopenings" autoComplete="off"

@@ -32,9 +32,9 @@ line-height: -10;
 }
 .containerp header{
   position: relative;
-  font-size: 27px;
+  font-size: 28px;
   font-weight: 600;
-  color: #333;
+  color: #454545;
   margin-bottom: 38px;
 }
 .containerp header::before{
@@ -58,9 +58,10 @@ line-height: -10;
   font-size: 19px;
   font-weight: 500;
   margin: 6px 0;
-  color: #000000e7;
+  color: #616060;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-top: 48px;
-  margin-bottom: 18px;
+  margin-bottom: 6px;
 }
 .containerp form .fields{
   display: flex;
@@ -82,16 +83,22 @@ form .fields .input-field{
 .input-field i{
   color: #B05FF8;
 }
-.input-field input{
+.input-field input,textarea{
   outline: none;
   font-size: 14px;
   font-weight: 400;
   color: #333;
   border-radius: 5px;
   border: 1px solid #aaa;
-  padding: 0px 65px 0px 10px;
+  padding: 0px 10px 0px 10px;
   height: 40px;
+  width: 32vh;
   margin: 9px 0;
+}
+.input-field .big{
+  padding-top: 1%;
+  width: 50vw;
+  height: 15vh;
 }
 .input-field input:is(:focus, :valid){
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0, 0.13);
