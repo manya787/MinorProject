@@ -9,8 +9,9 @@ import Maboutus from './maboutus';
 
 import "../../App.css";
 import "../../MApp.css";
-import Home from '../postpage/Home';
+import PHome from '../postpage/Home';
 import Shome from '../searchpage/Shome';
+import QHome from '../quizpage/pages/QHome';
 
 const Main = () => {
 return (
@@ -20,7 +21,8 @@ return (
           <Route path='/services' element={<Mservices />} />
           <Route path='/aboutus' element={<Maboutus/>} />
           <Route path='/help' element={<Mhelp />} />
-          <Route path='/createhome' element={<Home />} />
+          <Route path='/createhome' element={<PHome />} />
+          <Route path='/quiz' element={<QHome />} />
           <Route path='/search' element={<Shome />} />
      </Routes>
      </>

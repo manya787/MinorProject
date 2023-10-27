@@ -4,9 +4,6 @@ import image from "../../images/mainpage.jpg"
 import { NavLink } from 'react-router-dom';
 import "../../MApp.css";
 import Mnavbar from './mnav';
-// import badge from "../../images/badge.png";
-// import plus from "../../images/plus.png";
-// import bulb from "../../images/light_bulb.jpg";
 import Footer from "./footer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faLightbulb, faCertificate } from '@fortawesome/free-solid-svg-icons';
@@ -18,15 +15,12 @@ const Mhome = () => {
       <Mnavbar/>
         <section className="home">
           <div className="row">
-            {/* <div className='row'> */}
-            {/* <div className="container"> */}
               <h2 className="homecontain" id= "contain">Communicate.<br></br> Collaborate.
-              {/* <img src={image} alt="Image" className="right-aligned-image" /> */}
                <br></br>Create.</h2>
-              {/* </div> */}
               <img src={image} alt="img" className="right-aligned-image" />
+              
+
               <span>Where Expertise Meets Experience. A Platform for Project Partnership.</span>
-              {/* </div> */}
               <div className='button'>
                 <button className='primary-btn1'>
                 <NavLink to="/services">GET STARTED</NavLink><i className='fa fa-long-arrow-alt-right'></i>
@@ -44,12 +38,10 @@ const Mhome = () => {
               
               <NavLink to="/search" className="white-link"><FontAwesomeIcon icon={faLightbulb}size="2x"style={{ marginTop: '30%', marginLeft: '20%'}} /><br></br>Seek Opportunity</NavLink>
               
-              <NavLink to="/post" className="white-link"><FontAwesomeIcon icon={faCertificate}size="2x"style={{ marginTop: '30%',marginLeft: '20%' }} /><br></br>Quizzie</NavLink>
+              <NavLink to="/quiz" className="white-link"><FontAwesomeIcon icon={faCertificate}size="2x"style={{ marginTop: '30%',marginLeft: '20%' }} /><br></br>Quizzie</NavLink>
               </div>
               </div>
               </div>
-
-            {/* </div> */}
           </div>
         </section>
         <Footer/>

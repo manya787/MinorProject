@@ -21,34 +21,14 @@
  padding-bottom: 3%;
 }
 
-/* .logo{
-  max-width: 8vw;
-  max-height: 12vh;
-  margin-left: 0%;
-} 
-.ntitle{
-font-size: calc(25px + 0.5vw);
-font-weight: bolder;
-margin-left: 0%;
-font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-.nsubtitle{
-  font-weight: 500;
-  color: #B05FF8;
-  margin-left:.2vw;
-} */
-
-/* Set a background color for the body */
 .services {
   max-width: 100%;
   background-color: #F5F2FC;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  /* color:black; */
 }
 
-/* Style the service boxes */
 .service-box1 {
   max-width: 30%;
   margin-left: 20%;
@@ -73,7 +53,6 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
   flex: 1;
   margin-bottom: 30px;
 }
-/* Style headings */
 .row h2 {
   font-size: 3.5em;
   margin-top: -5%;
@@ -83,15 +62,9 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
   margin-right: 10px;
 }
 .homecontain h2 {
-  /* font-size: 5px; */
   margin-bottom: 2em;
 } 
- /* h5{
- color:grey;
- margin-left: 2.2%;
- font-size: larger;
- margin-top: 0%;
-} */
+
 .row span{
   font-size: 1.5em;
   margin-bottom: 1em;
@@ -118,22 +91,8 @@ li{
   margin:0%;
   background-color: #F5F2FC;
   display: flex;
-  /* flex-direction: column; */
 }
 .primary-btn1{
-  /* border-radius: 30%;
-  background-color: #B05FF8;
-  margin-top: 0%;
-  font-weight: bold;
-  font-size:medium;
-  /* width:900%;
-  height: 300%; */
-  /* padding: 1%;
-   border: 0.5em;
-  border-color: black;
-  margin-right:3%;
-  margin-left:2.5%;
-  align-items: center; */ 
   font-size: 120%;
   font-weight: 600;
   padding: 0% 0%;
@@ -143,8 +102,6 @@ li{
   color: #EEEEEE;
   cursor:pointer;
   margin-left: 7.2%;
-  /* margin-right: 3%; */
-  /* margin-top: -10%; */
   &:hover{
       background-color: #bd7af9;
   }
@@ -155,22 +112,7 @@ li{
 }
 
 .primary-btn2{
- /* background-color: black;
- margin-top: 0%;
- border-radius: 30%;
- font-weight: bolder;
- font-size: medium;
- /* width:500px;
- height: 200px; */
- /* border: 0.5em;
- margin-right:30%;
- margin-left:0.5%;
- align-items: center;
- padding: 1%;
-  
-  border-color: black; */ 
   font-size: 120%;
-  /* margin:5%; */
   font-weight: 600;
   padding: -5% -8%;
   border:none;
@@ -179,7 +121,6 @@ li{
   color: #EEEEEE;
   cursor:pointer;
   margin-left: 3%;
-  
   &:hover{
       background-color: rgb(47, 46, 46);
   }
@@ -194,59 +135,46 @@ a{
       width:10%;
       height:250%;
       margin-top: -300%;
-      /* margin-left: 5%; */
       margin-right: 0%;
-      /* display: inline; */
-      /* flex-direction: row; */
 }
 .button{
   margin-top: 0.2%;
 }
 .fixed-dimensions {
-  width: 200px; /* Set the width to your desired value, e.g., 200px */
-  height: 100px; /* Set the height to your desired value, e.g., 100px */
-  background-color:black; /* Just for visibility, you can change the background color */
+  width: 200px;
+  height: 100px;
+  background-color:black;
 }
 .white-link{
-    /* margin-left:30% ; */
    margin-top:0.8% ;
    margin-bottom:20% ;
-   /* margin-right:0.55%; */
    margin-left: 4%;
    display: inline-block;
    color:black;
    font-size: large;
    font-weight: bold;
 }
-/* .container {
-  display: flex;
-  align-items: center; 
-  margin-left: 2%;
-  justify-content: space-between;
-  margin-top: 2%;
-} */
-
 .item {
-
-  /* display: flex; */
-  align-items: center; /* Vertically center align items */
-  margin-right: 10.2%; /* Adjust margin for spacing between items */
+  align-items: center; 
+  margin-right: 10.2%;
   margin-left: 0.0000000%;
   margin-top: 1%;
   flex-direction: column;
 }
 
-/* .white-link {
-  color: white;
-}
- */
 .right-aligned-image {
-  align-self: flex-end; /* Align the image to the right within the flex container */
-  margin-top: 0px; /* Add margin as needed for spacing */
+  align-self: flex-end; 
+  margin-top: 0px; 
+  animation: spin 8s linear infinite; 
+  transform-style: preserve-3d;
 }
-.homecontain{
-  display: flex;
-  align-items: center;
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
 }
 .right-aligned-image {
   max-width: 42%;
@@ -256,174 +184,159 @@ a{
   border-radius: 40%;
   border:2px solid #B05FF8;
 }
-/* br{
-  align-items: left;
-} */
+
+.homecontain{
+  display: flex;
+  align-items: center;
+}
+
 @media(max-width:2000){
   .container {
-    flex-direction: column; /* Stack elements vertically on smaller screens */
+    flex-direction: column;
   }
 
   h1 {
-    font-size: 0.99em; /* Adjust font size for h1 on smaller screens */
+    font-size: 0.99em;
     margin-right: 0;
   }
-
   .right-aligned-image {
-    margin-top: 8px; /* Add margin to the top of the image on smaller screens */
+    margin-top: 8px; 
     align-items: right;
   }
   .row span {
-    font-size: 1.2em; /* Adjust font size for smaller screens */
-    margin-bottom: 10px; /* Adjust margin for smaller screens */
+    font-size: 1.2em;
+    margin-bottom: 10px;
     margin-left: 2.8%;
-    margin-top: -3%; /* Adjust margin-top for smaller screens */
+    margin-top: -3%;
   }
   .right-aligned-image {
-    max-width: 40%; /* Adjust max-width for smaller screens */
-    margin-right: 2%; /* Adjust margin-right for smaller screens */
-    margin-top: 4%; /* Adjust margin-top for smaller screens */
+    max-width: 40%;
+    margin-right: 2%;
+    margin-top: 4%;
     border:1px solid #B05FF8;
   }
-  .primary-btn1,
+
+.primary-btn1,
 .primary-btn2 {
-  font-size: 80%; /* Adjust font size for smaller screens */
-  margin-left: 3%; /* Adjust margin for smaller screens */
-  width: 20%; /* Adjust button width for smaller screens */
-  height: 180%; /* Allow height to adjust automatically */
+  font-size: 80%;
+  margin-left: 3%; 
+  width: 20%; 
+  height: 180%;
 }
 .item {
-  flex: 0 0 48%; /* Adjust the width for smaller screens */
+  flex: 0 0 48%;
 }
 }
 @media (max-width: 1300px) {
   .container {
-    flex-direction: column; /* Stack elements vertically on smaller screens */
+    flex-direction: column; 
   }
 
   h1 {
-    font-size: 3.3em; /* Adjust font size for h1 on smaller screens */
+    font-size: 3.3em;
     margin-right: 0;
   }
 
   .right-aligned-image {
-    margin-top: 8px; /* Add margin to the top of the image on smaller screens */
+    margin-top: 8px; 
     align-items: right;
   }
   .row span {
-    font-size: 1.2em; /* Adjust font size for smaller screens */
-    margin-bottom: 10px; /* Adjust margin for smaller screens */
+    font-size: 1.2em; 
+    margin-bottom: 10px; 
     margin-left: 2.8%;
-    margin-top: -3%; /* Adjust margin-top for smaller screens */
+    margin-top: -3%; 
   }
   .right-aligned-image {
-    max-width: 40%; /* Adjust max-width for smaller screens */
-    margin-right: 2%; /* Adjust margin-right for smaller screens */
-    margin-top: 4%; /* Adjust margin-top for smaller screens */
+    max-width: 40%; 
+    margin-right: 2%; 
+    margin-top: 4%; 
     border:1px solid #B05FF8;
   }
   .primary-btn1,
 .primary-btn2 {
-  font-size: 80%; /* Adjust font size for smaller screens */
-  margin-left: 3%; /* Adjust margin for smaller screens */
-  width: 20%; /* Adjust button width for smaller screens */
-  height: 180%; /* Allow height to adjust automatically */
+  font-size: 80%; 
+  margin-left: 3%; 
+  width: 20%; 
+  height: 180%;
 }
 .item {
-  flex: 0 0 48%; /* Adjust the width for smaller screens */
+  flex: 0 0 48%;
 }
 }
 @media (max-width: 768px) {
   .container {
-    flex-direction: column; /* Stack elements vertically on smaller screens */
-    /* margin-left:10px; */
+    flex-direction: column; 
   }
-
-  /* h1 {
-    font-size: 1.5em; /* Adjust font size for h1 on smaller screens */
-    /* margin-right: 0; */
-  /* }  */
-
   .right-aligned-image {
-    margin-top: 8px; /* Add margin to the top of the image on smaller screens */
+    margin-top: 8px;
     align-items: right;
   }
   .row span {
-    font-size: 0.8em; /* Adjust font size for smaller screens */
-    margin-bottom: 10px; /* Adjust margin for smaller screens */
+    font-size: 0.8em; 
+    margin-bottom: 10px; 
     margin-left: 2.8%;
-    margin-top: -3%; /* Adjust margin-top for smaller screens */
+    margin-top: -3%; 
   }
   .right-aligned-image {
-    max-width: 30%; /* Adjust max-width for smaller screens */
-    margin-right: 2%; /* Adjust margin-right for smaller screens */
-    margin-top: 4%; /* Adjust margin-top for smaller screens */
+    max-width: 30%; 
+    margin-right: 2%; 
+    margin-top: 4%; 
     border:none;
   }
   .primary-btn1,
 .primary-btn2 {
-  font-size: 70%; /* Adjust font size for smaller screens */
-  margin-left: 5%; /* Adjust margin for smaller screens */
-  width: 20%; /* Adjust button width for smaller screens */
-  height: auto; /* Allow height to adjust automatically */
+  font-size: 70%; 
+  margin-left: 5%; 
+  width: 20%; 
+  height: auto;
 }
 .item {
-  flex: 0 0 100%; /* Stack items vertically for smaller screens */
+  flex: 0 0 100%; 
 }
 
 .Links {
-  padding: 10px; /* Reduce padding for smaller screens */
+  padding: 10px; 
 }
 
 FontAwesomeIcon {
-  font-size: 0.5em; /* Adjust icon size for smaller screens */
+  font-size: 0.5em; 
   align-items: left;
   display: flex;
   flex-direction: column;
-  /* margin-left: 2%; */
 }
 
 .white-link {
-  font-size: 10em; /* Adjust font size for smaller screens */
+  font-size: 10em; 
 }
 }
-
-
-
-
 
 @media (max-width: 480px) {
   body {
-    font-size: 12px; /* Adjust the base font size for even smaller screens */
+    font-size: 12px; 
   }
   h1 {
-    font-size: 1.8em; /* Adjust font size for h1 on even smaller screens */
+    font-size: 1.8em; 
     margin-bottom: 2em;
   }
 
   p {
-    font-size: 0.8em; /* Adjust font size for paragraphs on even smaller screens */
+    font-size: 0.8em; 
   }
   .row span {
-    font-size:0.85em; /* Adjust font size for even smaller screens */
+    font-size:0.85em;
     margin-bottom: 8px; 
     margin-left: 2.8%;
-    /* font-weight:bolder; */
-    margin-top: -8%; /* Adjust margin-top for even smaller screens */
+    margin-top: -8%;
   }
   .right-aligned-image {
-    /* max-width: 20%; 
-    margin-right: 1%; 
-    margin-top: 3%; 
-    border:none; */
     visibility: hidden;
   }
   .primary-btn1,
 .primary-btn2 {
-  font-size: 80%; /* Adjust font size for even smaller screens */
-  /* margin-left: 0.005%; Adjust margin for even smaller screens */
-  width: 40%; /* Adjust button width for even smaller screens */
-  height: 100%; /* Allow height to adjust automatically */
+  font-size: 80%;
+  width: 40%;
+  height: 100%;
   font-weight: bolder;
 }
 }

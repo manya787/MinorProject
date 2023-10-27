@@ -40,7 +40,7 @@ const Post = () => {
 return (
   <>
   <UserContext.Provider value={{state, dispatch}}>       
-<Routing/>
+    <Routing/>
      </UserContext.Provider>
      </>
    );
