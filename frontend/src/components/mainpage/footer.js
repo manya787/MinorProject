@@ -1,9 +1,3 @@
-// import React from 'react';
-// import "./footer.css";
-// import icon from "../../images/logo.jpg";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faEnvelope, faPhone,faCopyright } from "@fortawesome/free-solid-svg-icons";
-
 import React from 'react';
 import './footer.css';
 import logo from "../../images/logo.jpg"
@@ -16,6 +10,9 @@ function Footer() {
         <div className="footer-logo">
           <img src={logo} alt="CollabConnect Logo"/>
           <h4 id="purple">CollabConnect</h4>
+        </div>
+        <div className="Footer-section">
+        <NavLink className="nav-link" to="/"><h4>Home</h4></NavLink>
         </div>
         <div className="Footer-section">
         <NavLink className="nav-link" to="/aboutus"><h4>About</h4></NavLink>

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { logoutD } from './redux/apiCalls';
 
 const Container = styled.div`
-height:60px;
+height:70px;
 background-color:#smokewhite;
 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 `
@@ -63,10 +63,10 @@ justify-content:flex-end;
 `
 const MenuItemFirst = styled.div`
 width:80px;
-margin-right:10%;
+margin-right:8%;
+padding:8px;
 cursor: pointer;
 color:#00000;
-padding:10px;
 &:hover {
     color: #434242e7;
   }
@@ -84,7 +84,7 @@ const LoginNavbar = () => {
         <Container>
             <Wrapper>
                 <Left>
-                    <Link to="/" style={{textDecoration:"none"}}>
+                    <Link to="/quiz" style={{textDecoration:"none"}}>
                         <Logo>Quizzie</Logo>{/*online exam maker*/}
                     </Link>
                     <Link to="/dashboard">
@@ -95,7 +95,7 @@ const LoginNavbar = () => {
                     </Link>
                 </Left>
                 <Right>
-                    <Link to="/" style={{ textDecoration: "none", marginRight: "10%" }}>
+                    <Link to="/quiz" style={{ textDecoration: "none", marginRight: "10%" }}>
                         <MenuItemFirst><Logout style={{ verticalAlign: "middle" }} onClick={handleLogout} /> Logout</MenuItemFirst>
                     </Link>
                 </Right>

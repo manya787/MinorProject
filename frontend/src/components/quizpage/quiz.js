@@ -14,7 +14,7 @@ import ExamReview from './pages/ExamReview';
 import NotFound from './pages/NotFound';
 import QHome from './pages/QHome';
 
-function Quiz() {
+function Quizzie() {
   var currentUserUid;
 
   const userId = useSelector((state) => state.user.currentUser);
@@ -31,7 +31,7 @@ function Quiz() {
   return (
     <div>
       <Routes>
-        <Route path="/quiz" element={<QHome />}></Route>
+        {/* <Route path="/quiz" element={<QHome />}></Route> */}
         {/* <Route index element={<Home />} /> */}
         {/* <Route path="/" element={<Quiz />}></Route> */}
 
@@ -51,4 +51,4 @@ function Quiz() {
   );
 }
 
-export default Quiz;
+export default Quizzie;
