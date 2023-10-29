@@ -31,8 +31,10 @@ function Quiz() {
   return (
     <div>
       <Routes>
-        {/* <Route path="/quiz" element={<QHome />}></Route> */}
+        <Route path="/quiz" element={<QHome />}></Route>
         {/* <Route index element={<Home />} /> */}
+        {/* <Route path="/" element={<Quiz />}></Route> */}
+
         <Route path="/qlogin" element={<QLogin />} />
         <Route path="/qregister" element={<QRegister />} />
         <Route path="/dashboard" element={<RequireAuth><Dashboard CUId={currentUserUid} /></RequireAuth>} />
@@ -43,7 +45,7 @@ function Quiz() {
         <Route path="/anlyze/:id" element={<RequireAuth><Anlyze CUId={currentUserUid} /></RequireAuth>} />
         <Route path="/quiz/:id" element={<RequireAuth><QuizController CUId={currentUserUid} /></RequireAuth>} />
         <Route path="/result/:id" element={<RequireAuth><Result /></RequireAuth>} />
-        {/* <Route path='*' element={<NotFound />} /> */}
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );
