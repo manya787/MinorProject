@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import LoginNavbar from '../LoginNavbar'
 import styled from 'styled-components'
 import Table from '@mui/material/Table';
@@ -75,14 +75,29 @@ const ExamReview = () => {
         console.log("check")
     }, [])
 
+    // const getExamInfos = async () => {
+    //     const { data } = await axios.get(`http://localhost:5000/userexams/exam/${id.id}`);
+    //     console.log(data)
+    //     console.log(data[0].examReview[0].qAnswers)
+    //     setExamQuestions(data);
+    //     setIsLoading(false);
+    // }
     const getExamInfos = async () => {
-        const { data } = await axios.get(`http://localhost:5000/userexams/exam/${id.id}`);
-        console.log(data)
-        console.log(data[0].examReview[0].qAnswers)
-        setExamQuestions(data);
+        try {
+            const { data } = await axios.get(`http://localhost:5000/userexams/exam/${id.id}`);
+    
+            if (data && data[0] && data[0].examReview && data[0].examReview[0]) {
+                console.log(data[0].examReview[0].qAnswers);
+                setExamQuestions(data);
+            } else {
+                console.error("Data or its properties are undefined or empty.");
+            } 
         setIsLoading(false);
+        } catch (error) {
+            console.error("An error occurred while fetching exam data:", error);
+            setIsLoading(false);
+        }
     }
-
 
     if (isLoading) {
         return (
@@ -113,7 +128,7 @@ const ExamReview = () => {
                                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                         key={exam._id} >
                                         <TableCell component="th" scope="exam" style={{ color: "#222831", fontSize: "16px", fontWeight: "600", padding: "25px" }}>
-                                            {exam.examReview.map((examR, indexi) => (<>
+                                        {exam.examReview.map((examR, indexi) => (<>
                                                 <Label><span style={{ color: "#4285F4" }}>{"Question Title )  "}</span>{examR.qTitle}</Label>
                                                 <br /><Check type="radio" name={`${indexi + 1}`} />
                                                 <Label><span style={{ color: "#FF8800" }}>{"User Answer ) "}</span> {examR.qAnswers}</Label>
@@ -143,7 +158,7 @@ const ExamReview = () => {
                 </Wrapper>
             </Container>
         </>
-    )
+    );    
 }
 
 export default ExamReview

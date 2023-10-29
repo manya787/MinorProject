@@ -160,11 +160,25 @@ const CreateQuiz = () => {
         console.log("Check")
     }, [options, dummy, dumy]);
 
+    // const getExams = async () => {
+    //     const { data } = await axios.get('http://localhost:5000/examquestions/' + id.id);
+    //     setExamDatas(data);
+    //     console.log(data[0].options)
+    // }
     const getExams = async () => {
-        const { data } = await axios.get('http://localhost:5000/examquestions/' + id.id);
-        setExamDatas(data);
-        console.log(data[0].options)
-    }
+        try {
+            const { data } = await axios.get('http://localhost:5000/examquestions/' + id.id);
+            
+            if (data && data.length > 0) {
+                setExamDatas(data);
+                console.log(data[0].options);
+            } else {
+                console.log("No data available.");
+            }
+        } catch (error) {
+            console.error("An error occurred while fetching exam questions:", error);
+        }
+    }    
 
     const deleteQuestion = (propId) => {
         axios.delete('http://localhost:5000/examquestions/' + propId).then((response) => {
