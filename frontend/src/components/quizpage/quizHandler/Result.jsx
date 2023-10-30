@@ -26,11 +26,22 @@ const Result = () => {
     getExamNames();
   }, [setScore])
 
+  // const getExamNames = async () => {
+  //   const { data } = await axios.get(`http://localhost:5000/userexams/exam/${id.id}`);
+  //   setScore(data);
+  //   getPassGrade();
+  // }
   const getExamNames = async () => {
-    const { data } = await axios.get(`http://localhost:5000/userexams/exam/${id.id}`);
-    setScore(data);
-    getPassGrade();
+    try {
+      const { data } = await axios.get(`http://localhost:5000/userexams/exam/${id.id}`);
+      setScore(data);
+      getPassGrade();
+    } catch (error) {
+      // Handle the error, e.g., log the error or show an error message to the user.
+      console.error("Error fetching exam names:", error);
+    }
   }
+  
 
   const getPassGrade = async () => {
     await axios.get(`http://localhost:5000/exam/exam/${id.id}`).then((response) => {

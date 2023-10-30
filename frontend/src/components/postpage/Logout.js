@@ -32,7 +32,6 @@ if(res.status !== 200){
  
     return (
         <>
-        <h1>Logout page</h1>
         </>
     )
 }

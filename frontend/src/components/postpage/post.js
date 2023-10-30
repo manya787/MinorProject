@@ -3,7 +3,6 @@ import {Routes, Route } from "react-router-dom"
 // import { useDispatch } from 'react-redux';
 
 import Home from './Home';
-import Messages from './Messages';
 import MyPosts from './MyPosts';
 import CreatePost from './CreatePost';
 import Login from './Login';
@@ -21,7 +20,6 @@ const Routing = () => {
   return(
 <Routes>
            <Route path='/home' element={<Home />} />
-           <Route path='/messages' element={<Messages />} />
            <Route path='/mypost' element={<MyPosts />} />
            <Route path='/createpost' element={<CreatePost />} />
            <Route path='/login' element={<Login />} />

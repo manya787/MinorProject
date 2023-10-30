@@ -14,32 +14,23 @@ const Navbar = () => {
         <>
 <li className="nav-item">
           <NavLink className="nav-link" to="/home">Home</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/messages">Messages</NavLink>
-        </li>
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" to="/posts" role="button" data-bs-toggle="dropdown" aria-expanded="false">Post</a>
-          <ul className="dropdown-menu">
-            <li><NavLink className="dropdown-item" to="/mypost">My Posts</NavLink></li>
-            <li><NavLink className="dropdown-item" to="/createpost">Create Post</NavLink></li>
-            <li><a className="dropdown-divider"></a></li>
-          </ul>
-        </li>
-
-        <li className="nav-item">
+</li>
+<li className="nav-item">
+        <NavLink className="nav-link" to="/mypost">My Posts</NavLink>
+</li>
+<li className="nav-item">
+        <NavLink className="nav-link" to="/createpost">Create Post</NavLink>
+</li>
+<li className="nav-item">
           <NavLink className="nav-link" to="/logout">Logout</NavLink>
-        </li>
+</li>
         </>
       )
   } else {
     return (
       <>
-<li className="nav-item">
-          <NavLink className="nav-link" to="/home">Home</NavLink>
-        </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/messages">Messages</NavLink>
+          <NavLink className="nav-link" to="/home">Home</NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="/login">Login</NavLink>
