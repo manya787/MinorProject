@@ -1,33 +1,33 @@
-const dotenv = require("dotenv");
-const mongoose = require("mongoose");
-const express = require("express");
-const app = express();
+// const dotenv = require("dotenv");
+// const mongoose = require("mongoose");
+// const express = require("express");
+// const app = express();
 
-dotenv.config();
+// dotenv.config();
 
-dotenv.config({ path: "/.env" });
-
-
-require("./db/conn");
+// dotenv.config({ path: "/.env" });
 
 
-app.use(express.json());
-
-// we link router files to make route easy
-app.use(require("./router/auth"));
-
-const PORT = process.env.PORT;
+// require("./db/conn");
 
 
-app.get("/signin", (req, res) => {
-  res.send(`Hello`);
-});
+// app.use(express.json());
 
-app.get("/signup", (req, res) => {
-  res.send(`Hello`);
-});
+// // we link router files to make route easy
+// app.use(require("./router/auth"));
+
+// const PORT = process.env.PORT;
 
 
-app.listen(PORT, () => {
-  console.log(`server is running at ${PORT}`);
-});
+// app.get("/signin", (req, res) => {
+//   res.send(`Hello`);
+// });
+
+// app.get("/signup", (req, res) => {
+//   res.send(`Hello`);
+// });
+
+
+// app.listen(PORT, () => {
+//   console.log(`server is running at ${PORT}`);
+// });

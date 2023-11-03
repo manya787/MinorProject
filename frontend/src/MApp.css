@@ -165,7 +165,7 @@ a{
 .right-aligned-image {
   align-self: flex-end; 
   margin-top: 0px; 
-  animation: spin 8s linear infinite; 
+  animation: spin 12s linear infinite; 
   transform-style: preserve-3d;
 }
 @keyframes spin {
