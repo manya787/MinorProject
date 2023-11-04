@@ -85,11 +85,13 @@
 // //    }   catch (err){
 // //    console.log(err);
 
-
 const mongoose = require("mongoose");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const validator = require("validator");
+const crypto = require("crypto");
+
 
 const userschema = new mongoose.Schema({
     name: {
@@ -121,11 +123,14 @@ const userschema = new mongoose.Schema({
             token: {
                 type: String,
                 required: true
-            }
-        }
-    ]
+            },
+        },
+    ],
+    resetPasswordToken: String,
+  resetPasswordExpire: Date,
 });
 
+// we are hasing the password
 userschema.pre('save', async function (next) {
     console.log("hi from inside");
     if (this.isModified('password')) {
@@ -155,6 +160,23 @@ userschema.methods.generateAuthToken = async function () {
         console.log(err);
     }
 };
+
+userschema.methods.getResetPasswordToken = function () {
+    //Generating Token:-
+    const resetToken = crypto.randomBytes(20).toString("hex"); //only randomBytes :- <buffer> 9c 35 36 78 </bufer>
+    //tostring()+> 75r37rtie@@^$&#@)$ , toString("hex")=> 35324actr365bewrh834b3jreuyf9d
+  
+    //Hashinf and adding to userschema
+    this.resetPasswordToken = crypto
+      .createHash("sha256")
+      .update(resetToken)
+      .digest("hex");
+  
+    this.resetPasswordExpire = Date.now() + 15 * 60 * 1000; //converting it into millisec
+  
+    return resetToken;
+  };
+  
 
 const User = mongoose.model('PUSER', userschema); // Updated collection name and model name
 module.exports = User;

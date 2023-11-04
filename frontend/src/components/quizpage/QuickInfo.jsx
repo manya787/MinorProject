@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import { Person, School, Group } from '@mui/icons-material';
 

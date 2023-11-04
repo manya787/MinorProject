@@ -11,6 +11,8 @@ dotenv.config()
 require('../db/conn');
 const User = require("../model/userschema");
 const Post = require("../model/postschema");
+const { forgotPassword } = require("../controllers/usercontroller");
+
 
 router.get('/', (req, res) => {
     res.send(`Hello rourt`);
@@ -211,6 +213,8 @@ router.post('/post',async (req, res) => {
               res.clearCookie('jwtoken',{path:'/'});
               res.status(200).send('User Logout');
           });
+
+router.post("/password/forgot", forgotPassword);
             
     
 module.exports = router;

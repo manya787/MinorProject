@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components'
 import FeaturesItem from './FeaturesItem';
 import { features } from './Data'

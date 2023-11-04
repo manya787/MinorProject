@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "http://localhost:8000",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -69,6 +69,8 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/preset-react": "^7.22.5",
     "@storybook/preset-typescript": "^3.0.0",
-    "@types/react-redux": "^7.1.28"
+    "@types/jest": "^29.5.7",
+    "@types/react-redux": "^7.1.28",
+    "jest": "^27.5.1"
   }
 }

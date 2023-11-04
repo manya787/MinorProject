@@ -1,10 +1,10 @@
-import Navbar from '../Navbar'
-import styled from 'styled-components'
-import React, { useState, useEffect, useRef } from 'react'
+import Navbar from "../Navbar";
+import styled from "styled-components";
+import React, { useState, useEffect, useRef } from "react";
 import lottie from "lottie-web";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
-import { Email, Person, Key } from '@mui/icons-material'; // Import MUI Icons
+import axios from "axios";
+import { Email, Person, Key } from "@mui/icons-material"; // Import MUI Icons
 
 const Container = styled.div`
   width: 100%;
@@ -12,9 +12,14 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(245,242,252);
-background: linear-gradient(90deg, rgba(245,242,252,1) 0%, rgba(245,242,252,1) 0%, rgba(221,191,248,1) 100%);
-`
+  background: rgb(245, 242, 252);
+  background: linear-gradient(
+    90deg,
+    rgba(245, 242, 252, 1) 0%,
+    rgba(245, 242, 252, 1) 0%,
+    rgba(221, 191, 248, 1) 100%
+  );
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -26,26 +31,26 @@ const Wrapper = styled.div`
   padding: 20px;
   background-color: white;
   border-radius: 10px;
-`
+`;
 
 const Form = styled.form`
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 const InputWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
   margin-bottom: 20px;
-`
+`;
 
 const InputIcon = styled.div`
   margin-right: 10px;
-  color: #B05FF8;
-`
+  color: #b05ff8;
+`;
 
 const Input = styled.input`
   flex: 1;
@@ -54,23 +59,23 @@ const Input = styled.input`
   border: 1px solid #ccc; /* Add a light border color */
   border-radius: 5px;
   outline: none;
-`
+`;
 
 const Button = styled.button`
-background-color: #B05FF8;
-width: 100%;
-color: white;
-border: none;
-border-radius: 15px;
-padding: 10px;
-cursor: pointer;
-font-size: 18px;
-margin-top: 10px;
-transition: background-color 0.3s ease;
-&:hover {
-  background-color: #bd7af9;
-}
-`
+  background-color: #b05ff8;
+  width: 100%;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #bd7af9;
+  }
+`;
 
 const FormWrapper = styled.div`
   flex: 1;
@@ -80,15 +85,15 @@ const FormWrapper = styled.div`
   flex-wrap: wrap;
   animation: border 0.5s linear;
 
-@keyframes border {
-  0% {
-    transform: translateX(-100%);
+  @keyframes border {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
   }
-  100% {
-    transform: translateX(0%);
-  }
-}
-`
+`;
 
 const ImageContainer = styled.div`
   flex: 1;
@@ -97,28 +102,27 @@ const ImageContainer = styled.div`
   align-items: center;
   animation: border-line 0.5s linear;
 
-@keyframes border-line {
-  0% {
-    transform: translateX(100%);
+  @keyframes border-line {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-0%);
+    }
   }
-  100% {
-    transform: translateX(-0%);
-  }
-}
 `;
 
-
 const QRegister = () => {
-  const container = useRef(null)
-useEffect(() => {
-      lottie.loadAnimation({
-            container: container.current,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            animationData: require('./homelottie3.json')
-      })
-}, [])
+  const container = useRef(null);
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: container.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: require("./homelottie3.json"),
+    });
+  }, []);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -134,7 +138,7 @@ useEffect(() => {
       password: pass,
     };
 
-    axios.post("http://localhost:5000/users/", registered).then((response) => {
+    axios.post("http://localhost:8000/users/", registered).then((response) => {
       console.log(response.status);
       console.log(response.data);
     });
@@ -149,7 +153,9 @@ useEffect(() => {
           <FormWrapper>
             <Form onSubmit={handleRegister}>
               <InputWrapper>
-                <InputIcon><Email /></InputIcon>
+                <InputIcon>
+                  <Email />
+                </InputIcon>
                 <Input
                   placeholder="Email (username)"
                   type="email"
@@ -158,7 +164,9 @@ useEffect(() => {
                 />
               </InputWrapper>
               <InputWrapper>
-                <InputIcon><Person /></InputIcon>
+                <InputIcon>
+                  <Person />
+                </InputIcon>
                 <Input
                   placeholder="First Name"
                   type="text"
@@ -167,7 +175,9 @@ useEffect(() => {
                 />
               </InputWrapper>
               <InputWrapper>
-                <InputIcon><Person /></InputIcon>
+                <InputIcon>
+                  <Person />
+                </InputIcon>
                 <Input
                   placeholder="Last Name"
                   type="text"
@@ -176,7 +186,9 @@ useEffect(() => {
                 />
               </InputWrapper>
               <InputWrapper>
-                <InputIcon><Key /></InputIcon>
+                <InputIcon>
+                  <Key />
+                </InputIcon>
                 <Input
                   placeholder="Password"
                   type="password"
@@ -188,7 +200,7 @@ useEffect(() => {
             </Form>
           </FormWrapper>
           <ImageContainer>
-          <div ref={container}></div>
+            <div ref={container}></div>
           </ImageContainer>
         </Wrapper>
       </Container>

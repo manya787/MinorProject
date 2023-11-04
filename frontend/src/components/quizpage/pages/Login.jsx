@@ -1,12 +1,12 @@
-import Navbar from '../Navbar';
-import styled from 'styled-components'
-import React, { useState, useEffect, useRef } from 'react'
+import Navbar from "../Navbar";
+import styled from "styled-components";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/apiCalls";
 import lottie from "lottie-web";
-import { Email, LockOpen } from '@mui/icons-material'
+import { Email, LockOpen } from "@mui/icons-material";
 
 const Container = styled.div`
   width: 100%;
@@ -14,9 +14,14 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(221,191,248);
-background: linear-gradient(90deg, rgba(221,191,248,1) 0%, rgba(245,242,252,1) 100%, rgba(245,242,252,1) 100%);
-`
+  background: rgb(221, 191, 248);
+  background: linear-gradient(
+    90deg,
+    rgba(221, 191, 248, 1) 0%,
+    rgba(245, 242, 252, 1) 100%,
+    rgba(245, 242, 252, 1) 100%
+  );
+`;
 
 const Wrapper = styled.div`
   display: flex; /* Added */
@@ -28,7 +33,7 @@ const Wrapper = styled.div`
   padding: 20px;
   background-color: white;
   border-radius: 10px;
-`
+`;
 
 const Form = styled.form`
   flex: 1; /* Added to take up remaining space */
@@ -36,27 +41,27 @@ const Form = styled.form`
   flex-direction: column;
   animation: border 0.5s linear;
 
-@keyframes border {
-  0% {
-    transform: translateX(-100%);
+  @keyframes border {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
   }
-  100% {
-    transform: translateX(0%);
-  }
-}
-`
+`;
 
 const InputWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-`
+`;
 
 const InputIcon = styled.div`
-color: #B05FF8;
+  color: #b05ff8;
   flex: 0 0 auto;
   margin-right: 10px;
-`
+`;
 
 const Input = styled.input`
   flex: 1;
@@ -64,10 +69,10 @@ const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
-`
+`;
 
 const Button = styled.button`
-  background-color: #B05FF8;
+  background-color: #b05ff8;
   color: white;
   border: none;
   border-radius: 15px;
@@ -79,7 +84,7 @@ const Button = styled.button`
   &:hover {
     background-color: #bd7af9;
   }
-`
+`;
 
 const Link = styled.a`
   margin-top: 20px;
@@ -97,27 +102,27 @@ const ImageContainer = styled.div`
   overflow: hidden;
   animation: border-line 0.5s linear;
 
-@keyframes border-line {
-  0% {
-    transform: translateX(100%);
+  @keyframes border-line {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-0%);
+    }
   }
-  100% {
-    transform: translateX(-0%);
-  }
-}
 `;
 
 const QLogin = () => {
-  const container = useRef(null)
-useEffect(() => {
-      lottie.loadAnimation({
-            container: container.current,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            animationData: require('./homelottie3.json')
-      })
-}, [])
+  const container = useRef(null);
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: container.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: require("./homelottie3.json"),
+    });
+  }, []);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -131,7 +136,10 @@ useEffect(() => {
     };
 
     try {
-      const response = await axios.post("http://localhost:5000/users/login", userCheck);
+      const response = await axios.post(
+        "http://localhost:8000/users/login",
+        userCheck
+      );
       console.log(response.status);
       console.log(response.data);
       login(dispatch, { email, password });
@@ -149,23 +157,39 @@ useEffect(() => {
         <Wrapper>
           <Form onSubmit={handleLogin}>
             <InputWrapper>
-              <InputIcon><Email /></InputIcon>
-              <Input placeholder="Email" type="email" onChange={e => setEmail(e.target.value)} required />
+              <InputIcon>
+                <Email />
+              </InputIcon>
+              <Input
+                placeholder="Email"
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </InputWrapper>
             <InputWrapper>
-              <InputIcon><LockOpen /></InputIcon>
-              <Input placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} required />
+              <InputIcon>
+                <LockOpen />
+              </InputIcon>
+              <Input
+                placeholder="Password"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
             </InputWrapper>
             <Button type="submit">Login</Button>
-            <Link onClick={() => navigate("/qregister")}>Don't have an account? Signup</Link>
+            <Link onClick={() => navigate("/qregister")}>
+              Don't have an account? Signup
+            </Link>
           </Form>
           <ImageContainer>
-          <div ref={container}></div>
+            <div ref={container}></div>
           </ImageContainer>
         </Wrapper>
       </Container>
     </>
-  )
-}
+  );
+};
 
 export default QLogin;
