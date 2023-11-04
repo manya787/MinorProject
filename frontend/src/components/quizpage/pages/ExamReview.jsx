@@ -75,7 +75,7 @@ const ExamReview = () => {
   }, []);
 
   // const getExamInfos = async () => {
-  //     const { data } = await axios.get(`http://localhost:8000/userexams/exam/${id.id}`);
+  //     const { data } = await axios.get(`http://localhost:5000/userexams/exam/${id.id}`);
   //     console.log(data)
   //     console.log(data[0].examReview[0].qAnswers)
   //     setExamQuestions(data);
@@ -84,7 +84,7 @@ const ExamReview = () => {
   const getExamInfos = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/userexams/exam/${id.id}`
+        `http://localhost:5000/userexams/exam/${id.id}`
       );
 
       if (data && data[0] && data[0].examReview && data[0].examReview[0]) {

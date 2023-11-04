@@ -63,13 +63,13 @@ const Dashboard = (CUId) => {
   const [dummy, setDummy] = useState(0);
 
   const getExamNames = async () => {
-    const { data } = await axios.get(`http://localhost:8000/exam/${CUId.CUId}`);
+    const { data } = await axios.get(`http://localhost:5000/exam/${CUId.CUId}`);
     setExamNameStorage(data);
     setIsLoading(false);
   };
 
   const deleteExam = (id) => {
-    axios.delete(`http://localhost:8000/exam/${id}`).then((response) => {
+    axios.delete(`http://localhost:5000/exam/${id}`).then((response) => {
       console.log(response.status);
       console.log(response.data);
     });
@@ -90,7 +90,7 @@ const Dashboard = (CUId) => {
         examname: examName,
       };
       console.log(newExam);
-      axios.post("http://localhost:8000/exam/", newExam).then((response) => {
+      axios.post("http://localhost:5000/exam/", newExam).then((response) => {
         console.log(response.status);
         console.log(response.data);
       });
@@ -239,7 +239,7 @@ const Dashboard = (CUId) => {
                     scope="row"
                     onClick={() => {
                       navigator.clipboard.writeText(
-                        "http://localhost:8000/quiz/" + name._id
+                        "http://localhost:5000/quiz/" + name._id
                       );
                     }}
                   >

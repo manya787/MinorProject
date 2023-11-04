@@ -5,6 +5,7 @@ import {Routes, Route } from "react-router-dom"
 import Home from './Home';
 import MyPosts from './MyPosts';
 import CreatePost from './CreatePost';
+import Homepage from './Pages/HomePage';
 import Login from './Login';
 import Logout from './Logout';
 import Signup from './Signup';
@@ -22,6 +23,7 @@ const Routing = () => {
            <Route path='/home' element={<Home />} />
            <Route path='/mypost' element={<MyPosts />} />
            <Route path='/createpost' element={<CreatePost />} />
+           <Route path='/messages' element={<Homepage />} />
            <Route path='/login' element={<Login />} />
            <Route path='/logout' element={<Logout />} />
            <Route path='/signup' element={<Signup />} />
@@ -39,7 +41,7 @@ return (
   <>
   <UserContext.Provider value={{state, dispatch}}>       
     <Routing/>
-     </UserContext.Provider>
+    </UserContext.Provider>
      </>
    );
 }

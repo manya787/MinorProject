@@ -84,7 +84,7 @@ const Question = ({
 
   const handleCreatorUser = async () => {
     const { data } = await axios.get(
-      "http://localhost:8000/exam/exam/" + id.id
+      "http://localhost:5000/exam/exam/" + id.id
     );
     setPass(data[0].creatorUserId == userId);
     setIsLoading(false);
@@ -125,7 +125,7 @@ const Question = ({
         grade: score,
       };
       axios
-        .patch(`http://localhost:8000/userexams/${exam_id}`, userExam)
+        .patch(`http://localhost:5000/userexams/${exam_id}`, userExam)
         .then((response) => {
           console.log(response.status);
           console.log(response.data);

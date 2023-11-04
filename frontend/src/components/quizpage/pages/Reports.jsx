@@ -59,14 +59,14 @@ const Reports = (CUId) => {
 
   const getUserDatas = async () => {
     const { data } = await axios.get(
-      `http://localhost:8000/userexams/` + CUId.CUId
+      `http://localhost:5000/userexams/` + CUId.CUId
     );
     setUserDatas(data);
     console.log(data);
   };
 
   const getExamDatas = async () => {
-    await axios.get(`http://localhost:8000/exam`).then((response) => {
+    await axios.get(`http://localhost:5000/exam`).then((response) => {
       setExamDatas(response.data);
       console.log(response.data);
       setIsLoading(false);
