@@ -1,7 +1,9 @@
-import Chat from "../model/chatModel.js";
-import User from "../model/userModel.js";
-import Message from "../model/messageModel.js";
-
+// import Chat from "../model/chatModel.js";
+// import User from "../model/userModel.js";
+// import Message from "../model/messageModel.js";
+const Chat = require("../model/chatModel.js");
+const User = require("../model/userModel.js");
+const Message = require("../model/messageModel.js");
 
 const allMessages = async (req, res) => {
   try {
@@ -52,4 +54,5 @@ const sendMessage = async (req, res) => {
   }
 };
 
-export { allMessages, sendMessage };
+// export { allMessages, sendMessage };
+module.exports = { allMessages, sendMessage };

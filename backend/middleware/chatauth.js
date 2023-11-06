@@ -1,8 +1,8 @@
-import User from "../model/userModel.js";
-import jwt from 'jsonwebtoken';
+// import User from "../model/userModel.js";
+// import jwt from 'jsonwebtoken';
 
-// const User = require('../model/userModel.js');
-// const jwt = require('jsonwebtoken');
+const User = require('../model/userModel.js');
+const jwt = require('jsonwebtoken');
 
 
 const protect = async (req, res, next) => {
@@ -37,6 +37,6 @@ const protect = async (req, res, next) => {
   }
 };
 
-export  { protect };
+// export  { protect };
 
-// module.exports =  protect ;
+module.exports =  protect ;

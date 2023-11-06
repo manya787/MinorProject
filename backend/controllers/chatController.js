@@ -1,7 +1,7 @@
-import Chat from "../model/chatModel.js";
-import User from "../model/userModel.js";
-// const Chat = require('../model/chatModel.js');
-// const User = require('../model/userModel.js');
+// import Chat from "../model/chatModel.js";
+// import User from "../model/userModel.js";
+const Chat = require('../model/chatModel.js');
+const User = require('../model/userModel.js');
 
 
 //@description     Create or fetch One to One Chat
@@ -198,15 +198,7 @@ const addToGroup =async (req, res) => {
   }
 };
 
-export  {
-  accessChat,
-  fetchChats,
-  createGroupChat,
-  renameGroup,
-  addToGroup,
-  removeFromGroup,
-};
-// module.exports = {
+// export  {
 //   accessChat,
 //   fetchChats,
 //   createGroupChat,
@@ -214,3 +206,11 @@ export  {
 //   addToGroup,
 //   removeFromGroup,
 // };
+module.exports = {
+  accessChat,
+  fetchChats,
+  createGroupChat,
+  renameGroup,
+  addToGroup,
+  removeFromGroup,
+};

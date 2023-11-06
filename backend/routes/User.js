@@ -1,9 +1,7 @@
-// const express = require('express')
-// const bcrypt = require('bcrypt');
-// const User = require('../model/user')
-import express from 'express';
-import bcrypt from 'bcrypt';
-import User from '../model/user';
+const express = require('express')
+const bcrypt = require('bcrypt');
+const User = require('../model/user')
+
 const router = express.Router()
 
 router.get('/', (req, resp) => {
@@ -90,4 +88,5 @@ router.delete('/:id', (req, resp) => {
         })
 })
 
-export default router;
+// export default router;
+module.exports = router;

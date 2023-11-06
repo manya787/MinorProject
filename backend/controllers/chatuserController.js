@@ -1,7 +1,7 @@
-// const generateToken = require("../config/generateToken.js");
-// const User = require("../model/userModel.js");
-import { generateToken } from "../config/generateToken.js";
-import User from "../model/userModel.js";
+const generateToken = require("../config/generateToken.js");
+const User = require("../model/userModel.js");
+// import { generateToken } from "../config/generateToken.js";
+// import User from "../model/userModel.js";
 
 
 const allUsers = async (req, res) => {
@@ -84,6 +84,6 @@ const loginController = async (req, res) => {
   }
 };
 
-export { registerController, loginController, allUsers };
+// export { registerController, loginController, allUsers };
 
-//module.exports = { registerController, loginController, allUsers };
+module.exports = { registerController, loginController, allUsers };
