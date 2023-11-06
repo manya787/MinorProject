@@ -138,7 +138,7 @@ const QRegister = () => {
       password: pass,
     };
 
-    axios.post("http://localhost:5000/users/", registered).then((response) => {
+    axios.post("http://localhost:8001/users/", registered).then((response) => {
       console.log(response.status);
       console.log(response.data);
     });

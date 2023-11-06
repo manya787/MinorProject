@@ -27,14 +27,14 @@ const Result = () => {
   }, [setScore]);
 
   // const getExamNames = async () => {
-  //   const { data } = await axios.get(`http://localhost:5000/userexams/exam/${id.id}`);
+  //   const { data } = await axios.get(`http://localhost:8001/userexams/exam/${id.id}`);
   //   setScore(data);
   //   getPassGrade();
   // }
   const getExamNames = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/userexams/exam/${id.id}`
+        `http://localhost:8001/userexams/exam/${id.id}`
       );
       setScore(data);
       getPassGrade();
@@ -46,7 +46,7 @@ const Result = () => {
 
   const getPassGrade = async () => {
     await axios
-      .get(`http://localhost:5000/exam/exam/${id.id}`)
+      .get(`http://localhost:8001/exam/exam/${id.id}`)
       .then((response) => {
         setPassGrade(response.data);
       });

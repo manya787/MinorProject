@@ -46,7 +46,7 @@ exports.forgotPassword = async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   //mail ke through link bhejna
-  //    const resetPasswordUrl = `http://localhost/api/v1/password/reset/${resetToken}`//kya pta host aur http kya hai
+    //  const resetPasswordUrl = `http://localhost/api/v1/password/reset/${resetToken}`//kya pta host aur http kya hai
   const resetPasswordUrl = `${req.protocol}://${req.get(
     "host"
   )}/api/v1/password/reset/${resetToken}`;
@@ -69,4 +69,5 @@ exports.forgotPassword = async (req, res, next) => {
     await user.save({ validateBeforeSave: false });
   }
 };
+
 

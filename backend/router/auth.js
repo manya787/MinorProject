@@ -1,10 +1,11 @@
-const jwt = require('jsonwebtoken'); 
+//const jwt = require('jsonwebtoken'); 
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const dotenv = require("dotenv");
 const authenticate = require("../middleware/authenticate");
 const req = require( "express");
+const uuid = require("uuid"); 
 
 dotenv.config()
 
@@ -33,7 +34,8 @@ router.post('/register', async (req, res) => {
 }else if( password != cpassword ){
     return res.status(422).json({ error: "password are not matching"});
 }else {
-    const user = new User({ name, email, phone, work, password, cpassword });
+    const user_id = uuid.v4();
+    const user = new User({ name, email, phone, work, password, cpassword,user_id });
 
 await user.save();
 

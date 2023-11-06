@@ -61,7 +61,7 @@ function SideDrawer() {
       toast({
         title: "Please Enter something in search",
         status: "warning",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "top-left",
       });
@@ -74,11 +74,14 @@ function SideDrawer() {
       const config = {
         headers: {
           Authorization: `Bearer ${user.token}`,
-          "Access-Control-Allow-Origin":"*"
+          "Access-Control-Allow-Origin": "*",
         },
       };
 
-      const { data } = await axios.get(`http://localhost:5000/user?search=${search}`, config);
+      const { data } = await axios.get(
+        `http://localhost:8001/user?search=${search}`,
+        config
+      );
 
       setLoading(false);
       setSearchResult(data);
@@ -87,7 +90,7 @@ function SideDrawer() {
         title: "Error Occured!",
         description: "Failed to Load the Search Results",
         status: "error",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom-left",
       });
@@ -103,10 +106,14 @@ function SideDrawer() {
         headers: {
           "Content-type": "application/json",
           Authorization: `Bearer ${user.token}`,
-          "Access-Control-Allow-Origin":"*"
+          "Access-Control-Allow-Origin": "*",
         },
       };
-      const { data } = await axios.post(`http://localhost:5000/chat`, { userId }, config);
+      const { data } = await axios.post(
+        `http://localhost:8001/chat`,
+        { userId },
+        config
+      );
 
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
       setSelectedChat(data);
@@ -117,7 +124,7 @@ function SideDrawer() {
         title: "Error fetching the chat",
         description: error.message,
         status: "error",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom-left",
       });
@@ -127,7 +134,11 @@ function SideDrawer() {
   return (
     <>
       <Box
-        style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
         bg="white"
         w="100%"
         p="5px 10px 5px 10px"

@@ -9,7 +9,6 @@ import GroupChatModal from "./miscellaneous/GroupChatModal";
 import { Button } from "@chakra-ui/react";
 import { ChatState } from "../Context/ChatProvider";
 
-
 const MyChats = ({ fetchAgain }) => {
   const [loggedUser, setLoggedUser] = useState();
 
@@ -17,26 +16,23 @@ const MyChats = ({ fetchAgain }) => {
 
   const toast = useToast();
 
-    const fetchChats = async () => {
-  
-      
-
+  const fetchChats = async () => {
     try {
       const config = {
         headers: {
           Authorization: `Bearer ${user.token}`,
-          "Access-Control-Allow-Origin":"*"
+          "Access-Control-Allow-Origin": "*",
         },
       };
 
-      const { data } = await axios.get("http://localhost:5000/chat", config);
+      const { data } = await axios.get("http://localhost:8001/chat", config);
       setChats(data);
     } catch (error) {
       toast({
         title: "Error Occured!",
         description: "Failed to Load the chats",
         status: "error",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom-left",
       });
@@ -49,10 +45,9 @@ const MyChats = ({ fetchAgain }) => {
     // eslint-disable-next-line
   }, [fetchAgain]);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchChats();
-  },[])
-
+  }, []);
 
   console.log(chats);
   return (

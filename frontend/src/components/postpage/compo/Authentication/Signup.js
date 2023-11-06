@@ -5,7 +5,7 @@ import { VStack } from "@chakra-ui/layout";
 import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
 import { useState } from "react";
-import {  useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 const Signup = () => {
   const [show, setShow] = useState(false);
@@ -26,7 +26,7 @@ const Signup = () => {
       toast({
         title: "Please Fill all the Feilds",
         status: "warning",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom",
       });
@@ -37,7 +37,7 @@ const Signup = () => {
       toast({
         title: "Passwords Do Not Match",
         status: "warning",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom",
       });
@@ -48,11 +48,11 @@ const Signup = () => {
       const config = {
         headers: {
           "Content-type": "application/json",
-          "Access-Control-Allow-Origin":"*"
+          "Access-Control-Allow-Origin": "*",
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/user/register",
+        "http://localhost:8001/user/register",
         {
           name,
           email,
@@ -65,7 +65,7 @@ const Signup = () => {
       toast({
         title: "Registration Successful",
         status: "success",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom",
       });
@@ -77,7 +77,7 @@ const Signup = () => {
         title: "Error Occured!",
         description: error.response.data.message,
         status: "error",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom",
       });
@@ -91,7 +91,7 @@ const Signup = () => {
       toast({
         title: "Please Select an Image!",
         status: "warning",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom",
       });
@@ -121,7 +121,7 @@ const Signup = () => {
       toast({
         title: "Please Select an Image!",
         status: "warning",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom",
       });
@@ -131,7 +131,7 @@ const Signup = () => {
   };
 
   return (
-    <VStack >
+    <VStack>
       <FormControl id="first-name" isRequired>
         <FormLabel>Name</FormLabel>
         <Input

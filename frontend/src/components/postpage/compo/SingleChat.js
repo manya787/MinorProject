@@ -17,13 +17,12 @@ import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
 import { useSocket } from "../Socket";
 import { useNavigate } from "react-router-dom";
-const ENDPOINT = "http://localhost:5000"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
+const ENDPOINT = "http://localhost:8001"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
 let sc, selectedChatCompare;
-
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [pic, setPic] = useState();
-  const { socket} = useSocket();  
+  const { socket } = useSocket();
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [newMessage, setNewMessage] = useState("");
@@ -31,7 +30,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [typing, setTyping] = useState(false);
   const [istyping, setIsTyping] = useState(false);
   const toast = useToast();
-  const nav =  useNavigate();
+  const nav = useNavigate();
 
   const defaultOptions = {
     loop: true,
@@ -51,14 +50,14 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       const config = {
         headers: {
           Authorization: `Bearer ${user.token}`,
-          "Access-Control-Allow-Origin":"*"
+          "Access-Control-Allow-Origin": "*",
         },
       };
 
       setLoading(true);
 
       const { data } = await axios.get(
-        `http://localhost:5000/message/${selectedChat._id}`,
+        `http://localhost:8001/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -70,7 +69,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         title: "Error Occured!",
         description: "Failed to Load the Messages",
         status: "error",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom",
       });
@@ -86,12 +85,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           headers: {
             "Content-type": "application/json",
             Authorization: `Bearer ${user.token}`,
-            "Access-Control-Allow-Origin":"*"
+            "Access-Control-Allow-Origin": "*",
           },
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "http://localhost:5000/message",
+          "http://localhost:8001/message",
           {
             content: newMessage,
             chatId: selectedChat,
@@ -105,7 +104,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           title: "Error Occured!",
           description: "Failed to send the Message",
           status: "error",
-          duration: 5000,
+          duration: 8001,
           isClosable: true,
           position: "bottom",
         });
@@ -121,12 +120,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           headers: {
             "Content-type": "application/json",
             Authorization: `Bearer ${user.token}`,
-            "Access-Control-Allow-Origin":"*"
+            "Access-Control-Allow-Origin": "*",
           },
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "http://localhost:5000/message",
+          "http://localhost:8001/message",
           {
             content: newMessage ?? pic,
             chatId: selectedChat,
@@ -140,7 +139,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           title: "Error Occured!",
           description: "Failed to send the Message",
           status: "error",
-          duration: 5000,
+          duration: 8001,
           isClosable: true,
           position: "bottom",
         });
@@ -182,9 +181,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   });
 
   const typingHandler = (e) => {
-  
-      setNewMessage(e.target.value);
-    
+    setNewMessage(e.target.value);
 
     if (!socketConnected) return;
 
@@ -205,8 +202,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   };
 
   const VideoCall = () => {
-
-    sc.emit("join-room",{emailId:user.email ,roomId:user._id})
+    sc.emit("join-room", { emailId: user.email, roomId: user._id });
   };
 
   const postDetails = (pics) => {
@@ -223,7 +219,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       .then((res) => res.json())
       .then((data) => {
         setPic(data.url.toString());
-        setNewMessage(`<a href="${data.url.toString()}" target="_blank">Click to download</a>`)
+        setNewMessage(
+          `<a href="${data.url.toString()}" target="_blank">Click to download</a>`
+        );
         // console.log(data.url.toString());
       })
       .catch((err) => {
@@ -231,16 +229,19 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       });
   };
 
-  const handleRoomJoin = useCallback( ({roomId} ) =>{
-      nav(`/call/${roomId}`)
-  },[nav]);
+  const handleRoomJoin = useCallback(
+    ({ roomId }) => {
+      nav(`/call/${roomId}`);
+    },
+    [nav]
+  );
 
-  useEffect(()=>{
-    sc.on("joined-room",handleRoomJoin);
-    return () =>{
-      sc.off('joined-room',handleRoomJoin);
-    }
-  },[sc,handleRoomJoin])
+  useEffect(() => {
+    sc.on("joined-room", handleRoomJoin);
+    return () => {
+      sc.off("joined-room", handleRoomJoin);
+    };
+  }, [sc, handleRoomJoin]);
 
   return (
     <>
@@ -370,7 +371,10 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 >
                   <input
                     type="file"
-                    onChange={(e) => {postDetails(e.target.files[0]); sendMessageButton()}}
+                    onChange={(e) => {
+                      postDetails(e.target.files[0]);
+                      sendMessageButton();
+                    }}
                   />
                   {/* <LinkIcon w={6} h={6} /> */}
                 </div>

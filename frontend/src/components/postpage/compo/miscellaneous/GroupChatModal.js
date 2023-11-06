@@ -36,7 +36,7 @@ const GroupChatModal = ({ children }) => {
       toast({
         title: "User already added",
         status: "warning",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "top",
       });
@@ -57,10 +57,13 @@ const GroupChatModal = ({ children }) => {
       const config = {
         headers: {
           Authorization: `Bearer ${user.token}`,
-          "Access-Control-Allow-Origin":"*"
+          "Access-Control-Allow-Origin": "*",
         },
       };
-      const { data } = await axios.get(`http://localhost:5000/user?search=${search}`, config);
+      const { data } = await axios.get(
+        `http://localhost:8001/user?search=${search}`,
+        config
+      );
       console.log(data);
       setLoading(false);
       setSearchResult(data);
@@ -69,7 +72,7 @@ const GroupChatModal = ({ children }) => {
         title: "Error Occured!",
         description: "Failed to Load the Search Results",
         status: "error",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom-left",
       });
@@ -80,20 +83,18 @@ const GroupChatModal = ({ children }) => {
     setSelectedUsers(selectedUsers.filter((sel) => sel._id !== delUser._id));
   };
 
-  
   const fetchChats = async () => {
-    
     try {
       const config = {
         headers: {
           Authorization: `Bearer ${user.token}`,
-          "Access-Control-Allow-Origin":"*"
+          "Access-Control-Allow-Origin": "*",
         },
       };
-      
-      const { data } = await axios.get("http://localhost:5000/chat", config);
+
+      const { data } = await axios.get("http://localhost:8001/chat", config);
       console.log(data);
-    
+
       setChats(data);
       console.log("called");
     } catch (error) {
@@ -101,22 +102,19 @@ const GroupChatModal = ({ children }) => {
         title: "Error Occured!",
         description: "Failed to Load the chats",
         status: "error",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom-left",
       });
     }
   };
 
-
-  
-
   const handleSubmit = async () => {
     if (!groupChatName || !selectedUsers) {
       toast({
         title: "Please fill all the feilds",
         status: "warning",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "top",
       });
@@ -127,11 +125,11 @@ const GroupChatModal = ({ children }) => {
       const config = {
         headers: {
           Authorization: `Bearer ${user.token}`,
-          "Access-Control-Allow-Origin":"*"
+          "Access-Control-Allow-Origin": "*",
         },
       };
       const { data } = await axios.post(
-        `http://localhost:5000/chat/group`,
+        `http://localhost:8001/chat/group`,
         {
           name: groupChatName,
           users: JSON.stringify(selectedUsers.map((u) => u._id)),
@@ -149,7 +147,7 @@ const GroupChatModal = ({ children }) => {
       toast({
         title: "New Group Chat Created!",
         status: "success",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom",
       });
@@ -158,7 +156,7 @@ const GroupChatModal = ({ children }) => {
         title: "Failed to Create the Chat!",
         description: error.response.data,
         status: "error",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom",
       });

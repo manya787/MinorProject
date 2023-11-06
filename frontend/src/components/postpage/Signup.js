@@ -30,7 +30,7 @@ const handleInputs = (e) => {
         "Content-Type" : "application/json"
       },
       body: JSON.stringify({
-
+        user_id: user.user_id,
         name,email,phone,work,password,cpassword
  
         })

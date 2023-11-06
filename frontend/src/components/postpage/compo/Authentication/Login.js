@@ -5,7 +5,7 @@ import { VStack } from "@chakra-ui/layout";
 import { useState } from "react";
 import axios from "axios";
 import { useToast } from "@chakra-ui/react";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -23,7 +23,7 @@ const Login = () => {
       toast({
         title: "Please Fill all the Feilds",
         status: "warning",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom",
       });
@@ -36,13 +36,12 @@ const Login = () => {
       const config = {
         headers: {
           "Content-type": "application/json",
-          "Access-Control-Allow-Origin":"*"
-          
+          "Access-Control-Allow-Origin": "*",
         },
       };
 
       const { data } = await axios.post(
-        "http://localhost:5000/user/login",
+        "http://localhost:8001/user/login",
         { email, password },
         config
       );
@@ -51,7 +50,7 @@ const Login = () => {
       toast({
         title: "Login Successful",
         status: "success",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom",
       });
@@ -62,7 +61,7 @@ const Login = () => {
       toast({
         title: "Error Occured!",
         status: "error",
-        duration: 5000,
+        duration: 8001,
         isClosable: true,
         position: "bottom",
       });
