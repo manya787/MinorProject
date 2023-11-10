@@ -61,7 +61,7 @@ function SideDrawer() {
       toast({
         title: "Please Enter something in search",
         status: "warning",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "top-left",
       });
@@ -79,7 +79,7 @@ function SideDrawer() {
       };
 
       const { data } = await axios.get(
-        `http://localhost:8001/user?search=${search}`,
+        `http://localhost:8000/user?search=${search}`,
         config
       );
 
@@ -90,7 +90,7 @@ function SideDrawer() {
         title: "Error Occured!",
         description: "Failed to Load the Search Results",
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom-left",
       });
@@ -110,7 +110,7 @@ function SideDrawer() {
         },
       };
       const { data } = await axios.post(
-        `http://localhost:8001/chat`,
+        `http://localhost:8000/chat`,
         { userId },
         config
       );
@@ -124,7 +124,7 @@ function SideDrawer() {
         title: "Error fetching the chat",
         description: error.message,
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom-left",
       });

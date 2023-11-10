@@ -16,7 +16,7 @@ const App = () => {
     <>
     <Main />
     <Post />
-
+    
 <Provider store={store}>
 <PersistGate loading="null" persistor={persistor}>
       <Quizzie />

@@ -25,14 +25,14 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
 
-      const { data } = await axios.get("http://localhost:8001/chat", config);
+      const { data } = await axios.get("http://localhost:8000/chat", config);
       setChats(data);
     } catch (error) {
       toast({
         title: "Error Occured!",
         description: "Failed to Load the chats",
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom-left",
       });

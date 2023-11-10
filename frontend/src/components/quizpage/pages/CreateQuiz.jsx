@@ -107,7 +107,7 @@ const CreateQuiz = () => {
       };
       console.log(newQuestion);
       axios
-        .post("http://localhost:8001/examquestions/", newQuestion)
+        .post("http://localhost:5001/examquestions/", newQuestion)
         .then((response) => {
           console.log(response.status);
           const data = response.data._id;
@@ -134,7 +134,7 @@ const CreateQuiz = () => {
       };
       console.log(option);
       axios
-        .put("http://localhost:8001/examquestions/" + data, option)
+        .put("http://localhost:5001/examquestions/" + data, option)
         .then((response) => {
           console.log(response.status);
           console.log(response);
@@ -174,14 +174,14 @@ const CreateQuiz = () => {
   }, [options, dummy, dumy]);
 
   // const getExams = async () => {
-  //     const { data } = await axios.get('http://localhost:8001/examquestions/' + id.id);
+  //     const { data } = await axios.get('http://localhost:5001/examquestions/' + id.id);
   //     setExamDatas(data);
   //     console.log(data[0].options)
   // }
   const getExams = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8001/examquestions/" + id.id
+        "http://localhost:5001/examquestions/" + id.id
       );
 
       if (data && data.length > 0) {
@@ -197,7 +197,7 @@ const CreateQuiz = () => {
 
   const deleteQuestion = (propId) => {
     axios
-      .delete("http://localhost:8001/examquestions/" + propId)
+      .delete("http://localhost:5001/examquestions/" + propId)
       .then((response) => {
         console.log(response.status);
         console.log(response.data);

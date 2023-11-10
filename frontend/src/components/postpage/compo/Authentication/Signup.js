@@ -26,7 +26,7 @@ const Signup = () => {
       toast({
         title: "Please Fill all the Feilds",
         status: "warning",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });
@@ -37,7 +37,7 @@ const Signup = () => {
       toast({
         title: "Passwords Do Not Match",
         status: "warning",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });
@@ -52,7 +52,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:8001/user/register",
+        "http://localhost:8000/user/register",
         {
           name,
           email,
@@ -65,7 +65,7 @@ const Signup = () => {
       toast({
         title: "Registration Successful",
         status: "success",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });
@@ -77,7 +77,7 @@ const Signup = () => {
         title: "Error Occured!",
         description: error.response.data.message,
         status: "error",
-        duration: 8001,
+        duration: 8000,
         isClosable: true,
         position: "bottom",
       });
@@ -91,7 +91,7 @@ const Signup = () => {
       toast({
         title: "Please Select an Image!",
         status: "warning",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });
@@ -121,7 +121,7 @@ const Signup = () => {
       toast({
         title: "Please Select an Image!",
         status: "warning",
-        duration: 8001,
+        duration: 8000,
         isClosable: true,
         position: "bottom",
       });

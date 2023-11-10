@@ -1,19 +1,25 @@
-const express = require('express')
-const protect = require ('../middleware/chatauth.js');
-const loginController = require('../controllers/chatuserController.js');
-const registerController = require('../controllers/chatuserController.js');
-const allUsers = require('../controllers/chatuserController.js');
 // import express from 'express';
-// import {loginController,registerController,allUsers} from '../controllers/chatuserController.js';
-// import {protect} from '../middleware/chatauth.js';
+// import { loginController, registerController,allUsers } from '../controllers/userController.js';
+// import {protect} from '../middleware/auth.js';
 // const router = express.Router();
 
 
-router.route("/").get(protect,allUsers);
+// router.route("/").get(protect,allUsers);
 
-router.post("/register",registerController);
-router.post("/login",loginController);
+// router.post("/register",registerController);
+// router.post("/login",loginController);
 
+
+
+// export default router;
+
+const express = require('express');
+const { loginController, registerController, allUsers } = require('../controllers/userController.js');
+const { protect } = require('../middleware/authen.js');
+const router = express.Router();
+
+router.get('/', protect, allUsers);
+router.post('/register', registerController);
+router.post('/login', loginController);
 
 module.exports = router;
-// export default router;

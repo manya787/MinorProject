@@ -1,7 +1,5 @@
 import React, { createContext, useReducer} from 'react';
 import {Routes, Route } from "react-router-dom"
-// import { useDispatch } from 'react-redux';
-
 import Home from './Home';
 import MyPosts from './MyPosts';
 import CreatePost from './CreatePost';
@@ -13,25 +11,28 @@ import Errorpage from './errorpage';
 import "../../App.css";
 import {initialState, reducer} from "./UseReducer";
 
+import Messag from './Messag';
+import ChatProvider from "./Context/ChatProvider";
+
 // contextapi
 const obj = {}
 export const UserContext = createContext(obj);
 
 const Routing = () => {
   return(
+
 <Routes>
            <Route path='/home' element={<Home />} />
            <Route path='/mypost' element={<MyPosts />} />
            <Route path='/createpost' element={<CreatePost />} />
-           <Route path='/messages' element={<Homepage />} />
+           <Route path='/messa' element={<Homepage />} />
            <Route path='/login' element={<Login />} />
            <Route path='/logout' element={<Logout />} />
            <Route path='/signup' element={<Signup />} />
            <Route path='/errorpage' element={<Errorpage />} />  
-     </Routes>
-  
+</Routes>  
    )
-    };
+  };
 // const dispatch = useDispatch();
 const Post = () => {
   //const UserProvider = ({Routing }) => {      // extra by me to tackle error
@@ -41,9 +42,13 @@ return (
   <>
   <UserContext.Provider value={{state, dispatch}}>       
     <Routing/>
-    </UserContext.Provider>
+  </UserContext.Provider>
+ 
+  <ChatProvider>
+    <Messag />
+  </ChatProvider>
      </>
    );
 }
-//}
+
 export default Post;

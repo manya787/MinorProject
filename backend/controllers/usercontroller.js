@@ -1,73 +1,90 @@
-const crypto = require("crypto");
-const User = require("../model/userschema");
-const sendEmail = require("../utils/sendemail");
+// import { generateToken } from "../config/generateToken.js";
+// import User from "../model/userModel.js";
+const generateToken = require('../config/generateToken');
+const User = require('../model/userModel');
 
-exports.resetPassword = async (req, res, next) => {
-  // creating token hash
-  const resetPasswordToken = crypto
-    .createHash("sha256")
-    .update(req.params.token)
-    .digest("hex");
+const allUsers = async (req, res) => {
+  const keyword = req.query.search
+    ? {
+        $or: [
+          { name: { $regex: req.query.search, $options: "i" } },
+          { email: { $regex: req.query.search, $options: "i" } },
+        ],
+      }
+    : {};
 
-  const user = await User.findOne({
-    resetPasswordToken: resetPasswordToken,
-    resetPasswordExpire: { $gt: Date.now() },
-  });
+  const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
 
-  if (!user) {
-    return;
-  }
-
-  if (req.body.password != req.body.confirmPassword) {
-    return;
-  }
-
-  user.password = req.body.password;
-  user.resetPasswordToken = undefined;
-  user.resetPasswordExpire = undefined;
-
-  await user.save();
-  res.status(200).json({
-    success: true,
-  });
+  console.log(users);
+  res.send(users);
 };
 
-exports.forgotPassword = async (req, res, next) => {
-  const user = await User.findOne({ email: req.body.email });
-
-  if (!user) {
-    return;
+const registerController = async (req, res) => {
+  const { name, email, password ,pic} = req?.body;
+  if (!name || !email || !password) {
+    res.status(400);
+    throw Error("All Field are Required");
   }
 
-  //Get ResetPasswordToken
-  const resetToken = user.getResetPasswordToken();
+  const userExist = await User.findOne({ email });
+  if (userExist) {
+    res.status(400);
+    throw new Error("User already exists");
+  }
 
-  //reset password hogya ab usko save kro
-  await user.save({ validateBeforeSave: false });
-
-  //mail ke through link bhejna
-    //  const resetPasswordUrl = `http://localhost/api/v1/password/reset/${resetToken}`//kya pta host aur http kya hai
-  const resetPasswordUrl = `${req.protocol}://${req.get(
-    "host"
-  )}/api/v1/password/reset/${resetToken}`;
-
-  const message = `Your Password reset Token is :- \n ${resetPasswordUrl} \n\n If you have not requested this email , Please ignore this`;
+  const user = await User.create({
+    email,
+    name,
+    password,
+    pic
+   
+  });
 
   try {
-    await sendEmail({
-      email: user.email,
-      subject: `CoLabconnect password Recovery`,
-      message,
-    });
-    res.status(200).json({
-      success: true,
-      message: `Email sent to ${user.email} successfully`,
-    });
+    if (user) {
+      res.status(201).json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: user.isAdmin,
+        pic: user.pic,
+        token: generateToken(user._id),
+      });
+
+    } else {
+      res.status(400);
+      throw new Error("User not found");
+    }
   } catch (error) {
-    user.resetPasswordToken = undefined;
-    user.resetPasswordExpire = undefined;
-    await user.save({ validateBeforeSave: false });
+    res.send({ error });
+  }
+};
+const loginController = async (req, res) => {
+  const { email, password } = req.body;
+
+  const user = await User.findOne({ email });
+  console.log(user);
+
+  // const newPass = await user.matchPassword(password);
+  // console.log("newPass", newPass);
+
+  if (user && (await user.matchPassword(password))) {
+    res.status(201).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      pic: user.pic,
+      token: generateToken(user._id),
+    });
+  } else {
+    res.status(401);
+    throw new Error("Invalid Email or Password");
   }
 };
 
-
+module.exports = {
+  registerController,
+  loginController,
+  allUsers
+};

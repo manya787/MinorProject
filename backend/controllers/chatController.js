@@ -1,8 +1,7 @@
+const Chat = require("../model/chatModel.js");
+const User = require("../model/userModel.js");
 // import Chat from "../model/chatModel.js";
 // import User from "../model/userModel.js";
-const Chat = require('../model/chatModel.js');
-const User = require('../model/userModel.js');
-
 
 //@description     Create or fetch One to One Chat
 //@route           POST /api/chat/
@@ -198,14 +197,6 @@ const addToGroup =async (req, res) => {
   }
 };
 
-// export  {
-//   accessChat,
-//   fetchChats,
-//   createGroupChat,
-//   renameGroup,
-//   addToGroup,
-//   removeFromGroup,
-// };
 module.exports = {
   accessChat,
   fetchChats,

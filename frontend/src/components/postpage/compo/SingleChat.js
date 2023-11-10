@@ -17,7 +17,7 @@ import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
 import { useSocket } from "../Socket";
 import { useNavigate } from "react-router-dom";
-const ENDPOINT = "http://localhost:8001"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
+const ENDPOINT = "http://localhost:8000"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
 let sc, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -57,7 +57,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `http://localhost:8001/message/${selectedChat._id}`,
+        `http://localhost:8000/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -69,7 +69,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         title: "Error Occured!",
         description: "Failed to Load the Messages",
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });
@@ -90,7 +90,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "http://localhost:8001/message",
+          "http://localhost:8000/message",
           {
             content: newMessage,
             chatId: selectedChat,
@@ -104,7 +104,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           title: "Error Occured!",
           description: "Failed to send the Message",
           status: "error",
-          duration: 8001,
+          duration: 5000,
           isClosable: true,
           position: "bottom",
         });
@@ -125,7 +125,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "http://localhost:8001/message",
+          "http://localhost:8000/message",
           {
             content: newMessage ?? pic,
             chatId: selectedChat,
@@ -139,7 +139,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           title: "Error Occured!",
           description: "Failed to send the Message",
           status: "error",
-          duration: 8001,
+          duration: 5000,
           isClosable: true,
           position: "bottom",
         });

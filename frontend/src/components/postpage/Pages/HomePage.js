@@ -12,16 +12,20 @@ import { useEffect } from "react";
 import {  useNavigate } from "react-router";
 import Login from "../compo/Authentication/Login";
 import Signup from "../compo/Authentication/Signup";
+import Navbar from "../Navbar";
+import { ChakraProvider } from "@chakra-ui/react";
 
 function Homepage() {
   const history = useNavigate();
-
-  // useEffect(() => {
-  //   const user = JSON.parse(localStorage.getItem("userInfo"));
-  //   if (user) history("/chats");
-  // }, [history]);
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("userInfo"));
+    if (user) history("/chats");
+  }, [history]);
 
   return (
+    <>
+    <Navbar/>
+    <ChakraProvider>
     <Container maxW="xl" centerContent>
       <Box
         d="flex"
@@ -54,6 +58,8 @@ function Homepage() {
         </Tabs>
       </Box>
     </Container>
+    </ChakraProvider>
+    </>
   );
 }
 

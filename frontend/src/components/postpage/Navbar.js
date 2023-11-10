@@ -22,7 +22,7 @@ const Navbar = () => {
         <NavLink className="nav-link" to="/createpost">Create Post</NavLink>
 </li>
 <li className="nav-item">
-        <NavLink className="nav-link" to="/messages">Messages</NavLink>
+        <NavLink className="nav-link" to="/messa">Messages</NavLink>
 </li>
 <li className="nav-item">
           <NavLink className="nav-link" to="/logout">Logout</NavLink>

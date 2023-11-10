@@ -36,7 +36,7 @@ const GroupChatModal = ({ children }) => {
       toast({
         title: "User already added",
         status: "warning",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "top",
       });
@@ -61,7 +61,7 @@ const GroupChatModal = ({ children }) => {
         },
       };
       const { data } = await axios.get(
-        `http://localhost:8001/user?search=${search}`,
+        `http://localhost:8000/user?search=${search}`,
         config
       );
       console.log(data);
@@ -72,7 +72,7 @@ const GroupChatModal = ({ children }) => {
         title: "Error Occured!",
         description: "Failed to Load the Search Results",
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom-left",
       });
@@ -92,7 +92,7 @@ const GroupChatModal = ({ children }) => {
         },
       };
 
-      const { data } = await axios.get("http://localhost:8001/chat", config);
+      const { data } = await axios.get("http://localhost:8000/chat", config);
       console.log(data);
 
       setChats(data);
@@ -102,7 +102,7 @@ const GroupChatModal = ({ children }) => {
         title: "Error Occured!",
         description: "Failed to Load the chats",
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom-left",
       });
@@ -114,7 +114,7 @@ const GroupChatModal = ({ children }) => {
       toast({
         title: "Please fill all the feilds",
         status: "warning",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "top",
       });
@@ -129,7 +129,7 @@ const GroupChatModal = ({ children }) => {
         },
       };
       const { data } = await axios.post(
-        `http://localhost:8001/chat/group`,
+        `http://localhost:8000/chat/group`,
         {
           name: groupChatName,
           users: JSON.stringify(selectedUsers.map((u) => u._id)),
@@ -147,7 +147,7 @@ const GroupChatModal = ({ children }) => {
       toast({
         title: "New Group Chat Created!",
         status: "success",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });
@@ -156,7 +156,7 @@ const GroupChatModal = ({ children }) => {
         title: "Failed to Create the Chat!",
         description: error.response.data,
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });

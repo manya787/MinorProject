@@ -26,7 +26,7 @@ const QuizController = (CUId) => {
 
   const getExams = async () => {
     const { data } = await axios.get(
-      "http://localhost:8001/examquestions/" + id.id
+      "http://localhost:5001/examquestions/" + id.id
     );
     setQuestions(data);
     userCheck();
@@ -35,8 +35,8 @@ const QuizController = (CUId) => {
   const securityData = async () => {
     axios
       .all([
-        await axios.get("http://localhost:8001/users/" + CUId.CUId),
-        await axios.get("http://localhost:8001/exam/exam/" + id.id),
+        await axios.get("http://localhost:5001/users/" + CUId.CUId),
+        await axios.get("http://localhost:5001/exam/exam/" + id.id),
       ])
       .then(
         axios.spread((data, data2) => {
@@ -57,7 +57,7 @@ const QuizController = (CUId) => {
               },
             };
             axios
-              .post("http://localhost:8001/userexams/", dummyData)
+              .post("http://localhost:5001/userexams/", dummyData)
               .then((response) => {
                 console.log(response.status);
                 console.log(response.data);
@@ -75,7 +75,7 @@ const QuizController = (CUId) => {
   const userCheck = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8001/userexams/" + CUId.CUId
+        "http://localhost:5001/userexams/" + CUId.CUId
       );
       const myData = await Promise.all(data.map((d) => d.examId));
       for (let i = 0; i <= myData.length; i++) {

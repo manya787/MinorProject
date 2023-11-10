@@ -48,7 +48,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.get(
-        `http://localhost:8001/user?search=${search}`,
+        `http://localhost:8000/user?search=${search}`,
         config
       );
       console.log(data);
@@ -59,7 +59,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         title: "Error Occured!",
         description: "Failed to Load the Search Results",
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom-left",
       });
@@ -78,7 +78,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `http://localhost:8001/chat/rename`,
+        `http://localhost:8000/chat/rename`,
         {
           chatId: selectedChat._id,
           chatName: groupChatName,
@@ -96,7 +96,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         title: "Error Occured!",
         description: error.response.data.message,
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });
@@ -110,7 +110,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
       toast({
         title: "User Already in group!",
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });
@@ -121,7 +121,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
       toast({
         title: "Only admins can add someone!",
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });
@@ -137,7 +137,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `http://localhost:8001/chat/groupadd`,
+        `http://localhost:8000/chat/groupadd`,
         {
           chatId: selectedChat._id,
           userId: user1._id,
@@ -153,7 +153,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         title: "Error Occured!",
         description: error.response.data.message,
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });
@@ -167,7 +167,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
       toast({
         title: "Only admins can remove someone!",
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });
@@ -183,7 +183,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         },
       };
       const { data } = await axios.put(
-        `http://localhost:8001/chat/groupremove`,
+        `http://localhost:8000/chat/groupremove`,
         {
           chatId: selectedChat._id,
           userId: user1._id,
@@ -200,7 +200,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         title: "Error Occured!",
         description: error.response.data.message,
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });

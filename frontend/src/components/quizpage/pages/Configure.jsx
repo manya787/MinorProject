@@ -75,7 +75,7 @@ const Configure = () => {
 
   const getConfigureData = async () => {
     await axios
-      .get(`http://localhost:8001/exam/exam/` + id.id)
+      .get(`http://localhost:5001/exam/exam/` + id.id)
       .then((response) => {
         console.log(response.status);
         setMyStartDatas(response.data);
@@ -91,7 +91,7 @@ const Configure = () => {
       passGrade: examGrade,
     };
     axios
-      .patch(`http://localhost:8001/exam/${id.id}`, exam)
+      .patch(`http://localhost:5001/exam/${id.id}`, exam)
       .then((response) => {
         console.log(response.status);
         console.log(response.data);

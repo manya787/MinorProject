@@ -16,14 +16,13 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const history = useNavigate();
-
   const submitHandler = async () => {
     setLoading(true);
     if (!email || !password) {
       toast({
         title: "Please Fill all the Feilds",
         status: "warning",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });
@@ -41,7 +40,7 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        "http://localhost:8001/user/login",
+        "http://localhost:8000/user/login",
         { email, password },
         config
       );
@@ -50,7 +49,7 @@ const Login = () => {
       toast({
         title: "Login Successful",
         status: "success",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });
@@ -61,7 +60,7 @@ const Login = () => {
       toast({
         title: "Error Occured!",
         status: "error",
-        duration: 8001,
+        duration: 5000,
         isClosable: true,
         position: "bottom",
       });

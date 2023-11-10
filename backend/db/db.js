@@ -3,9 +3,9 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-async function connectToDatabase() {
+async function db() {
   try {
-    await mongoose.connect(process.env.DB, {
+    await mongoose.connect(process.env.URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -15,4 +15,4 @@ async function connectToDatabase() {
   }
 }
 
-module.exports = connectToDatabase;
+module.exports = db;

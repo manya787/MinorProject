@@ -1,19 +1,16 @@
-//const jwt = require('jsonwebtoken'); 
+const jwt = require('jsonwebtoken'); 
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const dotenv = require("dotenv");
 const authenticate = require("../middleware/authenticate");
-const req = require( "express");
-const uuid = require("uuid"); 
+// const req = require( "express");
 
 dotenv.config()
 
 require('../db/conn');
 const User = require("../model/userschema");
 const Post = require("../model/postschema");
-const { forgotPassword } = require("../controllers/usercontroller");
-
 
 router.get('/', (req, res) => {
     res.send(`Hello rourt`);
@@ -34,8 +31,7 @@ router.post('/register', async (req, res) => {
 }else if( password != cpassword ){
     return res.status(422).json({ error: "password are not matching"});
 }else {
-    const user_id = uuid.v4();
-    const user = new User({ name, email, phone, work, password, cpassword,user_id });
+    const user = new User({ name, email, phone, work, password, cpassword });
 
 await user.save();
 
@@ -164,59 +160,40 @@ router.post('/post',async (req, res) => {
     //       res.send(`Hello`);
     //       res.send(req.rootUser);
     //     });
-    router.get('/search',authenticate, (req, res) => {
+    router.get('/search', authenticate, (req, res) => {
         if ('rootUser' in req) {
-          const rootUser = req.rootUser; 
-          res.send(`Hellaa`);
-          res.send(rootUser);
-          
+            const rootUser = req.rootUser; 
+            res.send(`Hellaa ${rootUser}`);
         } else {
-          res.status(400).send('rootUser not found');
+            res.status(400).send('rootUser not found');
         }
-      });
-        
-
-        // router.get("/post",authenticate ,(req, res) => {
-        //   res.cookie("Test", "minor");
-        //   res.send(`DONE POST`);
-        //   res.send(req.rootUser);
-        // });
-        router.get('/post',authenticate, (req, res) => {
-            if ('rootUser' in req) {
-              const rootUser = req.rootUser; 
-              res.cookie("Test", "minor");
-              res.send(`DONE POST`);
-              res.send(rootUser);
-            } else {
-              res.status(400).send('rootUser not found');
-            }
-          });
-
-
-        // router.get("/createpost", authenticate ,(req, res) => {
-        //       res.cookie("Test", "minor");
-        //       res.send(`CREATEPOST`);
-        //       res.send(req.rootUser);
-        //     });
-        router.get('/createpost',authenticate, (req, res) => {
-            if ('rootUser' in req) {
-              const rootUser = req.rootUser; 
-              res.cookie("Testie", "minorr");
-              res.send(`CREATEPOST`);
-              res.send(rootUser);
-            } else {
-              res.status(400).send('rootUser not found');
-            }
-          });
-
-          //logout page
-          router.get('/logout', (req, res) => { 
-              console.log(`Hello My logout page`);
-              res.clearCookie('jwtoken',{path:'/'});
-              res.status(200).send('User Logout');
-          });
-
-router.post("/password/forgot", forgotPassword);
-            
+    });
     
-module.exports = router;
+    router.get('/post', authenticate, (req, res) => {
+        if ('rootUser' in req) {
+            const rootUser = req.rootUser; 
+            res.cookie("Test", "minor");
+            res.send(`DONE POST ${rootUser}`);
+        } else {
+            res.status(400).send('rootUser not found');
+        }
+    });
+    
+    router.get('/createpost', authenticate, (req, res) => {
+        if ('rootUser' in req) {
+            const rootUser = req.rootUser; 
+            res.cookie("Testie", "minorr");
+            res.send(`CREATEPOST ${rootUser}`);
+        } else {
+            res.status(400).send('rootUser not found');
+        }
+    });
+    
+    // Logout page
+    router.get('/logout', (req, res) => { 
+        console.log(`Hello My logout page`);
+        res.clearCookie('jwtoken', { path: '/' });
+        res.status(200).send('User Logout');
+    });
+    
+    module.exports = router;

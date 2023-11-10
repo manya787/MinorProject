@@ -1,9 +1,9 @@
 // import Chat from "../model/chatModel.js";
 // import User from "../model/userModel.js";
 // import Message from "../model/messageModel.js";
-const Chat = require("../model/chatModel.js");
-const User = require("../model/userModel.js");
-const Message = require("../model/messageModel.js");
+const Chat = require('../model/chatModel');
+const User = require('../model/userModel');
+const Message = require('../model/messageModel');
 
 const allMessages = async (req, res) => {
   try {

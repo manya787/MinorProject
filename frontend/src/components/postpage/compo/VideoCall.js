@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { io } from "socket.io-client";
 import ReactPlayer from "react-player";
+import { ChakraProvider } from "@chakra-ui/react";
+import Navbar from "../Navbar";
 
 const VideoCall = () => {
   let sc;
@@ -98,7 +100,7 @@ const VideoCall = () => {
   }, []);
 
   useEffect(() => {
-    sc = io("http://localhost:8001");
+    sc = io("http://localhost:8000");
 
     sc.on("user-joined", newUserJoined);
     sc.on("incoming-call", handelIncomingCall);
@@ -129,12 +131,17 @@ const VideoCall = () => {
   }, []);
 
   return (
+    <>
+    <Navbar />
+    <ChakraProvider>
     <div>
       <button onClick={() => sendStream(stream)}>Send Video</button>
       <h1>{remoteEmailId}</h1>
       <ReactPlayer url={stream} playing />
       <ReactPlayer url={newRemoteStream} playing />
     </div>
+    </ChakraProvider>
+    </>
   );
 };
 
