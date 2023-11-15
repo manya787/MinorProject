@@ -21,24 +21,24 @@ const Snav = () => {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <NavLink className="nav-link" to="/Shome">Home</NavLink>
+          <NavLink className="nav-link" to="/search">Home</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/Smessages">Messages</NavLink>
+          <NavLink className="nav-link" to="/smessages">Messages</NavLink>
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" to="/Search" role="button" data-bs-toggle="dropdown" aria-expanded="false">Search</a>
           <ul className="dropdown-menu">
-            <li><NavLink className="dropdown-item" to="/Interests">Interests</NavLink></li>
-            <li><NavLink className="dropdown-item" to="/CreateSearch">Opportunities</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/interests">Interests</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/createSearch">Opportunities</NavLink></li>
             <li><a className="dropdown-divider"></a></li>
           </ul>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/Slogin">Login</NavLink>
+          <NavLink className="nav-link" to="/slogin">Login</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/Ssignup">Signup</NavLink>
+          <NavLink className="nav-link" to="/ssignup">Signup</NavLink>
         </li>
       </ul>
     </div>

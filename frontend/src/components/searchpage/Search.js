@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 import Home from './Shome';
-import Messages from './Smessages';
+import Smessages from './Smessages'
 import MySearch from './Interests';
 import Create from './CreateSearch';
 import Login from './Slogin';
@@ -13,8 +13,8 @@ const Post = () => {
 return (
   <>
     <Routes>
-           <Route path='/Shome' element={<Home />} />
-           <Route path='/Smessages' element={<Messages />} />
+           <Route path='/search' element={<Home />} />
+           <Route path='/Smessages' element={< Smessages/>} />
            <Route path='/Interests' element={<MySearch />} />
            <Route path='/CreateSearch' element={<Create />} />
            <Route path='/Slogin' element={<Login />} />

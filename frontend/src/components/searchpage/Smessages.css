@@ -1,0 +1,16 @@
+.wrapper{
+    padding : 30px 20px;
+    background-image: url('/src/images/bgi2.jpg') ;
+    min-height: 100vh;
+
+}
+.grid-filter-column {
+    grid-template-columns: 0.4fr .55fr;
+  }
+
+  @media (max-width: 768px) {
+    .grid-filter-column {
+      grid-template-columns: 1fr;
+    }
+  }
+;
