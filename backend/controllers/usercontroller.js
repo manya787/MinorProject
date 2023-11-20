@@ -1,7 +1,7 @@
 // import { generateToken } from "../config/generateToken.js";
 // import User from "../model/userModel.js";
-const generateToken = require('../config/generateToken');
-const User = require('../model/userModel');
+const generateToken = require("../config/generateToken");
+const User = require("../model/userModel");
 
 const allUsers = async (req, res) => {
   const keyword = req.query.search
@@ -20,7 +20,7 @@ const allUsers = async (req, res) => {
 };
 
 const registerController = async (req, res) => {
-  const { name, email, password ,pic} = req?.body;
+  const { name, email, password, pic } = req?.body;
   if (!name || !email || !password) {
     res.status(400);
     throw Error("All Field are Required");
@@ -36,8 +36,7 @@ const registerController = async (req, res) => {
     email,
     name,
     password,
-    pic
-   
+    pic,
   });
 
   try {
@@ -50,7 +49,6 @@ const registerController = async (req, res) => {
         pic: user.pic,
         token: generateToken(user._id),
       });
-
     } else {
       res.status(400);
       throw new Error("User not found");
@@ -86,5 +84,5 @@ const loginController = async (req, res) => {
 module.exports = {
   registerController,
   loginController,
-  allUsers
+  allUsers,
 };

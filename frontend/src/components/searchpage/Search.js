@@ -1,11 +1,10 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-
-import Smessages from '../searchpage/Smessages';
-import Shome from '../searchpage/Shome';
-import Slogin from '../searchpage/Slogin';
-import Ssignup from '../searchpage/Ssignup';
+import Smessages from "../searchpage/Smessages";
+import Shome from "../searchpage/Shome";
+import Slogin from "../searchpage/Slogin";
+import Ssignup from "../searchpage/Ssignup";
 import { ThemeProvider } from "styled-components";
 // import "../../App.css";
 
@@ -34,18 +33,18 @@ const Search = () => {
       tab: "998px",
     },
   };
-return (
-  <>
-  <ThemeProvider theme={theme}>
-    <Routes>
-          <Route path='/search' element={<Shome />} />
-          <Route path='/slogin' element={<Slogin />} />
-          <Route path='/smessages' element={<Smessages />} />
-          <Route path='/ssignup' element={<Ssignup />} />
-     </Routes>
-     </ThemeProvider>
-     </>
-   )
+  return (
+    <>
+      <ThemeProvider theme={theme}>
+        <Routes>
+          <Route path="/search" element={<Shome />} />
+          <Route path="/slogin" element={<Slogin />} />
+          <Route path="/smessages" element={<Smessages />} />
+          <Route path="/ssignup" element={<Ssignup />} />
+        </Routes>
+      </ThemeProvider>
+    </>
+  );
 };
 
 export default Search;

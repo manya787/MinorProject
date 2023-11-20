@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import AgoraRTC from 'agora-rtc-sdk-ng';
-import { VideoPlayer } from './VideoPlayer';
+import React, { useEffect, useState } from "react";
+import AgoraRTC from "agora-rtc-sdk-ng";
+import { VideoPlayer } from "./VideoPlayer";
 
-const APP_ID = '99ee7677a8a745ed94b7f7f03fdab53e';
+const APP_ID = "99ee7677a8a745ed94b7f7f03fdab53e";
 const TOKEN =
-  '00699ee7677a8a745ed94b7f7f03fdab53eIAApoyMoTzk7vs7z6VZss24GSras+N37TeYdwlj7EDi9qSKBCQIAAAAAEACKRNzQfi6hYgEAAQCsMKFi';
-const CHANNEL = 'wdj';
+  "00699ee7677a8a745ed94b7f7f03fdab53eIAApoyMoTzk7vs7z6VZss24GSras+N37TeYdwlj7EDi9qSKBCQIAAAAAEACKRNzQfi6hYgEAAQCsMKFi";
+const CHANNEL = "wdj";
 
 const client = AgoraRTC.createClient({
-  mode: 'rtc',
-  codec: 'vp8',
+  mode: "rtc",
+  codec: "vp8",
 });
 
 export const VideoRoom = () => {
@@ -19,11 +19,11 @@ export const VideoRoom = () => {
   const handleUserJoined = async (user, mediaType) => {
     await client.subscribe(user, mediaType);
 
-    if (mediaType === 'video') {
+    if (mediaType === "video") {
       setUsers((previousUsers) => [...previousUsers, user]);
     }
 
-    if (mediaType === 'audio') {
+    if (mediaType === "audio") {
       // user.audioTrack.play()
     }
   };
@@ -35,16 +35,13 @@ export const VideoRoom = () => {
   };
 
   useEffect(() => {
-    client.on('user-published', handleUserJoined);
-    client.on('user-left', handleUserLeft);
+    client.on("user-published", handleUserJoined);
+    client.on("user-left", handleUserLeft);
 
     client
       .join(APP_ID, CHANNEL, TOKEN, null)
       .then((uid) =>
-        Promise.all([
-          AgoraRTC.createMicrophoneAndCameraTracks(),
-          uid,
-        ])
+        Promise.all([AgoraRTC.createMicrophoneAndCameraTracks(), uid])
       )
       .then(([tracks, uid]) => {
         const [audioTrack, videoTrack] = tracks;
@@ -65,20 +62,18 @@ export const VideoRoom = () => {
         localTrack.stop();
         localTrack.close();
       }
-      client.off('user-published', handleUserJoined);
-      client.off('user-left', handleUserLeft);
+      client.off("user-published", handleUserJoined);
+      client.off("user-left", handleUserLeft);
       client.unpublish(localTracks).then(() => client.leave());
     };
   }, []);
 
   return (
-    <div
-      style={{ display: 'flex', justifyContent: 'center' }}
-    >
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <div
         style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 200px)',
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 200px)",
         }}
       >
         {users.map((user) => (

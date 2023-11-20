@@ -44,7 +44,7 @@
   cursor: pointer;
 }
 .subscribe-form button {
-  background-color: #B05FF8; /* Background color */
+  background-color: #b05ff8; /* Background color */
   color: #fff; /* Font color */
   border: none;
   padding: 10px 20px;
@@ -52,8 +52,8 @@
   font-weight: bold; /* Make the font bold */
   border-radius: 10px; /* Add border radius */
 }
-#purple{
-  color:#B05FF8;
+#purple {
+  color: #b05ff8;
 }
 
 /* CSS for the footer logo */
@@ -78,4 +78,3 @@
     margin-top: 20px;
   }
 }
-

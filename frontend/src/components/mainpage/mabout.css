@@ -30,7 +30,7 @@ body {
 .who-we-are {
   margin-top: 95px;
   left: calc(595px + 0.2vh);
-  margin-left:13%;
+  margin-left: 13%;
   width: 202px;
   height: 27px;
 }
@@ -38,8 +38,8 @@ body {
   content: "";
   left: 200px;
   margin-top: 90px;
-  margin-right:85%;
-  position:absolute;
+  margin-right: 85%;
+  position: absolute;
   background-color: #ffce31;
   width: 61px;
   height: 6px;
@@ -53,8 +53,8 @@ body {
   margin-right: 10%;
   display: inline-block;
   display: flex;
-  flex:3;
-  flex-direction : column ;
+  flex: 3;
+  flex-direction: column;
   width: 61px;
   width: 619px;
   height: 326px;
@@ -130,7 +130,7 @@ body {
   height: 1024px;
   overflow: hidden;
   text-align: left;
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   font-size: var(--font-size-9xl);
@@ -139,45 +139,42 @@ body {
 }
 
 @media (max-width: 986px) {
- 
-  .who-we-are { 
-    width:100%;
-   margin-left: 250px;
-   font-size: 20px; 
-   margin-top: 70px;
- }
- .colabconnect-is-your{
-   font-size: 20px;
-   text-align: left;
-   margin-left:-50%;
+  .who-we-are {
+    width: 100%;
+    margin-left: 250px;
+    font-size: 20px;
+    margin-top: 70px;
+  }
+  .colabconnect-is-your {
+    font-size: 20px;
+    text-align: left;
+    margin-left: -50%;
+  }
+  .who-we-are-child {
+    margin-right: 40%;
+    margin-left: 10%;
+    margin-top: 15%;
+    width: 8%;
+    height: 0.5%;
+  }
 
- }
- .who-we-are-child{
-  margin-right:40%;
-  margin-left: 10%;
-  margin-top: 15%;
-  width : 8%;
-  height: .5%;
- }
-
- .our-mission{
-  font-size: 20px; 
-  top: 62%;
-  left:40%;
-  right:40%;
- }
- .image-2-icon {
-  top: 343px;
-  left: 150px;
-  width: 379px;
-  height: 222px;
-  mix-blend-mode: multiply;
+  .our-mission {
+    font-size: 20px;
+    top: 62%;
+    left: 40%;
+    right: 40%;
+  }
+  .image-2-icon {
+    top: 343px;
+    left: 150px;
+    width: 379px;
+    height: 222px;
+    mix-blend-mode: multiply;
+  }
+  .in-todays-educational {
+    font-size: 15px;
+    top: 70%;
+    left: 10%;
+    right: 10%;
+  }
 }
- .in-todays-educational{
-  font-size: 15px;
-  top: 70%;
-  left:10%;
-  right:10%;
- }
- 
-} 

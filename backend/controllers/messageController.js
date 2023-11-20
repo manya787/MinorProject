@@ -1,9 +1,9 @@
 // import Chat from "../model/chatModel.js";
 // import User from "../model/userModel.js";
 // import Message from "../model/messageModel.js";
-const Chat = require('../model/chatModel');
-const User = require('../model/userModel');
-const Message = require('../model/messageModel');
+const Chat = require("../model/chatModel");
+const User = require("../model/userModel");
+const Message = require("../model/messageModel");
 
 const allMessages = async (req, res) => {
   try {
@@ -36,7 +36,7 @@ const sendMessage = async (req, res) => {
 
   try {
     var message = await Message.create(newMessage);
-    
+
     message = await message.populate("sender", "name pic");
     message = await message.populate("chat");
     console.log(message);

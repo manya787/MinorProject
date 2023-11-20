@@ -1,11 +1,11 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const cors = require('cors');
-const userRoute = require('./routes/userRoute.js');
-const chatRoute = require('./routes/chatRoute.js');
-const messageRoute = require('./routes/messageRoute.js');
-const { Server } = require('socket.io');
-const { errorHandler, notFound } = require('./middleware/error.js');
+const express = require("express");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const userRoute = require("./routes/userRoute.js");
+const chatRoute = require("./routes/chatRoute.js");
+const messageRoute = require("./routes/messageRoute.js");
+const { Server } = require("socket.io");
+const { errorHandler, notFound } = require("./middleware/error.js");
 const db = require("./db/db");
 
 dotenv.config();
@@ -16,9 +16,9 @@ app.use(cors());
 app.use(express.json());
 db();
 
-app.use('/user', userRoute);
-app.use('/chat', chatRoute);
-app.use('/message', messageRoute);
+app.use("/user", userRoute);
+app.use("/chat", chatRoute);
+app.use("/message", messageRoute);
 
 const httpServer = app.listen(port, () => {
   console.log(`App is running on the Port ${port}`);
@@ -27,7 +27,7 @@ const httpServer = app.listen(port, () => {
 const io = new Server(httpServer, {
   pingTimeout: 60000,
   cors: {
-    origin: '*',
+    origin: "*",
     credentials: true,
   },
 });
@@ -35,16 +35,12 @@ const io = new Server(httpServer, {
 const emailToSocketMapping = new Map();
 const socketToEmailMapping = new Map();
 
-io.on('connection', (socket) => {
-  console.log('Connected to socket.io');
+io.on("connection", (socket) => {
+  console.log("Connected to socket.io");
   socket.on("setup", (userData) => {
     socket.join(userData._id);
     socket.emit("connected");
-  },
-
-  
-  
-  );
+  });
 
   socket.on("join chat", (room) => {
     socket.join(room);
@@ -71,38 +67,38 @@ io.on('connection', (socket) => {
     console.log("USER DISCONNECTED");
     socket.leave(userData._id);
   });
-  
+
   // ... rest of the socket.io code
 
-  socket.on('join-room', (data) => {
+  socket.on("join-room", (data) => {
     const { roomId, emailId } = data;
     console.log(emailId, roomId);
 
     emailToSocketMapping.set(emailId, socket.id);
     socketToEmailMapping.set(socket.id, emailId);
     socket.join(roomId);
-    socket.emit('joined-room', {
+    socket.emit("joined-room", {
       roomId,
     });
-    socket.broadcast.to(roomId).emit('user-joined', { emailId });
+    socket.broadcast.to(roomId).emit("user-joined", { emailId });
   });
 
   // ... rest of the socket.io code
 
-  socket.on('call-user', (data) => {
+  socket.on("call-user", (data) => {
     const { emailId, offer } = data;
     const socketId = emailToSocketMapping.get(emailId);
     const fromEmail = socketToEmailMapping.get(socket.id);
-    socket.to(socketId).emit('incoming-call', {
+    socket.to(socketId).emit("incoming-call", {
       from: fromEmail,
       offer,
     });
   });
 
-  socket.on('call-accepted', (data) => {
+  socket.on("call-accepted", (data) => {
     const { emailId, ans } = data;
     const socketId = emailToSocketMapping.get(emailId);
 
-    socket.to(socketId).emit('call-accepted', { ans });
+    socket.to(socketId).emit("call-accepted", { ans });
   });
 });

@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Container = styled.div`
   flex: 1;
@@ -29,14 +29,14 @@ const Info = styled.div`
 `;
 
 const Title = styled.h1`
-  color: #393E46;
+  color: #393e46;
   margin-bottom: 10px;
   font-size: 24px; /* Adjust the font size for smaller screens */
 `;
 
 const Description = styled.div`
   text-align: center;
-  color: #393E46;
+  color: #393e46;
   font-size: 16px; /* Adjust the font size for smaller screens */
 `;
 

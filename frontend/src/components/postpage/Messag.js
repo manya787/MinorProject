@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import React, { Routes, Route } from "react-router-dom";
 import "./mess.css";
 
 import HomePage from "./Pages/HomePage";
@@ -14,13 +14,13 @@ function Messag() {
   return (
     <>
       <div className="Mess">
-          <SocketProvider>
-        <Routes>
+        <SocketProvider>
+          <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/chats" element={<Chatpage />} />
             <Route path="/call/:id" element={<VideoCall />} />
-        </Routes>
-          </SocketProvider>
+          </Routes>
+        </SocketProvider>
       </div>
     </>
   );

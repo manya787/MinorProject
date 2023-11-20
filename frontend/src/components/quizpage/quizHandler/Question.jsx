@@ -183,9 +183,8 @@ const Question = ({
           {options &&
             options.map((option) => (
               <button
-                className={`singleOption  ${
-                  selected && handleSelect(option.option)
-                }`}
+                className={`singleOption  ${selected &&
+                  handleSelect(option.option)}`}
                 key={option._id}
                 creator
                 onClick={() => {

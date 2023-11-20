@@ -56,7 +56,6 @@ const accessChat = async (req, res) => {
 //@route           GET /api/chat/
 //@access          Protected
 
-
 const fetchChats = async (req, res) => {
   try {
     Chat.find({ users: { $elemMatch: { $eq: req.user._id } } })
@@ -72,7 +71,6 @@ const fetchChats = async (req, res) => {
         res.status(200).send(results);
       });
   } catch (error) {
-
     res.status(400);
     throw new Error(error.message);
   }
@@ -144,7 +142,7 @@ const renameGroup = async (req, res) => {
 // @desc    Remove user from Group
 // @route   PUT /api/chat/groupremove
 // @access  Protected
-const removeFromGroup =async (req, res) => {
+const removeFromGroup = async (req, res) => {
   const { chatId, userId } = req.body;
 
   // check if the requester is admin
@@ -172,7 +170,7 @@ const removeFromGroup =async (req, res) => {
 // @desc    Add user to Group / Leave
 // @route   PUT /api/chat/groupadd
 // @access  Protected
-const addToGroup =async (req, res) => {
+const addToGroup = async (req, res) => {
   const { chatId, userId } = req.body;
 
   // check if the requester is admin

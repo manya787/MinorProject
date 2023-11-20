@@ -1,25 +1,28 @@
 const mongoose = require("mongoose");
 
-const ExamQuestionsSchema = new mongoose.Schema({
+const ExamQuestionsSchema = new mongoose.Schema(
+  {
     examId: {
-        type: String,
+      type: String,
     },
     questionTitle: {
-        type: String,
+      type: String,
     },
-    options: [{
+    options: [
+      {
         option: {
-            type: String,
+          type: String,
         },
         isCorrect: {
-            type: Boolean,
-            default: false
-        }
-    }],
-},
-    {
-        timestamps: true,
-    }
-)
+          type: Boolean,
+          default: false,
+        },
+      },
+    ],
+  },
+  {
+    timestamps: true,
+  }
+);
 
 module.exports = mongoose.model("examquestions", ExamQuestionsSchema);

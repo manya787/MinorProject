@@ -30,7 +30,7 @@ const Tr = styled.tr`
     background-color: #f2f2f2;
   }
   &:hover {
-    background-color: #ddd;  
+    background-color: #ddd;
   }
 `;
 const Header = styled.h2`

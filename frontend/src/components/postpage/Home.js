@@ -1,67 +1,27 @@
-// import React, { useEffect, useRef } from 'react';
-// import { NavLink } from 'react-router-dom';
-// import Navbar from './Navbar';
-// import image from "./pimages/wave.svg";
-// import "./home.css";
-// import lottie from 'lottie-web';
-
-// const PHome = () => {
-//       const container = useRef(null)
-// useEffect(() => {
-//       lottie.loadAnimation({
-//             container: container.current,
-//             renderer: 'svg',
-//             loop: true,
-//             autoplay: true,
-//             animationData: require('./homelottie2.json')
-//       })
-// }, [])
-//   return (
-//     <>
-//     <Navbar/>    
-//     <div className="homecontent">
-//         <div className="hometext">
-//             <p>Instantly broadcast your project aspirations and dive into a world of endless possibilities.<span> Start collaborating today!</span></p>
-//             <button className = "homebutton">
-//                 <NavLink to="/login"><a>Get Started</a></NavLink>
-//             </button>
-//         </div>
-//     </div>
-//     <div className="contanierhomelottie" ref={container}></div>
-// <div class="wave">
-//             <figure>
-//                   <img src={image} alt="waves" />
-//             </figure>
-// </div>
-//     </>
-//   )
-// }
-
-// export default PHome;
-
-import React, { useEffect, useRef, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import Navbar from './Navbar';
+import React, { useEffect, useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
+import Navbar from "./Navbar";
 import image from "./pimages/wave.svg";
 import "./home.css";
-import lottie from 'lottie-web';
+import lottie from "lottie-web";
 
 const PHome = () => {
   const container = useRef(null);
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
     lottie.loadAnimation({
       container: container.current,
-      renderer: 'svg',
+      renderer: "svg",
       loop: true,
       autoplay: true,
-      animationData: require('./homelottie2.json')
+      animationData: require("./homelottie2.json"),
     });
 
     // Define the text you want to animate
-    const targetText = "Instantly broadcast your project aspirations and dive into a world of endless possibilities. Start collaborating today!";
+    const targetText =
+      "Instantly broadcast your project aspirations and dive into a world of endless possibilities. Start collaborating today!";
     let currentCharIndex = 0;
 
     const typingInterval = setInterval(() => {

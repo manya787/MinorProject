@@ -3,7 +3,8 @@ export const messages = [
     readBy: [],
     _id: "60a3f2ed0c8dcc43bc3cfff2",
     sender: {
-      pic: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+      pic:
+        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
       _id: "1",
       name: "Piyush",
     },
@@ -17,7 +18,8 @@ export const messages = [
     readBy: [],
     _id: "60a3f47ece619262c884b77d",
     sender: {
-      pic: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+      pic:
+        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
       _id: "2",
       name: "John Doe",
     },
@@ -31,7 +33,8 @@ export const messages = [
     readBy: [],
     _id: "60a3f47ece619262c884b77d",
     sender: {
-      pic: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+      pic:
+        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
       _id: "2",
       name: "John Doe",
     },
@@ -45,7 +48,8 @@ export const messages = [
     readBy: [],
     _id: "60a3f2ed0c8dcc43bc3cfff2",
     sender: {
-      pic: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+      pic:
+        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
       _id: "1",
       name: "Piyush",
     },
@@ -59,7 +63,8 @@ export const messages = [
     readBy: [],
     _id: "60a3f2ed0c8dcc43bc3cfff2",
     sender: {
-      pic: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+      pic:
+        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
       _id: "1",
       name: "Piyush",
     },
@@ -73,7 +78,8 @@ export const messages = [
     readBy: [],
     _id: "60a3f47ece619262c884b77d",
     sender: {
-      pic: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+      pic:
+        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
       _id: "2",
       name: "John Doe",
     },
@@ -87,7 +93,8 @@ export const messages = [
     readBy: [],
     _id: "60a3f47ece619262c884b77d",
     sender: {
-      pic: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+      pic:
+        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
       _id: "2",
       name: "John Doe",
     },
@@ -101,7 +108,8 @@ export const messages = [
     readBy: [],
     _id: "60a3f2ed0c8dcc43bc3cfff2",
     sender: {
-      pic: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+      pic:
+        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
       _id: "1",
       name: "Piyush",
     },
@@ -115,7 +123,8 @@ export const messages = [
     readBy: [],
     _id: "60a3f47ece619262c884b77d",
     sender: {
-      pic: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+      pic:
+        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
       _id: "2",
       name: "John Doe",
     },
@@ -129,7 +138,8 @@ export const messages = [
     readBy: [],
     _id: "60a3f2ed0c8dcc43bc3cfff2",
     sender: {
-      pic: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+      pic:
+        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
       _id: "60a281bc502ec30428fb6bb0",
       name: "Piyush",
     },

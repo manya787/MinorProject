@@ -132,15 +132,15 @@ const VideoCall = () => {
 
   return (
     <>
-    <Navbar />
-    <ChakraProvider>
-    <div>
-      <button onClick={() => sendStream(stream)}>Send Video</button>
-      <h1>{remoteEmailId}</h1>
-      <ReactPlayer url={stream} playing />
-      <ReactPlayer url={newRemoteStream} playing />
-    </div>
-    </ChakraProvider>
+      <Navbar />
+      <ChakraProvider>
+        <div>
+          <button onClick={() => sendStream(stream)}>Send Video</button>
+          <h1>{remoteEmailId}</h1>
+          <ReactPlayer url={stream} playing />
+          <ReactPlayer url={newRemoteStream} playing />
+        </div>
+      </ChakraProvider>
     </>
   );
 };

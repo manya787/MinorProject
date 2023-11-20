@@ -1,46 +1,48 @@
 const mongoose = require("mongoose");
 
-const UserExamsSchema = new mongoose.Schema({
+const UserExamsSchema = new mongoose.Schema(
+  {
     examId: {
-        type: String,
-        required: true,
-        unique: true
+      type: String,
+      required: true,
+      unique: true,
     },
     userId: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     grade: {
-        type: Number,
-        default: 0,
+      type: Number,
+      default: 0,
     },
     status: {
-        type: String,
+      type: String,
     },
     userInfo: {
-        username: {
-            type: String,
-        },
-        examname: {
-            type: String,
-        }
+      username: {
+        type: String,
+      },
+      examname: {
+        type: String,
+      },
     },
-    examReview: [{
-
+    examReview: [
+      {
         qAnswers: {
-            type: String,
+          type: String,
         },
         qCorrect: {
-            type: String,
+          type: String,
         },
         qTitle: {
-            type: String,
-        }
-    }],
-},
-    {
-        timestamps: true,
-    }
+          type: String,
+        },
+      },
+    ],
+  },
+  {
+    timestamps: true,
+  }
 );
 
 module.exports = mongoose.model("UserExams", UserExamsSchema);

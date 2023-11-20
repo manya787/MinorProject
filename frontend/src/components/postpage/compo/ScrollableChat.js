@@ -1,11 +1,12 @@
 import { Avatar } from "@chakra-ui/avatar";
 import { Tooltip } from "@chakra-ui/tooltip";
 // import ScrollableFeed from "react-scrollable-feed";
+import React from "react";
 import {
   isLastMessage,
   isSameSender,
   isSameSenderMargin,
-  isSameUser
+  isSameUser,
 } from "../config/ChatLogics";
 
 import { ChatState } from "../Context/ChatProvider";
@@ -41,11 +42,9 @@ const ScrollableChat = ({ messages }) => {
                 padding: "5px 15px",
                 maxWidth: "75%",
               }}
-              dangerouslySetInnerHTML={{__html:m.content}}
+              dangerouslySetInnerHTML={{ __html: m.content }}
             />
             {/* {m.content.startsWith("<a") ? parse(m.content) : m.content} */}
-            
-            
           </div>
         ))}
     </>

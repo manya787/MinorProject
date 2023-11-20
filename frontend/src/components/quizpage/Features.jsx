@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components'
-import FeaturesItem from './FeaturesItem';
-import { features } from './Data'
+import React from "react";
+import styled from "styled-components";
+import FeaturesItem from "./FeaturesItem";
+import { features } from "./Data";
 
 const Container = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ const Features = () => {
         <FeaturesItem item={item} key={item.id} />
       ))}
     </Container>
-  )
-}
+  );
+};
 
 export default Features;

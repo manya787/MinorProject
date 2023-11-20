@@ -21,10 +21,15 @@ const userSlice = createSlice({
       state.error = true;
     },
     logout: () => {
-      storage.removeItem('persist:root')
+      storage.removeItem("persist:root");
     },
   },
 });
 
-export const { loginStart, loginSuccess, loginFailure, logout } = userSlice.actions;
+export const {
+  loginStart,
+  loginSuccess,
+  loginFailure,
+  logout,
+} = userSlice.actions;
 export default userSlice.reducer;

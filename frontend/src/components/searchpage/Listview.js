@@ -1,55 +1,61 @@
-import React from 'react';
+import React from "react";
 import "../../App.css";
 import "./Listview.css";
-import Navbar from './Snav';
+import Navbar from "./Snav";
 import styled from "styled-components";
 //import FormatPrice from "../Helpers/FormatPrice";
 import login1 from "../../images/logo_fly.png";
-import {Button} from "./Button";
+import { Button } from "./Button";
 import { GlobalStyle } from "./GlobalStyles";
 
-const Listview = ({ /*opportunities*/ }) => {
+const Listview = (
+  {
+    /*opportunities*/
+  }
+) => {
   return (
     <>
-    <GlobalStyle/>
-    <div className="section">
-      <div className="contain grid">
-        {/* {products.map((curElem) => {
+      <GlobalStyle />
+      <div className="section">
+        <div className="contain grid">
+          {/* {products.map((curElem) => {
           const { id, name, image, price, description } = curElem; */}
           {/* return ( */}
-            <div className="card grid grid-two-column">
-              <figure className='fig'>
-                <img className='imgs' src={login1} alt="hi" />
-              </figure>
+          <div className="card grid grid-two-column">
+            <figure className="fig">
+              <img className="imgs" src={login1} alt="hi" />
+            </figure>
 
-              <div className="card-data">
-                <h3><br/>Fly High</h3>
-                <p>
-                  {/* <FormatPrice price={price} /> */}
-                </p>
-                <p>Frontend Developer <br/>Work from Home <br/>Delhi ...
-                </p>
+            <div className="card-data">
+              <h3>
+                <br />
+                Fly High
+              </h3>
+              <p>{/* <FormatPrice price={price} /> */}</p>
+              <p>
+                Frontend Developer <br />
+                Work from Home <br />
+                Delhi ...
+              </p>
 
-                {/* <NavLink to={`/singleproduct/${id}`} className="btn-main"> */}
-                  <Button className="btn">Read More</Button>
-                {/* </NavLink> */}
-              </div>
+              {/* <NavLink to={`/singleproduct/${id}`} className="btn-main"> */}
+              <Button className="btn">Read More</Button>
+              {/* </NavLink> */}
             </div>
+          </div>
           {/* ); */}
-        {/* })} */}
+          {/* })} */}
+        </div>
       </div>
-    </div>
     </>
   );
 };
-
 
 // const Wrapper = styled.section`
 
 //   .contain {
 //     max-width: 150rem;
 //   }
-
 
 //   .grid {
 //     gap: 3.2rem;
@@ -86,7 +92,7 @@ const Listview = ({ /*opportunities*/ }) => {
 //       height: 20rem;
 //       transition: all 0.2s linear;
 //     }
-    
+
 //   }`;
 
 export default Listview;

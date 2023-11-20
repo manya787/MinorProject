@@ -1,14 +1,13 @@
 @media (max-width: 986px) {
- 
   .meet-the-team {
-   font-size: 20px; 
- } 
+    font-size: 20px;
+  }
 
- .for-developers{
-  font-size: 20px;
-  text-align: center;
- }
- }
+  .for-developers {
+    font-size: 20px;
+    text-align: center;
+  }
+}
 .for-developers,
 .meet-the-team {
   position: absolute;
@@ -126,34 +125,33 @@
 }
 
 @media (max-width: 986px) {
- 
-  .sam-1-icon{
+  .sam-1-icon {
     top: 580px;
     left: 88px;
-    height:25%;
-    width:30%;
+    height: 25%;
+    width: 30%;
   }
 
-  .mansi-1-icon{
+  .mansi-1-icon {
     top: 580px;
     left: 429px;
-    height:25%;
+    height: 25%;
     width: 242px;
-    width:30%;
+    width: 30%;
   }
 
-  .manya-1-icon{
+  .manya-1-icon {
     top: 220px;
-    height:25%;
+    height: 25%;
     width: 242px;
-    width:30%;
+    width: 30%;
   }
 
-  .aryan-1-icon{
+  .aryan-1-icon {
     top: 220px;
     left: 88px;
-    height:25%;
-    width:30%;
+    height: 25%;
+    width: 30%;
   }
   .aryan-gandhi {
     position: absolute;
@@ -161,10 +159,9 @@
     left: 99px;
     font-weight: 600;
     font-size: 70%;
-    width:30%;
+    width: 30%;
     text-align: center;
   }
-
 
   .desktop-2-item {
     position: absolute;
@@ -173,74 +170,73 @@
     background-color: var(--color-white);
     width: 242px;
     height: 60px;
-    width:30%;
+    width: 30%;
   }
 
-  .rectangle-div{
+  .rectangle-div {
     position: absolute;
     background-color: var(--color-white);
     width: 242px;
     height: 60px;
     top: 475px;
-    width:30%;
+    width: 30%;
   }
 
-  .manya-garg{
+  .manya-garg {
     position: absolute;
     top: 478px;
     font-weight: 600;
     font-size: 70%;
-    width:30%;
-    left:429px;
+    width: 30%;
+    left: 429px;
     text-align: center;
   }
 
-  .mansi-bakshi{
+  .mansi-bakshi {
     position: absolute;
     top: 835px;
     font-weight: 800;
     font-size: 70%;
     left: 45%;
-    width:30%;
+    width: 30%;
     text-align: center;
   }
 
-  .saumya-bansal{
+  .saumya-bansal {
     position: absolute;
     top: 835px;
     font-weight: 600;
     font-size: 70%;
     left: 88px;
-    width:30%;
+    width: 30%;
     text-align: center;
   }
 
-  .desktop-2-child1{
+  .desktop-2-child1 {
     position: absolute;
     top: 835px;
     left: 88px;
     background-color: var(--color-white);
     width: 242px;
     height: 60px;
-    width:30%;
+    width: 30%;
   }
 
-  .desktop-2-child2{
+  .desktop-2-child2 {
     position: absolute;
     background-color: var(--color-white);
     width: 242px;
     height: 60px;
     top: 835px;
     left: 429px;
-    width:30%;
+    width: 30%;
   }
 
-  .for-developers{
-    left:30%;
+  .for-developers {
+    left: 30%;
   }
 
-  .meet-the-team{
-    left:0%;
+  .meet-the-team {
+    left: 0%;
   }
-
-} 
+}

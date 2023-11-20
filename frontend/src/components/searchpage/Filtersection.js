@@ -1,125 +1,117 @@
+import React from "react";
 import styled from "styled-components";
 // import { FaCheck } from "react-icons/fa";
 // import FormatPrice from "../Helpers/FormatPrice";
-import {Button} from "./Button";
+import { Button } from "./Button";
 import { GlobalStyle } from "./GlobalStyles";
 
 const Filtersection = () => {
   return (
     <>
-    <GlobalStyle/>
-    <Wrapper>
-      <div className="filter-search">
-        <form onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="text"
-            name="text"
-            placeholder="Search"
-            // value={text}
-            // onChange={updateFilterValue}
-          />
-        </form>
-      </div>
-
-      <div className="filter-category">
-        <h3>Roles</h3>
-        <div>
-          {/* {categoryData.map((curElem, index) => {
-            return ( */}
-              <button
-                // key={index}
-                type="button"
-                name="domain"
-                // value={curElem}
-                className={ "active" }
-                >
-                Frontend Dev
-              </button>
-              <button
-                type="button"
-                name="domain">
-                Backend Dev
-              </button>
-              <button
-                type="button"
-                name="domain">
-                Full Stack Dev
-              </button>
-            {/* ); */}
-          {/* })} */}
+      <GlobalStyle />
+      <Wrapper>
+        <div className="filter-search">
+          <form onSubmit={(e) => e.preventDefault()}>
+            <input
+              type="text"
+              name="text"
+              placeholder="Search"
+              // value={text}
+              // onChange={updateFilterValue}
+            />
+          </form>
         </div>
-      </div>
 
-      <div className="filter-company">
-        <h3>Location</h3>
-
-        <form action="#">
-          <select
-            name="location"
-            id="location"
-            className="filter-company--select"
+        <div className="filter-category">
+          <h3>Roles</h3>
+          <div>
+            {/* {categoryData.map((curElem, index) => {
+            return ( */}
+            <button
+              // key={index}
+              type="button"
+              name="domain"
+              // value={curElem}
+              className={"active"}
             >
-            {/* {companyData.map((curElem, index) => {
+              Frontend Dev
+            </button>
+            <button type="button" name="domain">
+              Backend Dev
+            </button>
+            <button type="button" name="domain">
+              Full Stack Dev
+            </button>
+            {/* ); */}
+            {/* })} */}
+          </div>
+        </div>
+
+        <div className="filter-company">
+          <h3>Location</h3>
+
+          <form action="#">
+            <select
+              name="location"
+              id="location"
+              className="filter-company--select"
+            >
+              {/* {companyData.map((curElem, index) => {
               return (
                 <option key={index} value={curElem} name="company">
                   {curElem}
                 </option>
               );
             })} */}
-            <option>Delhi</option>
-            <option>Noida</option>
-            <option>Gurgaon</option>
-            <option>Pune</option>
-            <option>Banglore</option>
-            <option>Hyderabad</option>
-          </select>
-        </form>
-      </div>
+              <option>Delhi</option>
+              <option>Noida</option>
+              <option>Gurgaon</option>
+              <option>Pune</option>
+              <option>Banglore</option>
+              <option>Hyderabad</option>
+            </select>
+          </form>
+        </div>
 
-      
-
-      <div className="filter_price">
-        <h3>Stipend</h3>
-        {/* <p>
+        <div className="filter_price">
+          <h3>Stipend</h3>
+          {/* <p>
           <FormatPrice price={price} />
         </p> */}
-        <input
-          type="range"
-          name="price"
-        //   min={minPrice}
-        //   max={maxPrice}
-        //   value={price}
-        //   onChange={updateFilterValue}
-        />
-      </div>
+          <input
+            type="range"
+            name="price"
+            //   min={minPrice}
+            //   max={maxPrice}
+            //   value={price}
+            //   onChange={updateFilterValue}
+          />
+        </div>
 
-      <div className="filter-clear">
-        <Button className="btn" >
-          Clear Filters
-        </Button>
-      </div>
-    </Wrapper>
+        <div className="filter-clear">
+          <Button className="btn">Clear Filters</Button>
+        </div>
+      </Wrapper>
     </>
   );
 };
 
 const Wrapper = styled.section`
-  
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  width:70%;
-  height:90vh;
-  padding:20px 30px;
+  width: 70%;
+  height: 90vh;
+  padding: 20px 30px;
   box-shadow: 0 0 25px rgb(192, 191, 191);
-  border:none;
+  border: none;
 
-  margin-left:30px;
+  margin-left: 30px;
 
   h3 {
     padding: 2rem 0;
     font-size: bold;
-    font-size:20px;
+    font-size: 20px;
   }
 
   .filter-search {
@@ -139,7 +131,7 @@ const Wrapper = styled.section`
       button {
         border: none;
         background-color: transparent;
-        font-size:15px;
+        font-size: 15px;
         text-transform: capitalize;
         cursor: pointer;
 
