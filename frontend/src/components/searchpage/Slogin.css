@@ -22,7 +22,7 @@
   margin-bottom: 5rem;
 }
 
-.input-box label{
+.input-boxi label{
   position : absolute;
   left:0;
   transform:translateY(-50%);
@@ -31,13 +31,19 @@
   color :#333;
   transition: .5s;
 }
-.input-box i{
+.input-boxi i{
   margin-bottom: 1.5rem;
   margin-left: 21.5rem;
+  color: #B05FF8;
 }
 
-.input-box input:focus ~ label,
-.input-box input:valid ~ label
+.input-boxes .input-boxi{
+  left:0;
+  width:100%;
+}
+
+.input-boxi input:focus ~ label,
+.input-boxi input:valid ~ label
 {
   top : -8px;
   color:#7d2ae8;
@@ -171,7 +177,7 @@
   margin-bottom: 20px;
   
 }
-.forms .form-content .input-box{
+.forms .form-content .input-boxi{
   display: flex;
   align-items: center;
   height: 30px;
@@ -179,20 +185,27 @@
   margin: 30px 0;
   position: relative;
 }
-.form-content .input-box input{
+.form-content .input-boxi input{
   height: 100%;
   width: 100%;
   outline: none;
   border: none;
   margin-top: 20px;
-  padding: 0 30px;
+  /* padding: 0 30px; */
   font-size: 16px;
   font-weight: 500;
   border-bottom: 2px solid rgba(0,0,0,0.2);
   transition: all 0.3s ease;
 }
-.form-content .input-box input:focus,
-.form-content .input-box input:valid{
+
+.input-boxi .form-submit{
+  height: 100%;
+  width: 100%;
+  color: #7d2ae8;
+}
+
+.form-content .input-boxi input:focus,
+.form-content .input-boxi input:valid{
   border-color: #7d2ae8;
 }
 /* .form-content .input-box i{
@@ -252,6 +265,6 @@
   margin-right: 10px;
   margin-bottom: 20px;
 }
-.input-box{
+.input-boxi{
   display: flex;
 }

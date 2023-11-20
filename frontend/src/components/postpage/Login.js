@@ -1,8 +1,9 @@
 import React, {useState, useContext} from 'react';
 import image from "./pimages/collab4.jpg";
 import { NavLink, useNavigate } from 'react-router-dom';
-import "../../App.css";
+// import "../../App.css";
 import Navbar from './Navbar';
+import "./Login.css";
 import {UserContext} from "./post";
 import Footer from '../mainpage/footer';
  
@@ -53,9 +54,8 @@ if(res.status === 400 || !data ){
       <div className="login-form">
         <div className="title">Login</div>
         <div className="input-boxes">
-          
           <div className="input-box">
-           <i className="zmdi zmdi-email material-icons-name "></i>
+            <div className='helo'><i className="zmdi zmdi-email material-icons-name "></i></div>
            <input type="email" name="email" id="email" autoComplete="off"
            value={email}
            onChange={(e) => setEmail(e.target.value)}

@@ -8,7 +8,7 @@ import Login from './Login';
 import Logout from './Logout';
 import Signup from './Signup';
 import Errorpage from './errorpage';
-import "../../App.css";
+// import "../../App.css";
 import {initialState, reducer} from "./UseReducer";
 
 import Messag from './Messag';

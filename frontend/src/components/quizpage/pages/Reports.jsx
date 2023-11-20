@@ -30,10 +30,10 @@ const Tr = styled.tr`
     background-color: #f2f2f2;
   }
   &:hover {
-    background-color: #ddd;
+    background-color: #ddd;  
   }
 `;
-const Header = styled.h1`
+const Header = styled.h2`
   text-align: center;
   padding-bottom: 10px;
   colot: #222831;

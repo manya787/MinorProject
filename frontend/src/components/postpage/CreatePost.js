@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import "../../App.css";
+import "./CreatePost.css";
 import Navbar from './Navbar';
 import Footer from '../mainpage/footer';
 

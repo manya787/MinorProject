@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import image from "./pimages/regimages.png";
 import { NavLink,useNavigate } from 'react-router-dom';
 import "../../App.css";
+import "./Login.css";
 import Navbar from './Navbar';
 import Footer from '../mainpage/footer';
 

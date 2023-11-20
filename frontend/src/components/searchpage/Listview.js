@@ -6,7 +6,7 @@ import styled from "styled-components";
 //import FormatPrice from "../Helpers/FormatPrice";
 import login1 from "../../images/logo_fly.png";
 import {Button} from "./Button";
-import { GlobalStyle } from "../mainpage/GlobalStyles";
+import { GlobalStyle } from "./GlobalStyles";
 
 const Listview = ({ /*opportunities*/ }) => {
   return (

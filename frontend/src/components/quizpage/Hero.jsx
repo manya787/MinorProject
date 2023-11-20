@@ -30,7 +30,7 @@ justify-content: flex-end;
 align-items: center;
 `
 
-const Title = styled.h1`
+const Title = styled.h2`
   font-size: 60px;
   color: #2e2e2e;
   margin-left: 5%;

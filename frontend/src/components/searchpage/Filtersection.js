@@ -2,7 +2,7 @@ import styled from "styled-components";
 // import { FaCheck } from "react-icons/fa";
 // import FormatPrice from "../Helpers/FormatPrice";
 import {Button} from "./Button";
-import { GlobalStyle } from "../mainpage/GlobalStyles";
+import { GlobalStyle } from "./GlobalStyles";
 
 const Filtersection = () => {
   return (

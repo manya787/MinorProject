@@ -42,8 +42,8 @@ const Slogin = () => {
       <div className="back">
         {/* <img className="backImg" src={login} alt=""/> */}
         <div className="text">
-          <span className="text-1">Complete miles of journey <br/> with one step</span>
-          <span className="text-2">Let's get started</span>
+          <span className="text-3">Complete miles of journey <br/> with one step</span>
+          <span className="text-4">Let's get started</span>
         </div>
       </div>
     </div>
@@ -53,13 +53,13 @@ const Slogin = () => {
             <div className="title"><h2>Login</h2></div>
           <form action="#">
             <div className="input-boxes">
-              <div className="input-box">
+              <div className="input-boxi">
                <input type="email" name="email" required/>  
            <label for = ""> Email </label>
            <i className="zmdi zmdi-email material-icons-name "></i> 
           </div>
 
-          <div className="input-box">
+          <div className="input-boxi">
            <input type="password" name="password"  required/>
            <label for = ""> Password </label>
            <i className="zmdi zmdi-lock material-icons-name "></i>
@@ -67,7 +67,7 @@ const Slogin = () => {
           </div>
 
               <div className="text"><a href="#">Forgot password?</a></div>
-              <div className="button input-box">
+              <div className="button input-boxi">
                 <input type="submit" name="signin" id="signin" className="form-submit" value="Log in" onClick = {loginuser} /> 
                 </div>
 
@@ -81,7 +81,7 @@ const Slogin = () => {
           <div className="title">Signup</div>
         <form action="#">
             <div className="input-boxes">
-            <div className="input-box">
+            <div className="input-boxi">
            <i className="zmdi zmdi-account material-icons-name "></i>
            <input type="text" name="name" id="name" autoComplete="off"
            value={user.name}
@@ -89,7 +89,7 @@ const Slogin = () => {
            <label for="">Name</label>
         </div>
 
-        <div className="input-box">
+        <div className="input-boxi">
         <i className="zmdi zmdi-email material-icons-name "></i>
         <input type="email" name="email" id="email" autoComplete="off"
         value={user.email}
@@ -99,7 +99,7 @@ const Slogin = () => {
         <label for="">Email</label>
         </div>
 
-        <div className="input-box">
+        <div className="input-boxi">
         <i className="zmdi zmdi-phone-in-talk material-icons-name "></i> 
         <input type="text" name="phone" id="phone" autoComplete="off"
         value={user.phone}
@@ -109,7 +109,7 @@ const Slogin = () => {
         <label for="">Phone Number</label>
         </div>
 
-        <div className="input-box">
+        <div className="input-boxi">
         <i className="zmdi zmdi-slideshow material-icons-name "></i> 
         <input type="text" name="work" id="work" autoComplete="off"
          value={user.work}
@@ -119,7 +119,7 @@ const Slogin = () => {
         <label for="">Profession</label>
         </div>
 
-        <div className="input-box">
+        <div className="input-boxi">
         <i className="zmdi zmdi-lock material-icons-name "></i>
         <input type="password" name="password" id="password" autoComplete="off"
         value={user.password}
@@ -129,7 +129,7 @@ const Slogin = () => {
         <label for="">Password</label>
         </div>
 
-        <div className="input-box">
+        <div className="input-boxi">
         <i className="zmdi zmdi-lock material-icons-name "></i>
         <input type="text" name="cpassword" id="cpassword" autoComplete="off"
         value={user.cpassword}
@@ -138,7 +138,7 @@ const Slogin = () => {
         <label for="">Confirm Password</label>
         </div>
 
-        <div className="button input-box">
+        <div className="button input-boxi">
           <input type="submit" name="signup" id="signup" className="form-submit" 
           value="Signup" onClick={SearchData}
           />
