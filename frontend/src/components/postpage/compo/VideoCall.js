@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { io } from "socket.io-client";
 import ReactPlayer from "react-player";
 import { ChakraProvider } from "@chakra-ui/react";
-import Navbar from "../Navbar";
 
 const VideoCall = () => {
   let sc;
@@ -132,7 +131,6 @@ const VideoCall = () => {
 
   return (
     <>
-      <Navbar />
       <ChakraProvider>
         <div>
           <button onClick={() => sendStream(stream)}>Send Video</button>
