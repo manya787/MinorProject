@@ -8,6 +8,8 @@ import Login from "./Login";
 import Logout from "./Logout";
 import Signup from "./Signup";
 import Errorpage from "./errorpage";
+import EmailVerification from "./EmailVerification";
+
 // import "../../App.css";
 import { initialState, reducer } from "./UseReducer";
 
@@ -29,6 +31,7 @@ const Routing = () => {
       <Route path="/logout" element={<Logout />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/errorpage" element={<Errorpage />} />
+      <Route path="/verify/:token" element={<EmailVerification />} />
     </Routes>
   );
 };

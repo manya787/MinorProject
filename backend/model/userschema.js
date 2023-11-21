@@ -9,7 +9,6 @@ const userschema = new mongoose.Schema({
     type: String,
     default: uuidv4(),
     unique: true,
-    required: true,
   },
   name: {
     type: String,
@@ -35,6 +34,8 @@ const userschema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  isVerified: { type: Boolean, default: false },
+  verificationToken: String,
   tokens: [
     {
       token: {

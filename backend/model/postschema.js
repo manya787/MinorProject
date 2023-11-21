@@ -9,7 +9,6 @@ const postschema = new mongoose.Schema({
     type: String,
     default: uuidv4(),
     unique: true,
-    required: true,
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -46,27 +45,21 @@ const postschema = new mongoose.Schema({
   },
   Skill1: {
     type: String,
-    required: true,
   },
   Skill2: {
     type: String,
-    required: true,
   },
   Skill3: {
     type: String,
-    required: true,
   },
   Skill4: {
     type: String,
-    required: true,
   },
   Certification1: {
     type: String,
-    required: true,
   },
   Certification2: {
     type: String,
-    required: true,
   },
   Numberofopenings: {
     type: Number,
@@ -74,7 +67,6 @@ const postschema = new mongoose.Schema({
   },
   Stipend: {
     type: Number,
-    required: true,
   },
   Duration: {
     type: String,
@@ -86,11 +78,9 @@ const postschema = new mongoose.Schema({
   },
   Perk1: {
     type: String,
-    required: true,
   },
   Perk2: {
     type: String,
-    required: true,
   },
   Email: {
     type: String,

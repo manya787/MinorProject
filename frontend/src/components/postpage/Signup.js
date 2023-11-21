@@ -50,7 +50,9 @@ const Signup = () => {
       window.alert("Invalid registration ");
       console.log("Invalid registration");
     } else {
-      window.alert("Registration Success");
+      window.alert(
+        "Registration successful! A verification email has been sent to your email address."
+      );
       console.log("Invalid registration");
       navigate("/login");
     }

@@ -5,6 +5,10 @@ const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
 const authenticate = require("../middleware/authenticate");
 const req = require("express");
+const sendEmail = require("../utils/sendEmail");
+const crypto = require("crypto");
+
+// Now you can use sendEmail function here
 
 dotenv.config();
 
@@ -32,6 +36,17 @@ router.post("/register", async (req, res) => {
     } else {
       const user = new User({ name, email, phone, work, password, cpassword });
 
+      // Generate verification token for the user
+      user.verificationToken = crypto.randomBytes(20).toString("hex");
+
+      // Send verification email
+      const verificationLink = `http://localhost:5001/verify/${user.verificationToken}`;
+      sendEmail(
+        user.email,
+        "Welcome to CoLabconnect",
+        `Thanks for signing up for our application! Please verify your email by clicking this link: ${verificationLink}`
+      );
+
       await user.save();
 
       res.status(201).json({ message: "user registered successfully" });
@@ -41,38 +56,109 @@ router.post("/register", async (req, res) => {
   }
 });
 
+//mail
+router.get("/verify/:token", async (req, res) => {
+  try {
+    const user = await User.findOne({ verificationToken: req.params.token });
+
+    if (!user) {
+      return res.status(400).send("Invalid token or token has expired.");
+    }
+
+    user.isVerified = true;
+    user.verificationToken = undefined; // Clear the verification token
+    await user.save();
+
+    res.send("Account successfully verified.");
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 //  login route
 
+// router.post("/signin", async (req, res) => {
+//   try {
+//     let token;
+//     const { email, password } = req.body;
+
+//     if (!email || !password) {
+//       return res.status(400).json({ error: "Pls filled Proper Data" });
+//     }
+//     const userlogin = await User.findOne({ email: email });
+//     console.log(userlogin);
+
+//     // console.log(userlogin);
+//     if (userlogin) {
+//       if (!userlogin.isVerified) {
+//         return res.status(401).json({
+//           error: "Email has not been verified. Please check your email.",
+//         });
+//       }
+//       const isMatch = await bcrypt.compare(password, userlogin.password);
+//       token = await userlogin.generateAuthToken();
+//       console.log(token);
+
+//       res.cookie("jwtoken", token, {
+//         expires: new Date(Date.now() + 25892000000),
+//         httpOnly: true,
+//       });
+//       if (!isMatch) {
+//         res.status(400).json({ error: "Invalid credentials pass" });
+//       } else {
+//         res.json({ message: "user Signin Successfully" });
+//       }
+//     } else {
+//       res.status(400).json({ error: "Invalid credentials" });
+//     }
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
 router.post("/signin", async (req, res) => {
   try {
-    let token;
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ error: "Pls filled Proper Data" });
+      return res
+        .status(400)
+        .json({ error: "Please fill in all required fields" });
     }
+
     const userlogin = await User.findOne({ email: email });
-    console.log(userlogin);
-    // console.log(userlogin);
+    console.log("User login data if user find :", userlogin);
+
+    if (!userlogin) {
+      return res.status(400).json({ error: "Invalid credentials" });
+    }
+
+    console.log("User login data before check:", userlogin);
+    if (!userlogin.isVerified) {
+      return res
+        .status(401)
+        .json({ error: "Email is not verified. Please verify your email." });
+    }
+    console.log("User login data after verified check:", userlogin);
+
     if (userlogin) {
       const isMatch = await bcrypt.compare(password, userlogin.password);
-      token = await userlogin.generateAuthToken();
-      console.log(token);
 
-      res.cookie("jwtoken", token, {
-        expires: new Date(Date.now() + 25892000000),
-        httpOnly: true,
-      });
       if (!isMatch) {
-        res.status(400).json({ error: "Invalid credentials pass" });
+        res.status(400).json({ error: "Invalid credentials" });
       } else {
-        res.json({ message: "user Signin Successfully" });
+        const token = await userlogin.generateAuthToken();
+        res.cookie("jwtoken", token, {
+          expires: new Date(Date.now() + 25892000000),
+          httpOnly: true,
+        });
+        res.json({ message: "Login successful" });
       }
     } else {
       res.status(400).json({ error: "Invalid credentials" });
     }
   } catch (err) {
     console.log(err);
+    res.status(500).send("Internal server error");
   }
 });
 
