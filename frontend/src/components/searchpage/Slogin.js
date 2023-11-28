@@ -5,6 +5,7 @@ import login from "../../images/collab4.jpg";
 import login1 from "../../images/regimages.png";
 import Navbar from "./Snav";
 import { Container } from "semantic-ui-react";
+import Footer from "../mainpage/footer";
 
 const Slogin = () => {
   const [email, setEmail] = useState("");
@@ -209,6 +210,7 @@ const Slogin = () => {
           </div>
         </div>
       </body>
+      <Footer/>
     </>
   );
 };

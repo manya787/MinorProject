@@ -16,7 +16,7 @@ function Messag() {
       <div className="Mess">
         <SocketProvider>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/messa" element={<HomePage />} />
             <Route path="/chats" element={<Chatpage />} />
             <Route path="/call/:id" element={<VideoCall />} />
           </Routes>

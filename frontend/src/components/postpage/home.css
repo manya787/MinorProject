@@ -55,7 +55,7 @@ body {
   width: 10px; /* Adjust the cursor width as needed */
   height: 24px; /* Adjust the cursor height as needed */
   background-color: transparent; /* Set the cursor color */
-  animation: cursorBlink 1s infinite;
+  animation: cursorBlink 0.2s infinite;
 }
 
 @keyframes cursorBlink {

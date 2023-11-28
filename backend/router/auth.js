@@ -170,6 +170,7 @@ router.post("/createpost", authenticate, async (req, res) => {
     Name,
     Profession,
     Workplace,
+    Mode,
     Aboutcompany,
     Requirepost,
     Aboutpost,
@@ -194,6 +195,7 @@ router.post("/createpost", authenticate, async (req, res) => {
     !Name ||
     !Profession ||
     !Workplace ||
+    !Mode ||
     !Aboutcompany ||
     !Requirepost ||
     !Aboutpost ||
@@ -227,6 +229,7 @@ router.post("/createpost", authenticate, async (req, res) => {
         Name,
         Profession,
         Workplace,
+        Mode,
         Aboutcompany,
         Requirepost,
         Aboutpost,

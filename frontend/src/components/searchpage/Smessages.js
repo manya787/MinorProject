@@ -6,6 +6,7 @@ import styled from "styled-components";
 import FilterSection from "./Filtersection";
 import Listview from "./Listview";
 import Sort from "./Sort";
+import Footer from "../mainpage/footer";
 
 const Smessages = () => {
   return (
@@ -28,6 +29,7 @@ const Smessages = () => {
           </section>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

@@ -72,11 +72,11 @@ const Login = () => {
   return (
     <VStack>
       <FormControl id="email" isRequired>
-        <FormLabel>Email Address</FormLabel>
+        <FormLabel>User Id</FormLabel>
         <Input
           value={email}
           type="email"
-          placeholder="Enter Your Email Address"
+          placeholder="Enter Your User Id"
           onChange={(e) => setEmail(e.target.value)}
         />
       </FormControl>
@@ -97,15 +97,15 @@ const Login = () => {
         </InputGroup>
       </FormControl>
       <Button
-        colorScheme="blue"
+        bg="#bd7af9"
         width="100%"
         style={{ marginTop: 15 }}
         onClick={submitHandler}
         isLoading={loading}
       >
-        Login
+        Open Messages
       </Button>
-      <Button
+      {/* <Button
         variant="solid"
         colorScheme="red"
         width="100%"
@@ -115,7 +115,7 @@ const Login = () => {
         }}
       >
         Get Guest User Credentials
-      </Button>
+      </Button> */}
     </VStack>
   );
 };

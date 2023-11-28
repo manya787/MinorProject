@@ -4,8 +4,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #b05ff8;
   padding: 30px;
+  background: linear-gradient(-45deg, #e98769, #e46495, #b05ff8, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+   }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
 }
 .container {
   position: relative;

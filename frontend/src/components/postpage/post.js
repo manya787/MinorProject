@@ -47,8 +47,8 @@ const Post = () => {
       </UserContext.Provider>
 
       {/* <ChatProvider>
-    <Messag />
-  </ChatProvider> */}
+        <Messag />
+      </ChatProvider> */}
     </>
   );
 };

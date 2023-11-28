@@ -3,7 +3,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #b05ff8;
+  background: rgb(172, 85, 247);
+  background: linear-gradient(
+    90deg,
+    rgb(207, 162, 246) 0%,
+    rgb(220, 208, 246) 100%,
+    rgba(245, 242, 252, 1) 100%);
   padding: 85px;
 }
 

@@ -53,7 +53,7 @@ function SideDrawer() {
 
   const logoutHandler = () => {
     localStorage.removeItem("userInfo");
-    history("/");
+    history("/home");
   };
 
   const handleSearch = async () => {
@@ -139,9 +139,9 @@ function SideDrawer() {
           justifyContent: "space-between",
           alignItems: "center",
         }}
-        bg="white"
+        bg="#F8F8FF"
         w="100%"
-        p="5px 10px 5px 10px"
+        p="8px 10px 5px 10px"
         borderWidth="5px"
       >
         <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
@@ -152,9 +152,7 @@ function SideDrawer() {
             </Text>
           </Button>
         </Tooltip>
-        <Text fontSize="2xl" fontFamily="Work sans">
-          Talk-A-Tive
-        </Text>
+        
         <div>
           <Menu>
             <MenuButton p={1}>

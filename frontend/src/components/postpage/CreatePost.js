@@ -11,6 +11,7 @@ const Createpost = () => {
     Name: "",
     Profession: "",
     Workplace: "",
+    Mode: "",
     Aboutcompany: "",
     Requirepost: "",
     Aboutpost: "",
@@ -46,6 +47,7 @@ const Createpost = () => {
       Name,
       Profession,
       Workplace,
+      Mode,
       Aboutcompany,
       Requirepost,
       Aboutpost,
@@ -75,6 +77,7 @@ const Createpost = () => {
         Name,
         Profession,
         Workplace,
+        Mode,
         Aboutcompany,
         Requirepost,
         Aboutpost,
@@ -182,6 +185,21 @@ const Createpost = () => {
                     value={post.Workplace}
                     onChange={handleInputs}
                     placeholder="Enter Your Workplace"
+                  />
+                </div>
+
+                <div className="input-field">
+                  <label>
+                    <i className=" zmdi zmdi-laptop-chromebook "></i> Mode
+                  </label>
+                  <input
+                    type="text"
+                    name="Mode"
+                    id="Mode"
+                    autoComplete="off"
+                    value={post.Mode}
+                    onChange={handleInputs}
+                    placeholder="Enter Mode (offline/Online)"
                   />
                 </div>
 

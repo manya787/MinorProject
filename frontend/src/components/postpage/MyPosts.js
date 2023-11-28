@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
-import "../../App.css";
+import "./mypost.css";
+import logo from "../../images/logo_fly.png";
+import Footer from "../mainpage/footer";
+import {Button} from ".././searchpage/Button";
 
 const Mypost = () => {
   const [posts, setPosts] = useState([]);
@@ -35,69 +38,108 @@ const Mypost = () => {
   return (
     <>
       <Navbar />
-      <div className="mypost-container">
-        <h1>My Posts</h1>
+      <div>
         {posts.length === 0 ? (
           <p>No posts to display</p>
         ) : (
           posts.map((post) => (
-            <div key={post.post_id} className="post-card">
-              <h2 className="post-title">{post.Topic}</h2>
-              <div className="post-details">
-                <p>
-                  <strong>Name:</strong> {post.Name}
-                </p>
-                <p>
-                  <strong>Profession:</strong> {post.Profession}
-                </p>
-                <p>
-                  <strong>Workplace:</strong> {post.Workplace}
-                </p>
-                <p>
-                  <strong>About Company:</strong> {post.Aboutcompany}
-                </p>
-                <p>
-                  <strong>Required Post:</strong> {post.Requirepost}
-                </p>
-                <p>
-                  <strong>About Post:</strong> {post.Aboutpost}
-                </p>
-                <p>
-                  <strong>Skills Required:</strong>{" "}
-                  {`${post.Skill1}, ${post.Skill2}, ${post.Skill3}, ${post.Skill4}`}
-                </p>
-                <p>
-                  <strong>Certifications:</strong>{" "}
-                  {`${post.Certification1}, ${post.Certification2}`}
-                </p>
-                <p>
-                  <strong>Openings:</strong> {post.Numberofopenings}
-                </p>
-                <p>
-                  <strong>Stipend:</strong> {post.Stipend}
-                </p>
-                <p>
-                  <strong>Duration:</strong> {post.Duration}
-                </p>
-                <p>
-                  <strong>Start Date:</strong> {post.StartDate}
-                </p>
-                <p>
-                  <strong>Perks:</strong> {`${post.Perk1}, ${post.Perk2}`}
-                </p>
-                <p>
-                  <strong>Email:</strong> {post.Email}
-                </p>
-                <p>
-                  <strong>LinkedIn:</strong> {post.Linkedin}
-                </p>
+            <div key={post.post_id}>
+
+              <div className='topic'>
+                  <div className='text_t'>{post.Topic}</div>
               </div>
-            </div>
-          ))
-        )}
+
+              <div className='container_t'>
+              <div className='main'>
+              <div className='post_m'>
+              <div className='logo'>
+                <img src={logo} alt="image"/>
+              </div>
+
+              <div className='post'>
+                <h3 className='post_r'></h3>
+              <span className='role'>{post.Name}</span>
+              <div className='icon'></div>
+              <h4 className='comp'>{post.Profession}</h4>
+              <i className="zmdi zmdi-pin-drop material-icons-name "></i>
+              <span className='loc'>{post.Workplace}</span>
+              </div> 
+              </div>
+
+      <div className='details'>
+      <div className='other_d'>
+        <div className='startD_c'>
+          <div className='startD'>
+          <i className="zmdi zmdi-time material-icons-name "></i>
+            <span className='startHead'>Start Date</span>
+          </div>
+          <div className='start_d'>
+          <div className='start_date'>{post.StartDate}</div>
+          </div>
+        </div>
+        <div className='startD_c'>
+          <div className='startD'>
+          <i className="zmdi zmdi-calendar-alt material-icons-name "></i>
+            <span className='startHead'>Duration</span>
+          </div>
+          <div className='start_d'>
+          <div className='start_date'>{post.Duration}</div>
+          </div>
+        </div>
+      </div> 
+      <div className='other_d'>
+        <div className='startD_c'>
+          <div className='startD'>
+          <i className="zmdi zmdi-money-box material-icons-name "></i>
+            <span className='startHead'>Stipend</span>
+          </div>
+          <div className='start_d'>
+          <div className='start_date'>{post.Stipend}</div>
+          </div>
+        </div>
       </div>
+    </div>
+    </div>
+
+    <div className='main_content'>
+      <div className='about'>About Company</div>
+      <div className='compC'>{post.Aboutcompany}</div>
+      <div className='about'>About Post</div>
+      <div className='compC'>{post.Aboutpost}</div>
+
+          <div className='about'>Required Skill(s)</div>
+           <div className='skillC'>
+            <div className='skilltab'>{post.Skill1}</div>
+            <div className='skilltab'>{post.Skill2}</div>
+            <div className='skilltab'>{post.Skill3}</div>
+            <div className='skilltab'>{post.Skill4}</div>
+           </div>
+
+           <div className='about'>Perks</div>
+           <div className='skillC'>
+            <div className='skilltab'>{post.Perk1}</div>
+            <div className='skilltab'>{post.Perk2}</div>
+            <div className='skilltab'>{post.Perk3}</div>
+           </div>
+
+           <div className='about'>Number of Openings</div>
+           <div className='compC'>{post.Numberofopenings}</div>
+           <div className='about'>Certification(s) Required</div>
+           <div className='skillC'>
+            <div className='skilltab'>{post.Certification1}</div>
+            <div className='skilltab'>{post.Certification2}</div>
+           </div>
+           </div>
+           <button type="button" id="btn" className="btn-1">Applicants</button>
+           <button type="button" id="btn" className="btn-2">Delete Post</button>
+           </div>
+           </div>
+           
+           ))
+        )}
+        </div>
     </>
-  );
-};
+    
+  )};
 
 export default Mypost;

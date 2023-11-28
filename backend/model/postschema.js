@@ -31,6 +31,10 @@ const postschema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  Mode: {
+    type: String,
+    required: true,
+  },
   Aboutcompany: {
     type: String,
     required: true,

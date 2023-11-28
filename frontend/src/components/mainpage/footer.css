@@ -16,8 +16,13 @@
 
 .Footer-section h4 {
   font-size: 18px;
+  color: white;
 }
 
+.Footer-section p {
+  font-size: 18px;
+  color: white;
+}
 /* Style the subscribe form */
 .subscribe-section {
   flex-basis: 25%;
