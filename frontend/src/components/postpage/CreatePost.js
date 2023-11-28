@@ -33,7 +33,7 @@ const Createpost = () => {
 
   let name, value;
   const handleInputs = (e) => {
-    console.log(e);
+    //console.log(e);
     name = e.target.name;
     value = e.target.value;
     setUser({ ...post, [name]: value });
@@ -101,10 +101,10 @@ const Createpost = () => {
     const data = await res.json();
     if (res.status === 422 || !data) {
       window.alert("Invalid Post Creation ");
-      console.log("Invalid Post Creation");
+      //console.log("Invalid Post Creation");
     } else {
       window.alert("Post Created Successfully");
-      console.log("Post created successfully");
+      //console.log("Post created successfully");
       navigate("/home");
     }
   };

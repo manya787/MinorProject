@@ -46,7 +46,6 @@ app.listen(PORT, () => {
   console.log(`server is running at ${PORT}`);
 });
 
-
 // const dotenv = require("dotenv");
 // const express = require('express');
 // const app = express();
@@ -58,11 +57,10 @@ app.listen(PORT, () => {
 // const examRoute = require('./routes/Exam');
 // const userRoute = require('./routes/userRoute');
 // const chatRoute = require('./routes/chatRoute');
-// const messageRoute = require('./routes/messageRoute'); 
+// const messageRoute = require('./routes/messageRoute');
 // const { Server } = require('socket.io');
 // const { errorHandler, notFound } = require('./middleware/error.js');
 // const connectToDatabase = require("./db/conn");
-
 
 // dotenv.config();
 // dotenv.config({ path: "/.env" });

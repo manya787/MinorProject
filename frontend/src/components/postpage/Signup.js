@@ -19,7 +19,7 @@ const Signup = () => {
 
   let name, value;
   const handleInputs = (e) => {
-    console.log(e);
+    //console.log(e);
     name = e.target.name;
     value = e.target.value;
     setUser({ ...user, [name]: value });
@@ -48,12 +48,12 @@ const Signup = () => {
     const data = await res.json();
     if (res.status === 422 || !data) {
       window.alert("Invalid registration ");
-      console.log("Invalid registration");
+      //console.log("Invalid registration");
     } else {
       window.alert(
         "Registration successful! A verification email has been sent to your email address."
       );
-      console.log("Invalid registration");
+      //console.log("Invalid registration");
       navigate("/login");
     }
   };

@@ -104,7 +104,7 @@ const postschema = new mongoose.Schema({
   ],
 });
 
-console.log("hi from inside");
+//console.log("hi from inside");
 
 const Post = mongoose.model("POST", postschema);
 

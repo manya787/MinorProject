@@ -52,7 +52,7 @@ router.post("/register", async (req, res) => {
       res.status(201).json({ message: "user registered successfully" });
     }
   } catch (err) {
-    console.log(err);
+    //console.log(err);
   }
 });
 
@@ -126,19 +126,16 @@ router.post("/signin", async (req, res) => {
     }
 
     const userlogin = await User.findOne({ email: email });
-    console.log("User login data if user find :", userlogin);
 
     if (!userlogin) {
       return res.status(400).json({ error: "Invalid credentials" });
     }
 
-    console.log("User login data before check:", userlogin);
     if (!userlogin.isVerified) {
       return res
         .status(401)
         .json({ error: "Email is not verified. Please verify your email." });
     }
-    console.log("User login data after verified check:", userlogin);
 
     if (userlogin) {
       const isMatch = await bcrypt.compare(password, userlogin.password);
@@ -258,6 +255,28 @@ router.post("/createpost", authenticate, async (req, res) => {
   }
 });
 
+//delete post
+router.delete("/deletepost/:id", authenticate, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+
+    if (!post) {
+      return res.status(404).json({ error: "Post not found" });
+    }
+
+    // if (post.user?.toString() !== req.userID) {
+    //   return res.status(401).json({ error: "Not authorized" });
+    // }
+
+    await Post.findByIdAndDelete(req.params.id);
+
+    res.json({ message: "Post deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 //  login route
 
 router.post("/post", async (req, res) => {
@@ -275,7 +294,7 @@ router.post("/post", async (req, res) => {
       const isMatch = await bcrypt.compare(Email, userpost.Email);
 
       token = await userpost.generateAuthToken();
-      console.log(token);
+      //console.log(token);
 
       res.cookie("jwtoken", token, {
         expires: new Date(Date.now() + 25892000000),
@@ -297,7 +316,7 @@ router.post("/post", async (req, res) => {
 router.get("/myposts", authenticate, async (req, res) => {
   try {
     const posts = await Post.find({ user: req.userID });
-    console.log(posts);
+    //console.log(posts);
     res.json(posts);
   } catch (error) {
     res.status(500).send("Error fetching posts");
